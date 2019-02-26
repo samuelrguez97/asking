@@ -4,20 +4,23 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+	<!-- CSS propio -->
+	<link rel="stylesheet" href="css/miCSS.css">
+	
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{{ url('/assets/bootstrap/css/bootstrap.min.css') }}" integrity="" crossorigin="anonymous">
 
     <title>Asking</title>
   </head>
   <body>
-	<div class="container-fluid p-3 mb-2 bg-dark text-white d-flex h-100 align-items-center" >
+	<div class="container-fluid p-3 mb-2 colorBackground text-white d-flex h-100 align-items-center" >
 		<div class="mx-auto text-center">
 			<img src="http://www.stickpng.com/assets/thumbs/5a461301d099a2ad03f9c990.png">
-			<h1 class="display-1">Asking</h1>
+			<h1 class="display-1 letraTitulo">Asking</h1>
 			<h2 class="text-white-50 mx-auto mt-2 mb-5">Tu web de preguntas anónimas</h2>
 			<hr class="my-4">
 			<!-- Boton del modal -->
-			<a class="btn btn-light btn-lg" href="#" role="button" data-toggle="modal" data-target="#empezar">
+			<a class="botonInicio" id="botonInicio" data-toggle="modal" data-target="#empezar">
 				Empezar
 			</a>
 		</div>
@@ -45,6 +48,7 @@
 			</div>
 
     <!-- Optional JavaScript -->
+	<script src="js/miJS.js"></script>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>

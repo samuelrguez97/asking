@@ -1,0 +1,22 @@
+body {
+	overflow-y: hidden;
+}
+
+.colorBackground {
+	background-color: #141414;
+}
+
+.letraTitulo {
+	font-family: 'Netflix Sans','Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.botonInicio {
+	border: 1px solid grey;
+	background-color: #141414;
+	color: white;
+	text-transform: uppercase;
+	padding: .5em 3em;
+	letter-spacing: 2px;
+	cursor: pointer;
+	text-decoration: none;
+}
