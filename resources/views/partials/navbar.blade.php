@@ -1,30 +1,39 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container">
-        <!-- Image and text -->
-		<a class="navbar-brand" href="#">
-			Asking
-		</a>
-
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        @if( true || Auth::check() )
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav navbar-right">
-					<li class="nav-item">
-						<a class="nav-link" href="#">Perfil</a>
-					</li>
-                    <li class="nav-item">
-                        <form action="{{ url('/logout') }}" method="POST" style="display:inline">
-                            {{ csrf_field() }}
-                            <button type="submit" class="btn btn-link nav-link" style="display:inline;cursor:pointer">
-                                Cerrar sesión
-                            </button>
-                        </form>
-                    </li>
-                </ul>
-            </div>
+<div class="content">
+<nav class="navbar navbar-expand-md navbar-dark colorBackground">
+    <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+        <ul class="navbar-nav mr-auto">
+        @if( Auth::check() )
+            <li class="nav-item active">
+                <a class="nav-link" href="{{ action('UsuariosControlador@getPerfil') }}">Perfil</a>
+            </li>
+            <li class="nav-item">
+                 <form action="{{ url('/logout') }}" method="POST" style="display:inline">
+                    {{ csrf_field() }}
+                    <button type="submit" class="btn btn-link nav-link" style="display:inline;cursor:pointer">Cerrar sesión</button>
+                </form>
+            </li>
+        @else
+            <li class="nav-item">
+                <form action="{{ url('/logout') }}" method="POST" style="display:inline">
+                    {{ csrf_field() }}
+                    <button type="submit" class="btn btn-link nav-link" style="display:inline;cursor:pointer">Volver al inicio</button>
+                </form>
+            </li>
         @endif
+        </ul>
+    </div>
+    <div class="mx-auto order-0 logo_redim">
+        <img src="https://i.ibb.co/GQjFrd9/logo.png" alt="logo">
+    </div>
+    <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Buscar usuarios" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+                </form>
+            </li>
+        </ul>
     </div>
 </nav>
+</div>

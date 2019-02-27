@@ -1,9 +1,13 @@
+html {
+	height: 100%;
+}
+
 body {
 	overflow-y: hidden;
 }
 
 .colorBackground {
-	background-color: #141414;
+	background-color: #262527;
 }
 
 .letraTitulo {
@@ -12,11 +16,19 @@ body {
 
 .botonInicio {
 	border: 1px solid grey;
-	background-color: #141414;
+	background-color:#262527;
 	color: white;
 	text-transform: uppercase;
 	padding: .5em 3em;
 	letter-spacing: 2px;
 	cursor: pointer;
 	text-decoration: none;
+}
+
+.logo_redim {
+	width: 300px;
+}
+
+.logo_redim img {
+	max-width: 99%;
 }
