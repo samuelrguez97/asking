@@ -13,12 +13,13 @@
     <title>Asking</title>
   </head>
   <body>
-    @include('partials.navbar')
+  @include('partials.navbar')
 	
-	<div class="container-fluid p-3 mb-2 h-100 colorBackground d-flex">
+	<div class="container-fluid h-100 colorBackground d-flex">
 		@yield('content')
 	</div>
 
+  @include('partials.footer')
     <!-- Optional JavaScript -->
 		<script src="js/miJS.js"></script>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

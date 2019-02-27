@@ -1,12 +1,12 @@
 @extends('layouts.master')
 
 @section('content')
-<div class="mx-auto">
+<div class="mx-auto mt-5">
     <div class="card">
         @if ( Auth::user()->img )
             <img src="{{ Auth::user()->img }}" />
         @else
-            <div class="p-3 mb-2 bg-warning text-dark">No tiene foto de perfil</div>
+            <div class="p-3 bg-warning text-dark">No tiene foto de perfil</div>
         @endif
         <table class="table">
             <tr>

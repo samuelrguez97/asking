@@ -2,12 +2,18 @@ html {
 	height: 100%;
 }
 
-body {
-	overflow-y: hidden;
-}
+
 
 .colorBackground {
 	background-color: #262527;
+}
+
+.colorBackground-darker {
+	background-color: #141414;
+}
+
+.colorBackground-lighter {
+	background-color: #636060;
 }
 
 .letraTitulo {

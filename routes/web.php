@@ -11,13 +11,11 @@
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/', 'PreguntasControlador@index');
 
 Auth::routes();
 
-Route::get('/home', 'PreguntasControlador@index');
+Route::get('/home', 'PreguntasControlador@principal');
 
 Route::get('/perfil', 'UsuariosControlador@getPerfil')->middleware('auth');
 
