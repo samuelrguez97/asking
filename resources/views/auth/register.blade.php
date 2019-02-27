@@ -69,6 +69,13 @@
                                 </button>
                             </div>
                         </div>
+
+                        <hr>
+
+                        <div class="mx-auto text-center">
+                            <label class="col-md-4">¿Ya registrado? Entra <a href="{{ url('/login') }}">aquí</a>.</label>
+                        </div>
+
                     </form>
                 </div>
             </div>
