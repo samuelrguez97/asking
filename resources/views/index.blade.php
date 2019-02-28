@@ -20,17 +20,10 @@
         <div class="mx-auto text-center">
             <img src="{{ url('imagenes/logo.png') }}" alt="logo">
             <h2 class="text-white-50 mx-auto mt-2 mb-5">Tu web de preguntas anónimas</h2>
-            <hr class="my-4">
             <!-- Boton del modal -->
-            @if ( Auth::check() )
-            <a class="boton draw-border mt-2" id="botonInicio" href=" {{ action('PreguntasControlador@principal') }} ">
-                Empezar
-            </a>
-            @else
             <a class="boton draw-border mt-2" id="botonInicio" data-toggle="modal" data-target="#empezar">
                 Empezar
             </a>
-            @endif
         </div>
     </div>
     <!-- Footer -->
