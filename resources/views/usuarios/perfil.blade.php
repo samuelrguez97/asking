@@ -34,16 +34,14 @@
 
         <div class="col">
 
-            <h1 class="display-4 text-warning">Tus preguntas</h1>
+            <h1 class="display-4 letraTitulo">Tus preguntas</h1>
 
             <div class="row mt-5">
                 <div class="col-sm-6">
                     <div class="card text-white bg-secondary">
                         <div class="card-body">
-                            <h5 class="card-text ml-3">Pregunta</h5>
-                            <form action="" method="post">
-                                <button href="#" class="btn btn-link nav-link text-warning" role="button" aria-disabled="true">Responder</button>
-                            </form>
+                            <h6 class="card-text ml-3">Pregunta</h6>
+                                <button href="" class="float-right btn btn-sm btn-outline-light ml-2"> <i class="fa fa-reply"></i> Responder</button>
                             <div class="megusta ml-3">
                                 <img src="{{ url('imagenes/preguntas/mg_t.png') }}" /><label class="ml-2">32</label>
                             </div>
@@ -51,10 +49,8 @@
                         <div class="card-footer">
                             <label class="float-left">hace 20 minutos</label>
                             <div class="text-right float-right">
-                                <button type="button" class="close text-danger" aria-label="Close" data-toggle="tooltip"
-                                    data-placement="right" title="Eliminar pregunta">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
+                                <a href=""><i class="fa fa-times text-danger" aria-label="Close" data-toggle="tooltip"
+                                    data-placement="right" title="Eliminar pregunta"></i></a>
                             </div>
                         </div>
                     </div>
@@ -63,10 +59,8 @@
                     <div class="card text-white bg-secondary">
                         <div class="card-body">
                             <span class="badge badge-success ml-3 mb-2">Nueva</span>
-                            <h5 class="card-text ml-3">Eres tonto ? xd</h5>
-                            <form action="" method="post">
-                                <button href="#" class="btn btn-link nav-link text-warning" role="button" aria-disabled="true">Responder</button>
-                            </form>
+                            <h6 class="card-text ml-3">Eres tonto ? xd</h6>
+                                <button action="" class="float-right btn btn-sm btn-outline-light ml-2"> <i class="fa fa-reply"></i> Responder</button>
                             <div class="megusta ml-3">
                                 <img src="{{ url('imagenes/preguntas/mg_t.png') }}" /><label class="ml-2">14</label>
                             </div>
@@ -74,10 +68,8 @@
                         <div class="card-footer">
                             <label class="float-left">hace 1 hora</label>
                             <div class="text-right float-right">
-                                <button type="button" class="close text-danger" aria-label="Close" data-toggle="tooltip"
-                                    data-placement="right" title="Eliminar pregunta">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
+                                <a href=""><i class="fa fa-times text-danger" aria-label="Close" data-toggle="tooltip"
+                                    data-placement="right" title="Eliminar pregunta"></i></a>
                             </div>
                         </div>
                     </div>

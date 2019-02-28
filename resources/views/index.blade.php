@@ -7,6 +7,7 @@
 
     <!-- CSS propio -->
     <link rel="stylesheet" href="css/miCSS.css">
+    <link rel="stylesheet" href="css/botonInicioCSS.css">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{{ url('/assets/bootstrap/css/bootstrap.min.css') }}" integrity="" crossorigin="anonymous">
@@ -22,11 +23,11 @@
             <hr class="my-4">
             <!-- Boton del modal -->
             @if ( Auth::check() )
-            <a class="botonInicio" id="botonInicio" href=" {{ action('PreguntasControlador@principal') }} ">
+            <a class="boton draw-border mt-2" id="botonInicio" href=" {{ action('PreguntasControlador@principal') }} ">
                 Empezar
             </a>
             @else
-            <a class="botonInicio" id="botonInicio" data-toggle="modal" data-target="#empezar">
+            <a class="boton draw-border mt-2" id="botonInicio" data-toggle="modal" data-target="#empezar">
                 Empezar
             </a>
             @endif
@@ -58,7 +59,7 @@
                     <p>¡O puedes dirigirte a realizar preguntas ahora mismo!</p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                    <a type="button" class="btn btn-secondary text-white" data-dismiss="modal">Cerrar</a>
                     <a type="button" class="btn btn-primary" href="/asking/public/home">Empezar a preguntar</a>
                 </div>
             </div>
