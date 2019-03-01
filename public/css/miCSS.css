@@ -16,7 +16,7 @@ html {
 
 .letraTitulo {
     color: #ab9e32;
-    font-family: 'Netflix Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'Lato', sans-serif;
 }
 
 .logo_redim {
@@ -25,4 +25,14 @@ html {
 
 .logo_redim img {
     max-width: 99%;
+}
+
+.texto-pregunta {
+    color: #dadada;
+    font-family: 'Lato', sans-serif;
+}
+
+.imagen-user {
+    width: 325px;
+    height: 250px;
 }

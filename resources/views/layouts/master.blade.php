@@ -10,12 +10,14 @@
 
     <!-- CSS propio -->
     <link rel="stylesheet" href="css/miCSS.css">
+    <link rel="stylesheet" href="css/botonInicioCSS.css">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{{ url('/assets/bootstrap/css/bootstrap.min.css') }}" integrity="" crossorigin="anonymous">
 
     <!-- Otros CSS-->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
     <link rel="stylesheet" href="css/buscarCSS.css">
     
     <title>Asking</title>
