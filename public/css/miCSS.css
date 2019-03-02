@@ -3,15 +3,15 @@ html {
 }
 
 .colorBackground {
-    background-color: #262527;
+    background-color: #262527 !important;
 }
 
 .colorBackground-darker {
-    background-color: #141414;
+    background-color: #141414 !important;
 }
 
 .colorBackground-lighter {
-    background-color: #636060;
+    background-color: #636060 !important;
 }
 
 .letraTitulo {
