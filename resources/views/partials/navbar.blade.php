@@ -5,17 +5,6 @@
                 <li class="nav-item {{ Request::is('home') ? 'active' : '' }}">
                     <a class="nav-link" href="{{ action('PreguntasControlador@principal') }}">Inicio</a>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">
-                        Preguntas
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Preguntas más recientes</a>
-                        <a class="dropdown-item" href="#">Preguntas con más likes</a>
-                        <a class="dropdown-item" href="#">Preguntas sobre un tema</a>
-                    </div>
-                </li>
                 @if( Auth::check() )
                 <li class="nav-item {{ Request::is('perfil') ? 'active' : '' }}">
                     <a class="nav-link" href="{{ action('UsuariosControlador@getPerfil') }}">Perfil</a>
@@ -28,6 +17,9 @@
                     </form>
                 </li>
                 @else
+                <li class="nav-item {{ Request::is('login') ? 'active' : '' }}">
+                    <a class="nav-link" href="{{ url('/login') }}">Entrar</a>
+                </li>
                 <li class="nav-item {{ Request::is('register') ? 'active' : '' }}">
                     <a class="nav-link" href="{{ url('/register') }}">Registrarse</a>
                 </li>

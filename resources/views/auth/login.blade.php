@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-<div class="container mt-5 text-white">
+<div class="posicion-relativa container mt-5 text-white">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <form method="POST" action="{{ route('login') }}">
@@ -40,9 +40,9 @@
                             <input class="form-check-input" type="checkbox" name="remember" id="remember"
                                 {{ old('remember') ? 'checked' : '' }}>
 
-                            <label class="form-check-label" for="remember">
+                            <nav class="form-check-label" for="remember">
                                 Recuérdame
-                            </label>
+                            </nav>
                         </div>
                     </div>
                 </div>
@@ -64,7 +64,7 @@
                 <hr>
 
                 <div class="mx-auto text-center">
-                    <label class="col-md-6">¿No tienes una cuenta? Registrate <a href="{{ url('/register') }}">aquí</a>.</label>
+                    <label class="mx-auto col-md-6">¿No tienes una cuenta? Registrate <a href="{{ url('/register') }}">aquí</a>.</label>
                 </div>
 
             </form>

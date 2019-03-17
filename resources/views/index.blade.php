@@ -5,12 +5,15 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url('imagenes/favicon/favicon.png') }}">
+
     <!-- CSS propio -->
-    <link rel="stylesheet" href="css/miCSS.css">
-    <link rel="stylesheet" href="css/botonInicioCSS.css">
+    <link rel="stylesheet" href="{{ url('css/miCSS.css') }}">
+    <link rel="stylesheet" href="{{ url('css/botonInicioCSS.css') }}">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="{{ url('/assets/bootstrap/css/bootstrap.min.css') }}" integrity="" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url('/assets/bootstrap/css/bootstrap.css') }}" integrity="" crossorigin="anonymous">
 
     <title>Asking</title>
 </head>
@@ -42,18 +45,18 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="empezar">¿Qué deseas hacer?</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <h5 class="modal-title text-white" id="empezar">¿Qué deseas hacer?</h5>
+                    <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <p>Puedes <a href="{{ url('/register') }}">registrarte</a>, o si ya tienes cuenta <a href="{{ url('/login') }}">entrar</a>.</p>
-                    <p>¡O puedes dirigirte a realizar preguntas ahora mismo!</p>
+                    <p class="text-white">Puedes <a href="{{ url('/register') }}">registrarte</a>, o si ya tienes cuenta <a href="{{ url('/login') }}">entrar</a>.</p>
+                    <p class="text-white">¡O puedes dirigirte a realizar preguntas ahora mismo!</p>
                 </div>
                 <div class="modal-footer">
                     <a type="button" class="btn btn-secondary text-white" data-dismiss="modal">Cerrar</a>
-                    <a type="button" class="btn btn-primary" href="/asking/public/home">Empezar a preguntar</a>
+                    <a type="button" class="btn btn-success text-white" href="{{ url('/home') }}">Empezar a preguntar</a>
                 </div>
             </div>
         </div>

@@ -4,6 +4,36 @@
  * Copyright 2011-2019 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
+
+ /* Cambio de color del menu dropdown */
+
+.navbar-nav > li > .dropdown-menu { 
+  background-color: rgba(94, 91, 91, 0.699);
+}
+
+.navbar-nav > li > .dropdown-menu > .dropdown-item { 
+  color: white;
+}
+
+.navbar-nav > li > .dropdown-menu > .dropdown-item:hover { 
+  background-color: rgb(94, 91, 91); 
+  color: #ab9e32;
+}
+
+ /* -------------------------------------------------- */
+
+ /* CSS Card principal */
+
+.modal-content {
+  background-color: rgb(94, 91, 91) !important;
+}
+
+.modal-content a {
+  color: #ab9e32;
+}
+
+/* ------------------ */
+
 :root {
   --blue: #007bff;
   --indigo: #6610f2;
@@ -4145,7 +4175,13 @@ input[type="button"].btn-block {
 }
 
 .navbar {
-  position: relative;
+  /* Cambio a navbar fixed */
+  /* position: relative; */
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+  /* --------------------- */
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;

@@ -13,13 +13,18 @@ return [
     |
     */
 
-    'accepted' => 'The :attribute must be accepted.',
-    'active_url' => 'The :attribute is not a valid URL.',
-    'after' => 'The :attribute must be a date after :date.',
-    'after_or_equal' => 'The :attribute must be a date after or equal to :date.',
-    'alpha' => 'The :attribute may only contain letters.',
-    'alpha_dash' => 'The :attribute may only contain letters, numbers, dashes and underscores.',
-    'alpha_num' => 'The :attribute may only contain letters and numbers.',
+    /* Comprobaciones propias */
+
+    'accepted' => 'El :attribute debe ser aceptado.',
+    'active_url' => 'El :attribute no es una URL válida.',
+    'after' => 'El :attribute debe ser una fecha despues de :date.',
+    'after_or_equal' => 'El :attribute debe ser una fecha despues o igual a :date.',
+    'alpha' => 'El :attribute solo puede contener letras.',
+    'alpha_dash' => 'El :attribute solo puede contener letras, números, guiones y guiones bajos.',
+    'alpha_num' => 'El :attribute solo puede contener letras y números.',
+    /* 
+        Seguir comprobaciones a español desde aqui.
+    */
     'array' => 'The :attribute must be an array.',
     'before' => 'The :attribute must be a date before :date.',
     'before_or_equal' => 'The :attribute must be a date before or equal to :date.',
@@ -84,9 +89,9 @@ return [
     'mimes' => 'The :attribute must be a file of type: :values.',
     'mimetypes' => 'The :attribute must be a file of type: :values.',
     'min' => [
-        'numeric' => 'The :attribute must be at least :min.',
-        'file' => 'The :attribute must be at least :min kilobytes.',
-        'string' => 'The :attribute must be at least :min characters.',
+        'numeric' => 'El :attribute debe tener al menos :min.',
+        'file' => 'El :attribute debe tener al menos :min kilobytes.',
+        'string' => 'El :attribute debe tener al menos :min characters.',
         'array' => 'The :attribute must have at least :min items.',
     ],
     'not_in' => 'The selected :attribute is invalid.',
@@ -111,7 +116,7 @@ return [
     'starts_with' => 'The :attribute must start with one of the following: :values',
     'string' => 'The :attribute must be a string.',
     'timezone' => 'The :attribute must be a valid zone.',
-    'unique' => 'The :attribute has already been taken.',
+    'unique' => 'El :attribute ya esta registrado.',
     'uploaded' => 'The :attribute failed to upload.',
     'url' => 'The :attribute format is invalid.',
     'uuid' => 'The :attribute must be a valid UUID.',

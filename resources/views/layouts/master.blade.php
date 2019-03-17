@@ -6,29 +6,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Favicon -->
-    <link rel="icon" href="{{ url('imagenes/favicon.png') }}" />
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url('imagenes/favicon/favicon.png') }}">
 
     <!-- CSS propio -->
-    <link rel="stylesheet" href="css/miCSS.css">
-    <link rel="stylesheet" href="css/botonInicioCSS.css">
+    <link rel="stylesheet" href="{{ url('css/miCSS.css') }}">
+    <link rel="stylesheet" href="{{ url('css/botonInicioCSS.css') }}">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{{ url('/assets/bootstrap/css/bootstrap.css') }}" integrity="" crossorigin="anonymous">
 
+    <!-- Google Fonts CSS -->
+    <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
+
     <!-- Otros CSS-->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
         crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
-    <link rel="stylesheet" href="css/buscarCSS.css">
-    <link rel="stylesheet" href="css/formularioPreguntaCSS.css">
+    <link rel="stylesheet" href="{{ url('css/buscarCSS.css') }}">
+    <link rel="stylesheet" href="{{ url('css/formularioPreguntaCSS.css') }}">
 
-    <title>Asking</title>
+    <!-- Titulo -->
+    <title>Asking - {{ Request::path() }}</title>
 </head>
 
 <body>
     @include('partials.navbar')
 
-    <div class="container-fluid h-100 colorBackground d-flex">
+    <div class="margen-fixed container-fluid h-100 colorBackground d-flex">
         @yield('content')
     </div>
 
@@ -40,7 +43,7 @@
         crossorigin="anonymous"></script>
     <script src="{{ url('/assets/bootstrap/js/bootstrap.min.js') }}" integrity="" crossorigin="anonymous"></script>
     <!-- Optional JavaScript -->
-    <script src="js/miJS.js"></script>
+    <script src="{{ url('js/miJS.js') }}"></script>
 </body>
 
 </html>
