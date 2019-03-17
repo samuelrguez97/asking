@@ -2,8 +2,25 @@
     font-family: 'Asap', sans-serif;
 }
 
-html {
+html, body {
     height: 100%;
+}
+
+.fit-content {
+    display: block;
+    overflow: auto;
+}
+
+.w-fit-content {
+    min-width: 100%;
+    display: block;
+    overflow: auto;
+}
+
+.h-fit-content {
+    min-height: 100%;
+    display: block;
+    overflow: auto;
 }
 
 .colorBackground {
@@ -35,20 +52,9 @@ html {
     font-size: 16px;
 }
 
-.imagen-user {
-    width: 325px;
-    height: 250px;
-}
-
 .min-container {
     width: 100%;
     height: 100%;
-}
-
-.terms-size {
-    font-size: 17px;
-    padding-top: 0.5em;
-    padding-left: 0.5em;
 }
 
 .margen-fixed {
@@ -56,126 +62,72 @@ html {
     position: relative !important;
 }
 
-/* Boton checkbox */
-
-.wrapper {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    width: 400px;
-    margin: 50vh auto 0;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
-    -webkit-transform: translateY(-50%);
-    transform: translateY(-50%);
-}
-
-.switch_box {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    max-width: 200px;
-    min-width: 200px;
-    height: 200px;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    -webkit-box-flex: 1;
-    -ms-flex: 1;
-    flex: 1;
-}
-
-/* Switch 4 Specific Style Start */
-
-.box_4 {
-    background: #eee;
-}
-
-.input_wrapper {
-    width: 80px;
-    height: 40px;
-    position: relative;
-    cursor: pointer;
-}
-
-.input_wrapper input[type="checkbox"] {
-    width: 80px;
-    height: 40px;
-    cursor: pointer;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    background: #315e7f;
-    border-radius: 2px;
-    position: relative;
-    outline: 0;
-    -webkit-transition: all .2s;
-    transition: all .2s;
-}
-
-.input_wrapper input[type="checkbox"]:after {
-    position: absolute;
-    content: "";
-    top: 3px;
-    left: 3px;
-    width: 34px;
-    height: 34px;
-    background: #dfeaec;
-    z-index: 2;
-    border-radius: 2px;
-    -webkit-transition: all .35s;
-    transition: all .35s;
-}
-
-.input_wrapper svg {
-    position: absolute;
-    top: 50%;
-    -webkit-transform-origin: 50% 50%;
-    transform-origin: 50% 50%;
-    fill: #fff;
-    -webkit-transition: all .35s;
-    transition: all .35s;
-    z-index: 1;
-}
-
-.input_wrapper .is_checked {
-    width: 18px;
-    left: 18%;
-    -webkit-transform: translateX(190%) translateY(-30%) scale(0);
-    transform: translateX(190%) translateY(-30%) scale(0);
-}
-
-.input_wrapper .is_unchecked {
-    width: 15px;
-    right: 10%;
-    -webkit-transform: translateX(0) translateY(-30%) scale(1);
-    transform: translateX(0) translateY(-30%) scale(1);
-}
-
-/* Checked State */
-.input_wrapper input[type="checkbox"]:checked {
-    background: #23da87;
-}
-
-.input_wrapper input[type="checkbox"]:checked:after {
-    left: calc(100% - 37px);
-}
-
-.input_wrapper input[type="checkbox"]:checked+.is_checked {
-    -webkit-transform: translateX(0) translateY(-30%) scale(1);
-    transform: translateX(0) translateY(-30%) scale(1);
-}
-
-.input_wrapper input[type="checkbox"]:checked~.is_unchecked {
-    -webkit-transform: translateX(-190%) translateY(-30%) scale(0);
-    transform: translateX(-190%) translateY(-30%) scale(0);
-}
-
 .fix-height {
-    height: 4%;
+    height: 3%;
 }
 
-/* -------------- */
+/* Checkbox términos */
+
+.terms-size {
+    font-size: 17px;
+    padding-left: 0.5em;
+}
+
+#normas {
+    margin-top: 0.7%; 
+}
+
+/* ---------------- */
+
+/* Formato de login/registro */
+
+.cont-log_reg {
+    width: 100%;
+    padding-left: 25%;
+    padding-right: 25%;
+}
+
+/* ------------------------- */
+
+/* Quitar bordes */
+
+.borde-top-0 {
+    border-top: 0 !important;
+}
+
+.borde-bottom-0 {
+    border-bottom: 0 !important;
+}
+
+/* ----------------------------- */
+
+/* Boton enviar pregunta (reutilizado) */
+
+#enviar_pregunta {
+    display: inline-block;
+    padding: 8px 24px;
+    background: rgb(220, 220, 220);
+    font-weight: bold;
+    color: rgb(120, 120, 120);
+    border: none;
+    outline: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: ease .3s;
+}
+
+#enviar_pregunta:hover {
+    background: #8BC34A;
+    color: #ffffff;
+}
+
+/* ----------------------------------- */ 
+
+/* CSS contacto */
+
+#texto-contacto {
+    min-width: 100%;
+    padding: 11px;
+}
+
+/* ------------ */

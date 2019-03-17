@@ -24,4 +24,10 @@ class PreguntasControlador extends Controller
     {
         return view('home');
     }
+
+    public function getContacto()
+    {
+        return view('contacto');
+    }
+
 }

@@ -1,15 +1,18 @@
 
 .contenedor_pregunta {
-    width: 22%;
-}
-
-.separador {
-    width: 1px;
-    background-color: rgba(0, 0, 0, 0.250);
+    width: 40%;
+    display: block;
+    overflow: auto;
+    padding: 2%;
+    background-color: #333233;
+    border-radius: 4%;
 }
 
 .contenedor_pregunta_s {
-    width: 45%;
+    width: 70%;
+    display: block;
+    overflow: auto;
+    overflow-x: hidden;
 }
 
 .menu-preguntas {
@@ -91,30 +94,13 @@ label {
     top: -3em;
 }
 
-#enviar_pregunta {
-    display: inline-block;
-    padding: 12px 24px;
-    background: rgb(220, 220, 220);
-    font-weight: bold;
-    color: rgb(120, 120, 120);
-    border: none;
-    outline: none;
-    border-radius: 3px;
-    cursor: pointer;
-    transition: ease .3s;
-}
-
-#enviar_pregunta:hover {
-    background: #8BC34A;
-    color: #ffffff;
-}
-
 .select {
     position: relative;
     display: inline-block;
     margin-top: 5%;
-    margin-bottom: 15px;
-    width: 27%;
+    margin-bottom: 3%;
+    max-width: 90%;
+    min-width: 30%;
 }
 
 .select select {
@@ -150,10 +136,8 @@ label {
 
 .select_arrow {
     position: absolute;
-    top: 11px;
-    right: 21px;
-    width: 10px;
-    height: 10px;
+    top: 30%;
+    right: 10%;
     border: solid #7b7b7b;
     border-width: 0 3px 3px 0;
     display: inline-block;

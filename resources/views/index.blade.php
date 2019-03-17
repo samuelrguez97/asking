@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="{{ url('css/botonInicioCSS.css') }}">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="{{ url('/assets/bootstrap/css/bootstrap.css') }}" integrity="" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url('assets/bootstrap/css/bootstrap.css') }}" integrity="" crossorigin="anonymous">
 
     <title>Asking</title>
 </head>
@@ -24,9 +24,9 @@
             <img src="{{ url('imagenes/logo.png') }}" alt="logo">
             <h2 class="text-white-50 mx-auto mt-2 mb-5">Tu web de preguntas anónimas</h2>
             <!-- Boton del modal -->
-            <a class="boton draw-border mt-2" id="botonInicio" data-toggle="modal" data-target="#empezar">
+            <button class="boton btn-lg draw-border mt-2" data-toggle="modal" data-target="#empezar">
                 Empezar
-            </a>
+            </button>
         </div>
     </div>
     <!-- Footer -->
@@ -44,7 +44,7 @@
     <div class="modal fade" id="empezar" tabindex="-1" role="dialog" aria-labelledby="empezar" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
-                <div class="modal-header">
+                <div class="modal-header borde-bottom-0">
                     <h5 class="modal-title text-white" id="empezar">¿Qué deseas hacer?</h5>
                     <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
@@ -54,9 +54,11 @@
                     <p class="text-white">Puedes <a href="{{ url('/register') }}">registrarte</a>, o si ya tienes cuenta <a href="{{ url('/login') }}">entrar</a>.</p>
                     <p class="text-white">¡O puedes dirigirte a realizar preguntas ahora mismo!</p>
                 </div>
-                <div class="modal-footer">
-                    <a type="button" class="btn btn-secondary text-white" data-dismiss="modal">Cerrar</a>
-                    <a type="button" class="btn btn-success text-white" href="{{ url('/home') }}">Empezar a preguntar</a>
+                <div class="modal-footer borde-top-0">
+                    <form action="{{ url('/home') }}">
+                        <button type="button" class="btn btn-secondary text-white" data-dismiss="modal">Cerrar</button>
+                        <button type="submit" class="btn-sm ml-3" id="enviar_pregunta">Empezar a preguntar</button>
+                    </form>
                 </div>
             </div>
         </div>

@@ -31,7 +31,7 @@
 <body>
     @include('partials.navbar')
 
-    <div class="margen-fixed container-fluid h-100 colorBackground d-flex">
+    <div class="margen-fixed container-fluid h-fit-content w-fit-content colorBackground">
         @yield('content')
     </div>
 

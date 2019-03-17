@@ -17,6 +17,9 @@ Auth::routes();
 
 Route::get('/home', 'PreguntasControlador@principal');
 
+Route::get('/contacto', 'PreguntasControlador@getContacto');
+
 Route::get('/perfil', 'UsuariosControlador@getPerfil')->middleware('auth');
+
 
 

@@ -11,15 +11,18 @@
             </div>
             @endif
 
+            <div class="text-center mb-4">
+                <h2 class="letraTitulo">Recuperar contraseña</h2>
+            </div>
+
             <form method="POST" action="{{ route('password.email') }}">
                 @csrf
 
                 <div class="form-group row">
-                    <nav for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-mail') }}</nav>
 
-                    <div class="col-md-6">
+                    <div class="col-md-6 offset-md-3">
                         <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}"
-                            name="email" value="{{ old('email') }}" required>
+                            name="email" value="{{ old('email') }}" required placeholder="{{ __('E-mail') }}">
 
                         @if ($errors->has('email'))
                         <span class="invalid-feedback" role="alert">
