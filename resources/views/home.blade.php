@@ -13,7 +13,7 @@
         </label>
         <label>
             <p class="label-txt">Introduce tu pregunta</p>
-            <input type="text" class="input text-white" name="pregunta">
+            <input type="text" class="input text-white" name="pregunta" data-emojiable="true" data-emoji-input="unicode">
             <div class="line-box">
                 <div class="line"></div>
             </div>
@@ -151,7 +151,6 @@
     <div class="mb-5 text-center">
         <button class="btn btn-lg btn-success">Cargar más preguntas</button>
     </div>
-
 
 </div>
 @endsection

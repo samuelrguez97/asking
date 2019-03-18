@@ -18,6 +18,10 @@
     <!-- Google Fonts CSS -->
     <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
 
+    <!-- Emojis CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="{{ url('emojis/css/emoji.css') }}" rel="stylesheet">
+
     <!-- Otros CSS-->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
         crossorigin="anonymous">
@@ -42,6 +46,26 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
         crossorigin="anonymous"></script>
     <script src="{{ url('/assets/bootstrap/js/bootstrap.min.js') }}" integrity="" crossorigin="anonymous"></script>
+    <!-- Emojis JS -->
+    <script src="{{ url('emojis/js/config.js') }}"></script>
+    <script src="{{ url('emojis/js/util.js') }}"></script>
+    <script src="{{ url('emojis/js/jquery.emojiarea.js') }}"></script>
+    <script src="{{ url('emojis/js/emoji-picker.js') }}"></script>
+    <!-- Script insertar emojis en los input -->
+    <script>
+        $(function () {
+            // Initializes and creates emoji set from sprite sheet
+            window.emojiPicker = new EmojiPicker({
+                emojiable_selector: '[data-emojiable=true]',
+                assetsPath: "{{ url('emojis/img/') }}",
+                popupButtonClasses: 'fa fa-smile-o text-white'
+            });
+            // Finds all elements with `emojiable_selector` and converts them to rich emoji input fields
+            // You may want to delay this step if you have dynamically created input fields that appear later in the loading process
+            // It can be called as many times as necessary; previously converted input fields will not be converted again
+            window.emojiPicker.discover();
+        });
+    </script>
     <!-- Optional JavaScript -->
     <script src="{{ url('js/miJS.js') }}"></script>
 </body>
