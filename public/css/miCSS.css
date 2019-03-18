@@ -57,6 +57,11 @@ html, body {
     height: 100%;
 }
 
+.borde-nav {
+    border-bottom: 1px solid #262527;
+    box-shadow: -2px -1px 18px 0px #ac9e31;
+}
+
 .margen-fixed {
     margin-top: 3% !important;
     position: relative !important;

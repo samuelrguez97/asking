@@ -1,5 +1,5 @@
 <div class="content">
-    <nav class="navbar navbar-expand-md navbar-dark colorBackground">
+    <nav class="navbar navbar-expand-md navbar-dark borde-nav colorBackground">
         <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item {{ Request::is('home') ? 'active' : '' }}">
