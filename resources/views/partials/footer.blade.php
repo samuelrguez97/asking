@@ -1,6 +1,6 @@
-<div class="content colorBackground-darker text-white">
+<div class="content">
     <!-- Footer -->
-    <footer class="page-footer font-small blue">
+    <footer class="page-footer colorBackground-darker text-white font-small blue">
 
         <!-- Copyright -->
         <div class="footer-copyright text-center py-3">© 2019 Copyright:

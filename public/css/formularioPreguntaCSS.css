@@ -1,6 +1,6 @@
 
 .contenedor_pregunta {
-    width: 37%;
+    width: 47%;
     display: block;
     overflow: auto;
     padding: 2%;
@@ -9,7 +9,7 @@
 }
 
 .contenedor_pregunta_s {
-    width: 70%;
+    width: 80%;
     display: block;
     overflow: auto;
     overflow-x: hidden;

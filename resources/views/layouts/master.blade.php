@@ -35,7 +35,7 @@
 <body>
     @include('partials.navbar')
 
-    <div class="margen-fixed container-fluid h-fit-content w-fit-content colorBackground">
+    <div class="margen-fixed container-contenido h-fit-content colorBackground">
         @yield('content')
     </div>
 
@@ -58,7 +58,7 @@
             window.emojiPicker = new EmojiPicker({
                 emojiable_selector: '[data-emojiable=true]',
                 assetsPath: "{{ url('emojis/img/') }}",
-                popupButtonClasses: 'fa fa-smile-o text-white'
+                popupButtonClasses: 'fa fa-smile-o text-white set-back'
             });
             // Finds all elements with `emojiable_selector` and converts them to rich emoji input fields
             // You may want to delay this step if you have dynamically created input fields that appear later in the loading process

@@ -4,6 +4,7 @@
 
 html, body {
     height: 100%;
+    background-color: #535056 !important;
 }
 
 .fit-content {
@@ -62,6 +63,14 @@ html, body {
     box-shadow: -2px -1px 18px 0px #ac9e31;
 }
 
+.margin-left-navbar {
+    margin-left: 20%;
+}
+
+.margin-right-navbar {
+    margin-right: 20%;
+}
+
 .margen-fixed {
     margin-top: 3% !important;
     position: relative !important;
@@ -70,6 +79,29 @@ html, body {
 .fix-height {
     height: 3%;
 }
+
+.set-back {
+    z-index: 0 !important;
+}
+
+/* Redimensionar tamaño página general (navbar+contenido+footer) */ 
+
+.navbar {
+    width: 65% !important;
+    left: 17.5% !important;
+}
+
+.container-contenido {
+    width: 65% !important;
+    left: 17.5% !important;
+}
+
+.page-footer {
+    width: 65% !important;
+    margin-left: 17.5% !important;
+}
+
+/* --------------------------- */
 
 /* Checkbox términos */
 
