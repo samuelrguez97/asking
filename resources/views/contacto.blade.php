@@ -24,7 +24,7 @@
 
                 <div class="form-group row">
 
-                    <div class="col-md-6 offset-md-3">
+                    <div class="col-md-8 offset-md-2">
                         <textarea id="texto-contacto" name="texto-contacto" required placeholder="Introduce tu consulta aquí"></textarea>
                     </div>
                 </div>

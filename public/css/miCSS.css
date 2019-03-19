@@ -80,6 +80,12 @@ html, body {
     height: 3%;
 }
 
+.hr-home {
+    margin-top: 3%;
+    width: 80%;
+    background-color: #ac9e3129;
+}
+
 .set-back {
     z-index: 0 !important;
 }
@@ -169,6 +175,30 @@ html, body {
 
 /* ------------ */
 
+/* Estilos card de la pregunta */
+
 .no-respond {
     font-size: .8em;
 }
+
+.likes {
+    font-size: .8em;
+}
+
+.tema {
+    margin-left: 5%;
+}
+
+.img-likes {
+    width: 20px;
+    height: 20px;
+}
+
+.tiempo {
+    font-weight: bold;
+    font-size: .7em;
+}
+
+/* --------------------------- */
+
+

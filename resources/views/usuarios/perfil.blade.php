@@ -4,7 +4,7 @@
 <div class="container-fluid w-fit-content h-fit-content">
     <div class="mt-5 row">
 
-        <div class="col-md-2.5 offset-md-1">
+        <div class="col-md-3 offset-md-1">
             <div class="card fit-content">
                 @if ( Auth::user()->img )
                 <img src="{{ Auth::user()->img }}" />
@@ -166,10 +166,11 @@
                             <h6 class="card-text ml-3 texto-pregunta">Pregunta</h6>
                         </div>
                         <div class="card-footer">
-                            <aside class="float-left">hace 20 minutos</aside>
+                            <aside class="float-left tiempo">hace 20 minutos</aside>
+                            <span class="badge badge-info tema">Caballos</span>
                             <div class="float-right ml-3">
-                                <a class="like" href=""><img class="float-left" src="{{ url('imagenes/preguntas/mg_f.png') }}" /></a>
-                                <aside class="float-left ml-2">32</aside>
+                                <a class="like" href=""><img class="float-left img-likes" src="{{ url('imagenes/preguntas/mg_f.png') }}" /></a>
+                                <aside class="float-left likes ml-2">125</aside>
                             </div>
                         </div>
                     </div>
@@ -186,13 +187,14 @@
                             </div>
                         </div>
                         <div class="card-body">
-                            <h6 class="card-text ml-3 texto-pregunta">Pregunta</h6>
+                            <h6 class="card-text ml-3 texto-pregunta">que te pasaa 😃😟</h6>
                         </div>
                         <div class="card-footer">
-                            <aside class="float-left">hace 20 minutos</aside>
+                            <aside class="float-left tiempo">hace 20 minutos</aside>
+                            <span class="badge badge-info tema">Ordenadores</span>
                             <div class="float-right ml-3">
-                                <a class="like" href=""><img class="float-left" src="{{ url('imagenes/preguntas/mg_f.png') }}" /></a>
-                                <aside class="float-left ml-2">32</aside>
+                                <a class="like" href=""><img class="float-left img-likes" src="{{ url('imagenes/preguntas/mg_f.png') }}" /></a>
+                                <aside class="float-left likes ml-2">32</aside>
                             </div>
                         </div>
                     </div>
