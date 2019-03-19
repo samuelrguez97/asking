@@ -5,22 +5,20 @@
     <h2 class="letraTitulo">Formula tu pregunta</h2>
     <form class=".form_pregunta" action="" method="post">
         <label>
-            <p class="label-txt">Introduce el usuario</p>
-            <input type="text" class="w-user input text-white" name="usuario">
+            <input type="text" class="w-user input text-white" placeholder="Introduce el usuario" name="usuario">
             <div class="line-box w-user">
                 <div class="line"></div>
             </div>
         </label>
         <label>
-            <p class="label-txt">Introduce tu pregunta</p>
-            <input type="text" class="input text-white" name="pregunta" data-emojiable="true" data-emoji-input="unicode">
+            <input type="text" class="input text-white" name="pregunta" placeholder="Introduce tu pregunta" data-emojiable="true" data-emoji-input="unicode">
             <div class="line-box">
                 <div class="line"></div>
             </div>
         </label>
         <label>
-            <p class="label-txt">Selecciona el tópico</p>
-            <div class="select" name="topico">
+            <p class="label-txt">Selecciona el tema</p>
+            <div class="select" name="tema">
                 <select>
                     <option>Selecciona</option>
                     <option>Prueba 1</option>
@@ -127,9 +125,7 @@
                             <aside class="float-left">
                                 <span>Para: </span><span class="letraTitulo">gabri</span>
                             </aside>
-                            <aside class="float-right">
-                                <span class="text-white">No hay respuesta todavía</span>
-                            </aside>
+                            <span class="float-right badge badge-warning ml-3 mb-2">Sin respuesta</span>
                         </div>
                     </div>
                     <div class="card-body">

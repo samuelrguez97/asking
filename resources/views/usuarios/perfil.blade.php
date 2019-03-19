@@ -182,9 +182,7 @@
                                 <aside class="float-left">
                                     <span>Para: </span><span class="letraTitulo">gabri</span>
                                 </aside>
-                                <aside class="float-right">
-                                    <span class="text-white">No hay respuesta todavía</span>
-                                </aside>
+                                <span class="float-right badge badge-warning ml-3 mb-2">Sin respuesta</span>
                             </div>
                         </div>
                         <div class="card-body">
