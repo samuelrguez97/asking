@@ -72,7 +72,6 @@ html, body {
 }
 
 .margen-fixed {
-    margin-top: 3% !important;
     position: relative !important;
 }
 
@@ -89,6 +88,15 @@ html, body {
 .set-back {
     z-index: 0 !important;
 }
+
+/* Crear margen para  para adjustar tamaño de la página al navbar fijo */
+
+.mg-top-navbar {
+    width: 100%;
+    margin-top: 8%;
+}
+
+/* ---------------------------------------------------- */
 
 /* Redimensionar tamaño página general (navbar+contenido+footer) */ 
 

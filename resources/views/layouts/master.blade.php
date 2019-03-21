@@ -34,8 +34,8 @@
 
 <body>
     @include('partials.navbar')
-
     <div class="margen-fixed container-contenido h-fit-content colorBackground">
+        <div class="mg-top-navbar"></div>
         @yield('content')
     </div>
 
