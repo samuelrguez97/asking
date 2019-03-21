@@ -62,7 +62,8 @@
                             </div>
                         </div>
                         <div class="card-footer">
-                            <aside class="float-left">hace 20 minutos</aside>
+                            <aside class="float-left tiempo">hace 20 minutos</aside>
+                            <span class="badge badge-info tema">Variado</span>
                             <div class="text-right float-right mt-1">
                                 <a href=""><i class="fa fa-times text-danger" aria-aside="Close" data-toggle="tooltip"
                                         data-placement="right" title="Eliminar pregunta"></i></a>
@@ -83,7 +84,8 @@
                             </div>
                         </div>
                         <div class="card-footer">
-                            <aside class="float-left">hace 1 hora</aside>
+                        <aside class="float-left tiempo">hace 1 hora</aside>
+                            <span class="badge badge-info tema">Entretenimiento</span>
                             <div class="text-right float-right mt-1">
                                 <a href=""><i class="fa fa-times text-danger" aria-aside="Close" data-toggle="tooltip"
                                         data-placement="right" title="Eliminar pregunta"></i></a>
@@ -103,7 +105,8 @@
                             </div>
                         </div>
                         <div class="card-footer">
-                            <aside class="float-left">hace 10 minutos</aside>
+                            <aside class="float-left tiempo">hace 10 minutos</aside>
+                            <span class="badge badge-info tema">Videojuegos</span>
                             <div class="text-right float-right mt-1">
                                 <a href=""><i class="fa fa-times text-danger" aria-aside="Close" data-toggle="tooltip"
                                         data-placement="right" title="Eliminar pregunta"></i></a>
@@ -123,7 +126,8 @@
                             </div>
                         </div>
                         <div class="card-footer">
-                            <aside class="float-left">hace 10 minutos</aside>
+                            <aside class="float-left tiempo">hace 10 minutos</aside>
+                            <span class="badge badge-info tema">Entretenimiento</span>
                             <div class="text-right float-right mt-1">
                                 <a href=""><i class="fa fa-times text-danger" aria-aside="Close" data-toggle="tooltip"
                                         data-placement="right" title="Eliminar pregunta"></i></a>

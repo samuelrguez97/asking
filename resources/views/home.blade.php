@@ -11,7 +11,8 @@
             </div>
         </label>
         <label>
-            <input type="text" class="input text-white" name="pregunta" placeholder="Introduce tu pregunta" data-emojiable="true" data-emoji-input="unicode">
+            <input type="text" class="input text-white" name="pregunta" placeholder="Introduce tu pregunta"
+                data-emojiable="true" data-emoji-input="unicode">
             <div class="line-box">
                 <div class="line"></div>
             </div>
@@ -29,9 +30,10 @@
         </label>
         <label class="fix-height">
             <div id="normas" class="float-left">
-                <input type="checkbox" name="normas"/>
+                <input type="checkbox" name="normas" />
             </div>
-            <span class="terms-size text-white float-left">Estoy de acuerdo con <a href="#">las normas de la comunidad</a> * </span>
+            <span class="terms-size text-white float-left">Estoy de acuerdo con <a href="#">las normas de la
+                    comunidad</a> * </span>
         </label>
         <div class="text-center mt-5">
             <button class="btn-sm" id="enviar_pregunta" type="submit">Enviar pregunta</button>
@@ -39,15 +41,15 @@
     </form>
 </div>
 
-<hr class="hr-home"/>
+<hr class="hr-home" />
 
 <div class="contenedor_pregunta_s mx-auto mt-5">
     <h2 class="letraTitulo">Preguntas</h2>
     <div class="menu-preguntas">
         <ul class="float-left navbar-nav mr-auto">
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false">
+                <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Ordenar preguntas
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -87,7 +89,8 @@
                         <aside class="float-left tiempo">hace 20 minutos</aside>
                         <span class="badge badge-info tema">Coches</span>
                         <div class="float-right ml-3">
-                            <a class="like" href=""><img class="float-left img-likes" src="{{ url('imagenes/preguntas/mg_f.png') }}" /></a>
+                            <a class="like" href=""><img class="float-left img-likes"
+                                    src="{{ url('imagenes/preguntas/mg_f.png') }}" /></a>
                             <aside class="float-left ml-2 likes">32</aside>
                         </div>
                     </div>
@@ -107,12 +110,15 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <h6 class="card-text ml-3 texto-pregunta">fdjogasdiusavgdisapovcasPIOYfvsaipasVFasFycsaVFisayfvasIfvsaiyhfvasIFvasIPfvasHFpvsaifvasIYHfvASIfvASIYFvsapiyvasdPIYfv</h6>
+                        <h6 class="card-text ml-3 texto-pregunta">
+                            fdjogasdiusavgdisapovcasPIOYfvsaipasVFasFycsaVFisayfvasIfvsaiyhfvasIFvasIPfvasHFpvsaifvasIYHfvASIfvASIYFvsapiyvasdPIYfv
+                        </h6>
                     </div>
                     <div class="card-footer borde-top-0">
                         <aside class="float-left">hace 20 minutos</aside>
                         <div class="float-right ml-3">
-                            <a class="like" href=""><img class="float-left" src="{{ url('imagenes/preguntas/mg_f.png') }}" /></a>
+                            <a class="like" href=""><img class="float-left"
+                                    src="{{ url('imagenes/preguntas/mg_f.png') }}" /></a>
                             <aside class="float-left ml-2">32</aside>
                         </div>
                     </div>
@@ -135,7 +141,8 @@
                     <div class="card-footer borde-top-0">
                         <aside class="float-left">hace 20 minutos</aside>
                         <div class="float-right ml-3">
-                            <a class="like" href=""><img class="float-left" src="{{ url('imagenes/preguntas/mg_f.png') }}" /></a>
+                            <a class="like" href=""><img class="float-left"
+                                    src="{{ url('imagenes/preguntas/mg_f.png') }}" /></a>
                             <aside class="float-left ml-2">32</aside>
                         </div>
                     </div>
@@ -158,7 +165,8 @@
                     <div class="card-footer borde-top-0">
                         <aside class="float-left">hace 20 minutos</aside>
                         <div class="float-right ml-3">
-                            <a class="like" href=""><img class="float-left" src="{{ url('imagenes/preguntas/mg_f.png') }}" /></a>
+                            <a class="like" href=""><img class="float-left"
+                                    src="{{ url('imagenes/preguntas/mg_f.png') }}" /></a>
                             <aside class="float-left ml-2">32</aside>
                         </div>
                     </div>
@@ -181,7 +189,8 @@
                     <div class="card-footer borde-top-0">
                         <aside class="float-left">hace 20 minutos</aside>
                         <div class="float-right ml-3">
-                            <a class="like" href=""><img class="float-left" src="{{ url('imagenes/preguntas/mg_f.png') }}" /></a>
+                            <a class="like" href=""><img class="float-left"
+                                    src="{{ url('imagenes/preguntas/mg_f.png') }}" /></a>
                             <aside class="float-left ml-2">32</aside>
                         </div>
                     </div>
@@ -204,7 +213,8 @@
                     <div class="card-footer borde-top-0">
                         <aside class="float-left">hace 20 minutos</aside>
                         <div class="float-right ml-3">
-                            <a class="like" href=""><img class="float-left" src="{{ url('imagenes/preguntas/mg_f.png') }}" /></a>
+                            <a class="like" href=""><img class="float-left"
+                                    src="{{ url('imagenes/preguntas/mg_f.png') }}" /></a>
                             <aside class="float-left ml-2">32</aside>
                         </div>
                     </div>
@@ -227,7 +237,8 @@
                     <div class="card-footer borde-top-0">
                         <aside class="float-left">hace 20 minutos</aside>
                         <div class="float-right ml-3">
-                            <a class="like" href=""><img class="float-left" src="{{ url('imagenes/preguntas/mg_f.png') }}" /></a>
+                            <a class="like" href=""><img class="float-left"
+                                    src="{{ url('imagenes/preguntas/mg_f.png') }}" /></a>
                             <aside class="float-left ml-2">32</aside>
                         </div>
                     </div>
@@ -250,7 +261,8 @@
                     <div class="card-footer borde-top-0">
                         <aside class="float-left">hace 20 minutos</aside>
                         <div class="float-right ml-3">
-                            <a class="like" href=""><img class="float-left" src="{{ url('imagenes/preguntas/mg_f.png') }}" /></a>
+                            <a class="like" href=""><img class="float-left"
+                                    src="{{ url('imagenes/preguntas/mg_f.png') }}" /></a>
                             <aside class="float-left ml-2">32</aside>
                         </div>
                     </div>
@@ -273,7 +285,8 @@
                     <div class="card-footer borde-top-0">
                         <aside class="float-left">hace 20 minutos</aside>
                         <div class="float-right ml-3">
-                            <a class="like" href=""><img class="float-left" src="{{ url('imagenes/preguntas/mg_f.png') }}" /></a>
+                            <a class="like" href=""><img class="float-left"
+                                    src="{{ url('imagenes/preguntas/mg_f.png') }}" /></a>
                             <aside class="float-left ml-2">32</aside>
                         </div>
                     </div>
@@ -296,7 +309,8 @@
                     <div class="card-footer borde-top-0">
                         <aside class="float-left">hace 20 minutos</aside>
                         <div class="float-right ml-3">
-                            <a class="like" href=""><img class="float-left" src="{{ url('imagenes/preguntas/mg_f.png') }}" /></a>
+                            <a class="like" href=""><img class="float-left"
+                                    src="{{ url('imagenes/preguntas/mg_f.png') }}" /></a>
                             <aside class="float-left ml-2">32</aside>
                         </div>
                     </div>
@@ -319,7 +333,8 @@
                     <div class="card-footer borde-top-0">
                         <aside class="float-left">hace 20 minutos</aside>
                         <div class="float-right ml-3">
-                            <a class="like" href=""><img class="float-left" src="{{ url('imagenes/preguntas/mg_f.png') }}" /></a>
+                            <a class="like" href=""><img class="float-left"
+                                    src="{{ url('imagenes/preguntas/mg_f.png') }}" /></a>
                             <aside class="float-left ml-2">32</aside>
                         </div>
                     </div>
@@ -342,7 +357,8 @@
                     <div class="card-footer borde-top-0">
                         <aside class="float-left">hace 20 minutos</aside>
                         <div class="float-right ml-3">
-                            <a class="like" href=""><img class="float-left" src="{{ url('imagenes/preguntas/mg_f.png') }}" /></a>
+                            <a class="like" href=""><img class="float-left"
+                                    src="{{ url('imagenes/preguntas/mg_f.png') }}" /></a>
                             <aside class="float-left ml-2">32</aside>
                         </div>
                     </div>
@@ -365,7 +381,8 @@
                     <div class="card-footer borde-top-0">
                         <aside class="float-left">hace 20 minutos</aside>
                         <div class="float-right ml-3">
-                            <a class="like" href=""><img class="float-left" src="{{ url('imagenes/preguntas/mg_f.png') }}" /></a>
+                            <a class="like" href=""><img class="float-left"
+                                    src="{{ url('imagenes/preguntas/mg_f.png') }}" /></a>
                             <aside class="float-left ml-2">32</aside>
                         </div>
                     </div>
@@ -388,7 +405,8 @@
                     <div class="card-footer borde-top-0">
                         <aside class="float-left">hace 20 minutos</aside>
                         <div class="float-right ml-3">
-                            <a class="like" href=""><img class="float-left" src="{{ url('imagenes/preguntas/mg_f.png') }}" /></a>
+                            <a class="like" href=""><img class="float-left"
+                                    src="{{ url('imagenes/preguntas/mg_f.png') }}" /></a>
                             <aside class="float-left ml-2">32</aside>
                         </div>
                     </div>
@@ -411,7 +429,8 @@
                     <div class="card-footer borde-top-0">
                         <aside class="float-left">hace 20 minutos</aside>
                         <div class="float-right ml-3">
-                            <a class="like" href=""><img class="float-left" src="{{ url('imagenes/preguntas/mg_f.png') }}" /></a>
+                            <a class="like" href=""><img class="float-left"
+                                    src="{{ url('imagenes/preguntas/mg_f.png') }}" /></a>
                             <aside class="float-left ml-2">32</aside>
                         </div>
                     </div>
@@ -434,7 +453,8 @@
                     <div class="card-footer borde-top-0">
                         <aside class="float-left">hace 20 minutos</aside>
                         <div class="float-right ml-3">
-                            <a class="like" href=""><img class="float-left" src="{{ url('imagenes/preguntas/mg_f.png') }}" /></a>
+                            <a class="like" href=""><img class="float-left"
+                                    src="{{ url('imagenes/preguntas/mg_f.png') }}" /></a>
                             <aside class="float-left ml-2">32</aside>
                         </div>
                     </div>

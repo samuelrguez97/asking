@@ -1,7 +1,12 @@
 <div class="content">
-    <nav class="navbar navbar-expand-md navbar-dark borde-nav colorBackground">
-        <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
-            <ul class="navbar-nav mr-auto">
+    <nav class="navbar navbar-expand-lg navbar-dark borde-nav colorBackground">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsingNavbarLg">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <a href="{{ action('PreguntasControlador@principal') }}"><img src="{{ url('imagenes/logo.png') }}"
+            alt="logo"></a>
+        <div class="navbar-collapse margin-left-navbar collapse order-1 order-md-0 dual-collapse2" id="collapsingNavbarLg">
+            <ul class="navbar-nav">
                 <li class="nav-item {{ Request::is('home') ? 'active' : '' }}">
                     <a class="nav-link" href="{{ action('PreguntasControlador@principal') }}">Inicio</a>
                 </li>
@@ -15,7 +20,7 @@
                 <li class="nav-item">
                     <form action="{{ url('/logout') }}" method="POST" style="display:inline">
                         {{ csrf_field() }}
-                        <button type="submit" class="btn btn-link nav-link" style="display:inline;cursor:pointer">Cerrar
+                        <button type="submit" class="btn btn-link nav-link">Cerrar
                             sesión</button>
                     </form>
                 </li>
@@ -28,14 +33,10 @@
                 </li>
                 @endif
             </ul>
-        </div>
-        <div class="mx-auto order-0 logo_redim">
-            <a href="{{ action('PreguntasControlador@principal') }}"><img src="{{ url('imagenes/logo.png') }}" alt="logo"></a>
-        </div>
-        <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item searchbar">
-                    <input class="search_input" type="text" name="buscador" id="buscador" placeholder="Buscar usuario o tópico...">
+                    <input class="search_input" type="text" name="buscador" id="buscador"
+                        placeholder="Buscar usuario o tópico...">
                     <a class="search_icon" href="#"><i class="fas fa-search"></i></a>
                 </li>
             </ul>
