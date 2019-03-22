@@ -1,12 +1,12 @@
-
 .contenedor_pregunta {
-    width: 50%;
-    display: block;
-    overflow: auto;
-    padding: 2%;
-    background-color: #333233;
+    padding: 3%;
+    background-color: #303030;
     border-radius: 4%;
-    margin-top: 4% !important;
+}
+
+.img_ask {
+    width: 13%;
+    height: 10%;
 }
 
 .contenedor_pregunta_s {
@@ -43,7 +43,7 @@ label {
 }
 
 .w-user {
-    width: 40% !important;
+    width: 70% !important;
 }
 
 .input {

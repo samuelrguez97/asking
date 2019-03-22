@@ -1,13 +1,16 @@
-<div class="content">
-    <!-- Footer -->
-    <footer class="page-footer colorBackground-darker text-white font-small blue">
+<div class="row">
 
-        <!-- Copyright -->
-        <div class="footer-copyright text-center py-3">© 2019 Copyright:
-            <a href="#">Asking | Samuel Rodríguez Aguilar</a>
-        </div>
-        <!-- Copyright -->
+    <div class="col-md-8 offset-md-2">
+        <!-- Footer -->
+        <footer class="page-footer colorBackground-darker text-white font-small blue">
 
-    </footer>
-    <!-- Footer -->
+            <!-- Copyright -->
+            <div class="footer-copyright text-center py-3">© 2019 Copyright:
+                <a href="#">Asking | Samuel Rodríguez Aguilar</a>
+            </div>
+            <!-- Copyright -->
+
+        </footer>
+        <!-- Footer -->
+    </div>
 </div>

@@ -66,7 +66,7 @@ html, body {
 }
 
 .margin-left-navbar {
-    margin-left: 2%;
+    margin-left: 10%;
 }
 
 .margin-right-navbar {
@@ -102,19 +102,18 @@ html, body {
 
 /* Redimensionar tamaño página general (navbar+contenido+footer) */ 
 
-.navbar {
-    width: 65% !important;
-    left: 17.5% !important;
+.navbar-home {
+    z-index: 1;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding-left: 0.24% !important;
+    padding-right: 0.24% !important;
+
 }
 
 .container-contenido {
-    width: 65% !important;
-    left: 17.5% !important;
-}
-
-.page-footer {
-    width: 65% !important;
-    margin-left: 17.5% !important;
+    overflow-x: hidden !important;
 }
 
 /* --------------------------- */
@@ -211,7 +210,11 @@ html, body {
 
 /* --------------------------- */
 
-/* Imagen perfil */
+/* Perfil */
+
+.card-perfil {
+    min-width: 28% !important;
+}
 
 .img-perfil {
     max-height: 30%;

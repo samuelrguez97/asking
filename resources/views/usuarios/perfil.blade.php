@@ -4,10 +4,10 @@
 <div class="container-fluid w-fit-content h-fit-content">
     <div class="mt-5 row">
 
-        <div class="col-md-3 offset-md-1">
+        <div class="card-perfil col-md-3 offset-md-1">
             <div class="card fit-content">
                 <img class="img-perfil" src="{{ url('storage/imagenes/usuarios') }}/{{ Auth::user()->avatar }}" />
-                <table class="table">
+                <table class="table mr-3">
                     <tr>
                         <th>Usuario</th>
                         <td>{{ Auth::user()->name }}</td>

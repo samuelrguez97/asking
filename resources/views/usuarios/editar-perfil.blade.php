@@ -2,7 +2,7 @@
 
 @section('content')
 <aside class="container-fluid w-fit-content h-fit-content">
-    <aside class="mt-5 row">
+    <aside class="row">
         <aside class="col-md-4 mx-auto text-white">
 
             <form method="post" action="{{ action('UsuariosControlador@makeEdit') }}" enctype="multipart/form-data">
