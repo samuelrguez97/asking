@@ -54,17 +54,19 @@
                     <div class="card text-white bg-secondary">
                         <div class="card-body">
                             <h6 class="card-text ml-3 texto-pregunta">Pregunta</h6>
-                            <button href="" class="float-right btn btn-sm btn-outline-light ml-2 mt-1"> <i class="fa fa-reply"></i>
-                                Responder</button>
-                            <div class="mt-3 ml-3">
-                                <img class="float-left" src="{{ url('imagenes/preguntas/mg_t.png') }}" />
-                                <aside class="float-left ml-2">32</aside>
+                            <div class="float-right">
+                                <button href="" class="btn btn-secondary btn-sm"> <i class="fa fa-reply"></i>
+                                    Responder</button>
+                            </div>
+                            <div class="float-left mt-2">
+                                <a class="like" href=""><img class="float-left img-likes" src="{{ url('imagenes/preguntas/mg_t.png') }}" /></a>
+                                <aside class="float-left likes ml-2">200</aside>
                             </div>
                         </div>
                         <div class="card-footer">
                             <aside class="float-left tiempo">hace 20 minutos</aside>
                             <span class="badge badge-info tema">Variado</span>
-                            <div class="text-right float-right mt-1">
+                            <div class="text-right float-right">
                                 <a href=""><i class="fa fa-times text-danger" aria-aside="Close" data-toggle="tooltip"
                                         data-placement="right" title="Eliminar pregunta"></i></a>
                             </div>
@@ -76,17 +78,19 @@
                         <div class="card-body">
                             <span class="float-right badge badge-success ml-3 mb-2">Nueva</span>
                             <h6 class="card-text ml-3 texto-pregunta">de jajas xd</h6>
-                            <button action="" class="float-right btn btn-sm btn-outline-light ml-2  mt-1"> <i class="fa fa-reply"></i>
-                                Responder</button>
-                            <div class="mt-3 ml-3">
-                                <img class="float-left" src="{{ url('imagenes/preguntas/mg_t.png') }}" />
-                                <aside class="float-left ml-2">14</aside>
+                            <div class="float-right">
+                                <button href="" class="btn btn-secondary btn-sm"> <i class="fa fa-reply"></i>
+                                    Responder</button>
+                            </div>
+                            <div class="float-left mt-2">
+                                <a class="like" href=""><img class="float-left img-likes" src="{{ url('imagenes/preguntas/mg_t.png') }}" /></a>
+                                <aside class="float-left likes ml-2">15</aside>
                             </div>
                         </div>
                         <div class="card-footer">
                         <aside class="float-left tiempo">hace 1 hora</aside>
                             <span class="badge badge-info tema">Entretenimiento</span>
-                            <div class="text-right float-right mt-1">
+                            <div class="text-right float-right">
                                 <a href=""><i class="fa fa-times text-danger" aria-aside="Close" data-toggle="tooltip"
                                         data-placement="right" title="Eliminar pregunta"></i></a>
                             </div>
@@ -97,17 +101,19 @@
                     <div class="card text-white bg-secondary">
                         <div class="card-body">
                             <h6 class="card-text ml-3 texto-pregunta">preuba 2</h6>
-                            <button href="" class="float-right btn btn-sm btn-outline-light ml-2 mt-1"> <i class="fa fa-reply"></i>
-                                Responder</button>
-                            <div class="mt-3 ml-3">
-                                <img class="float-left" src="{{ url('imagenes/preguntas/mg_t.png') }}" />
-                                <aside class="float-left ml-2">32</aside>
+                            <div class="float-right">
+                                <button href="" class="btn btn-secondary btn-sm"> <i class="fa fa-reply"></i>
+                                    Responder</button>
+                            </div>
+                            <div class="float-left mt-2">
+                                <a class="like" href=""><img class="float-left img-likes" src="{{ url('imagenes/preguntas/mg_t.png') }}" /></a>
+                                <aside class="float-left likes ml-2">32</aside>
                             </div>
                         </div>
                         <div class="card-footer">
                             <aside class="float-left tiempo">hace 10 minutos</aside>
                             <span class="badge badge-info tema">Videojuegos</span>
-                            <div class="text-right float-right mt-1">
+                            <div class="text-right float-right">
                                 <a href=""><i class="fa fa-times text-danger" aria-aside="Close" data-toggle="tooltip"
                                         data-placement="right" title="Eliminar pregunta"></i></a>
                             </div>
@@ -118,18 +124,20 @@
                     <div class="card text-white bg-secondary">
                         <div class="card-body">
                             <h6 class="card-text ml-3 texto-pregunta">preuba 42</h6>
-                            <button href="" class="float-right btn btn-sm btn-outline-light ml-2 mt-1"> <i class="fa fa-reply"></i>
-                                Responder</button>
-                            <div class="mt-3 ml-3">
-                                <img class="float-left" src="{{ url('imagenes/preguntas/mg_t.png') }}" />
-                                <aside class="float-left ml-2">32</aside>
+                            <div class="float-right">
+                                <button href="" class="btn btn-secondary btn-sm"> <i class="fa fa-reply"></i>
+                                    Responder</button>
+                            </div>
+                            <div class="float-left mt-2">
+                                <a class="like" href=""><img class="float-left img-likes" src="{{ url('imagenes/preguntas/mg_t.png') }}" /></a>
+                                <aside class="float-left likes ml-2">125</aside>
                             </div>
                         </div>
                         <div class="card-footer">
                             <aside class="float-left tiempo">hace 10 minutos</aside>
                             <span class="badge badge-info tema">Entretenimiento</span>
-                            <div class="text-right float-right mt-1">
-                                <a href=""><i class="fa fa-times text-danger" aria-aside="Close" data-toggle="tooltip"
+                            <div class="text-right float-right">
+                                <a class="like" href=""><i class="fa fa-times text-danger" aria-aside="Close" data-toggle="tooltip"
                                         data-placement="right" title="Eliminar pregunta"></i></a>
                             </div>
                         </div>
