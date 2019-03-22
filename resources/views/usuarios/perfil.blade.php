@@ -6,11 +6,7 @@
 
         <div class="col-md-3 offset-md-1">
             <div class="card fit-content">
-                @if ( Auth::user()->img )
-                <img src="{{ Auth::user()->img }}" />
-                @else
-                <img src="{{ url('imagenes/usuarios/default.png') }}" />
-                @endif
+                <img class="img-perfil" src="{{ url('storage/imagenes/usuarios') }}/{{ Auth::user()->avatar }}" />
                 <table class="table">
                     <tr>
                         <th>Usuario</th>
@@ -31,9 +27,12 @@
                 </table>
             </div>
             <br />
-            <div>
-                <button type="button" class="btn btn-info" action="#">Editar perfil</button>
-            </div>
+            <a class="btn btn-info" href="{{ action('UsuariosControlador@editPerfil') }}">Editar perfil</a>
+            @if( Session::has('success') )
+            <aside class="mt-4 alert alert-success" role="alert">
+                {{ session('success') }}
+            </aside>
+            @endif
         </div>
 
         <div class="col-md-6 offset-md-1">

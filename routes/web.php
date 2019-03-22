@@ -21,5 +21,10 @@ Route::get('/contacto', 'PreguntasControlador@getContacto');
 
 Route::get('/perfil', 'UsuariosControlador@getPerfil')->middleware('auth');
 
+Route::get('/editar-perfil', 'UsuariosControlador@editPerfil')->middleware('auth');
+
+Route::post('/editando', 'UsuariosControlador@makeEdit')->middleware('auth');
+
+
 
 
