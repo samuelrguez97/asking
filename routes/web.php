@@ -19,6 +19,8 @@ Route::get('/home', 'PreguntasControlador@principal');
 
 Route::get('/contacto', 'PreguntasControlador@getContacto');
 
+Route::post('/envio-contacto', 'PreguntasControlador@sendContacto');
+
 Route::get('/perfil', 'UsuariosControlador@getPerfil')->middleware('auth');
 
 Route::get('/editar-perfil', 'UsuariosControlador@editPerfil')->middleware('auth');

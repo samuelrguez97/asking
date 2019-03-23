@@ -37,20 +37,20 @@ class UsuariosControlador extends Controller
                     no es requerido.
                 */
                 'avatar' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-                // El usuario es requerido y como máximo tiene que ser 255 carácteres.
+                // El usuario es requerido y como máximo tiene que ser de 255 carácteres.
                 'usuario' => 'required|max:255', 
-                // El mail es requerido, tiene que ser de tipo mail y como máximo tiene que ser 255 carácteres.
+                // El mail es requerido, tiene que ser de tipo mail y como máximo tiene que ser de 255 carácteres.
                 'email' => 'required|email|max:255',
                 /*  
                     La antigua clava es requerida, como minimo tiene que tener 6 carácteres 
-                    y como máximo tiene que ser 255 carácteres.
+                    y como máximo tiene que ser de 255 carácteres.
                 */
                 'antigua-clave' => 'required|min:6|max:255',
                 /*
                     La nueva clave no es requerida, como minimo tiene que tener 6 carácteres 
-                    y como máximo tiene que ser 255 carácteres.
+                    y como máximo tiene que ser de 255 carácteres.
                 */
-                'nueva-clave' => 'nullable|min:6|max:255', 
+                'nueva-clave' => 'nullable|min:6|max:255'
             ]);
             
             // Compruebo si el avatar no es nulo 
@@ -86,7 +86,7 @@ class UsuariosControlador extends Controller
             // Guardo los datos y se insertan en la fila del usuario.
             $user->save();
 
-            // Redirijo a la página del perfil con un mensaje de que se ha actualizado el perfil
+            // Redirijo a la página del perfil con un mensaje de que se ha actualizado el perfil.
             return redirect('perfil')->with('success','Has actualizado tu perfil.');
             
         }
