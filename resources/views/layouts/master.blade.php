@@ -39,7 +39,6 @@
 
         <div class="col-md-8 offset-md-2">
             <div class="container-contenido margen-fixed h-fit-content colorBackground">
-                <div class="mg-top-navbar"></div>
                 @yield('content')
             </div>
         </div>

@@ -7,6 +7,7 @@ html, body {
     min-width: 50%;
     min-height: 50%;
     background-color: #535056 !important;
+    overflow-x: hidden !important;
 }
 
 .fit-content {
@@ -65,14 +66,6 @@ html, body {
     box-shadow: -2px -1px 18px 0px #ac9e31;
 }
 
-.margin-left-navbar {
-    margin-left: 10%;
-}
-
-.margin-right-navbar {
-    margin-right: 2%;
-}
-
 .margen-fixed {
     position: relative !important;
 }
@@ -103,13 +96,7 @@ html, body {
 /* Redimensionar tamaño página general (navbar+contenido+footer) */ 
 
 .navbar-home {
-    z-index: 1;
-    top: 0;
-    left: 0;
-    right: 0;
-    padding-left: 0.24% !important;
-    padding-right: 0.24% !important;
-
+    z-index: 9999;
 }
 
 .container-contenido {

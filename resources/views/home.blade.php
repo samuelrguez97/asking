@@ -3,46 +3,49 @@
 @section('content')
 <div class="mt-5 row">
 
-    <div class="card contenedor_pregunta col-md-8 offset-md-2">
-        <aside class="text-center">
-            <img class="img_ask" src="{{ url('imagenes/favicon/favicon.png') }}">
-        </aside>
-        <form class=".form_pregunta" action="" method="post">
-            <label>
-                <input type="text" class="w-user input text-white" placeholder="Introduce el usuario" name="usuario">
-                <div class="line-box w-user">
-                    <div class="line"></div>
-                </div>
-            </label>
-            <label>
-                <input type="text" class="input text-white" name="pregunta" placeholder="Introduce tu pregunta"
-                    data-emojiable="true" data-emoji-input="unicode">
-                <div class="line-box">
-                    <div class="line"></div>
-                </div>
-            </label>
-            <label>
-                <p class="label-txt">Selecciona el tema</p>
-                <div class="select" name="tema">
-                    <select>
-                        <option>Selecciona</option>
-                        <option>Prueba 1</option>
-                    </select>
-                    <div class="select_arrow">
+    <div class="col-md-8 offset-md-2">
+        <div class="card contenedor_pregunta">
+            <aside class="text-center">
+                <img class="img_ask" src="{{ url('imagenes/favicon/favicon.png') }}">
+            </aside>
+            <form class=".form_pregunta" action="" method="post">
+                <label>
+                    <input type="text" class="w-user input text-white" placeholder="Introduce el usuario"
+                        name="usuario">
+                    <div class="line-box w-user">
+                        <div class="line"></div>
                     </div>
+                </label>
+                <label>
+                    <input type="text" class="input text-white" name="pregunta" placeholder="Introduce tu pregunta"
+                        data-emojiable="true" data-emoji-input="unicode">
+                    <div class="line-box">
+                        <div class="line"></div>
+                    </div>
+                </label>
+                <label>
+                    <p class="label-txt">Selecciona el tema</p>
+                    <div class="select" name="tema">
+                        <select>
+                            <option>Selecciona</option>
+                            <option>Prueba 1</option>
+                        </select>
+                        <div class="select_arrow">
+                        </div>
+                    </div>
+                </label>
+                <label class="fix-height">
+                    <div id="normas" class="float-left">
+                        <input type="checkbox" name="normas" />
+                    </div>
+                    <span class="terms-size text-white float-left">Estoy de acuerdo con <a href="#">las normas de la
+                            comunidad</a> * </span>
+                </label>
+                <div class="text-center mt-5">
+                    <button class="btn-sm" id="enviar_pregunta" type="submit">Enviar pregunta</button>
                 </div>
-            </label>
-            <label class="fix-height">
-                <div id="normas" class="float-left">
-                    <input type="checkbox" name="normas" />
-                </div>
-                <span class="terms-size text-white float-left">Estoy de acuerdo con <a href="#">las normas de la
-                        comunidad</a> * </span>
-            </label>
-            <div class="text-center mt-5">
-                <button class="btn-sm" id="enviar_pregunta" type="submit">Enviar pregunta</button>
-            </div>
-        </form>
+            </form>
+        </div>
     </div>
 </div>
 

@@ -1,8 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-<aside class="container-fluid w-fit-content h-fit-content">
-    <aside class="row">
+    <aside class="row mt-5">
         <aside class="col-md-4 mx-auto text-white">
 
             <form method="post" action="{{ action('UsuariosControlador@makeEdit') }}" enctype="multipart/form-data">
@@ -67,5 +66,4 @@
             </form>
         </aside>
     </aside>
-</aside>
 @endsection
