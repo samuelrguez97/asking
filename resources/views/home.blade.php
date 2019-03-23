@@ -65,7 +65,6 @@
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="#">Preguntas más recientes</a>
                         <a class="dropdown-item" href="#">Preguntas con más likes</a>
-                        <a class="dropdown-item" href="#">Preguntas sobre un tema</a>
                     </div>
                 </li>
             </ul>

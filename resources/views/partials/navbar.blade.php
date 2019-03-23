@@ -38,7 +38,7 @@
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item searchbar">
                             <input class="search_input" type="text" name="buscador" id="buscador"
-                                placeholder="Buscar usuario o tópico...">
+                                placeholder="Buscar usuario o tema...">
                             <a class="search_icon" href="#"><i class="fas fa-search"></i></a>
                         </li>
                     </ul>
