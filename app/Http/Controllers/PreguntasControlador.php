@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Auth;
 use App\contacto;
+use App\preguntas;
+use App\temas;
+use App\User;
 
 class PreguntasControlador extends Controller
 {
@@ -12,7 +15,7 @@ class PreguntasControlador extends Controller
     {
         if ( Auth::check() )
         {
-            return view('home');
+            principal();
         }
         else
         {
@@ -23,12 +26,60 @@ class PreguntasControlador extends Controller
 
     public function principal()
     {
-        return view('home');
+        $temas = temas::all();
+        $preguntas = preguntas::all();
+        return view("home", ["temas" => $temas], ["preguntas" => $preguntas]);
     }
 
     public function getContacto()
     {
         return view('contacto');
+    }
+
+    public function sendPregunta(Request $request) {
+        
+
+        $request->validate([
+            // El usuario es requerido, como máximo tiene que ser de 255 carácteres.
+            'usuario' => 'required|max:255',
+            // La pregunta es requerida, tiene que tener como minimo 15 carácteres y como máximo tiene que ser de 255 carácteres.
+            'pregunta' => 'required|min:15|max:255',
+            // El tema es requerido y no puede ser igual a selecciona.
+            'tema' => 'required',
+            // Está requerido marcar las normas como leídas.
+            'normas' => 'required'
+        ]);
+
+        if ($request->tema != 'selecciona')
+        {
+
+            $usuario = User::where('name', $request->usuario)->first();
+
+            if ($usuario != NULL)
+            {
+                $pregunta = new preguntas;
+
+                $pregunta->usuario = $request->usuario;
+                $pregunta->pregunta = $request->pregunta;
+                $pregunta->tema = $request->tema;
+        
+                // Guardo los datos y se insertan la tabla de preguntas.
+                $pregunta->save();
+        
+                return redirect('home')->with('success','¡Has enviado tu pregunta!');
+            }
+            else
+            {
+                return redirect('home')->with('error','No existe ese usuario');
+            }
+            
+        }
+        else
+        {
+            return redirect('home')->with('error','¡Debes elegir un tema!');
+        }
+        
+
     }
 
     // Defino el método para el contacto

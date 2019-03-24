@@ -16,21 +16,20 @@
                 <aside class="col-md-10 offset-md-1">
                     <aside class="aside-edit">Contraseña actual *</aside><input class="input-edit" type="password"
                         name="clave_actual" />
-                    <small class="text-muted">Debes introducir la <strong>contraseña actual</strong> para realizar cambios.</small>
+                    <small class="text-muted">Debes introducir la <strong>contraseña actual</strong> para realizar
+                        cambios.</small>
                     <hr />
                 </aside>
             </aside>
 
             <aside class="form-group row">
                 <aside class="col-md-10 offset-md-1">
-                    <aside class="aside-edit">Usuario *</aside><input class="input-edit" type="text" name="usuario"
-                        value="{{ Auth::user()->name }}" />
+                    <aside class="aside-edit">Usuario</aside><input class="input-edit" type="text" name="usuario" />
                 </aside>
             </aside>
             <aside class="form-group row">
                 <aside class="col-md-10 offset-md-1">
-                    <aside class="aside-edit">Email *</aside><input class="input-edit" type="text" name="email"
-                        value="{{ Auth::user()->email }}" />
+                    <aside class="aside-edit">Email</aside><input class="input-edit" type="text" name="email" />
                 </aside>
             </aside>
             <aside class="form-group row">
@@ -60,9 +59,14 @@
             @endif
 
             @if ($errors->any())
-            <div class="alert alert-danger">
+            <div class="mt-4 alert alert-danger">
                 @foreach ($errors->all() as $error)
-                {{ $error }}<br />
+                    @if ($loop->last)
+                        {{ $error }}
+                    @else
+                        {{ $error }}
+                        <hr />
+                    @endif
                 @endforeach
             </div>
             @endif

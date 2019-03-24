@@ -21,6 +21,8 @@ Route::get('/contacto', 'PreguntasControlador@getContacto');
 
 Route::post('/envio-contacto', 'PreguntasControlador@sendContacto');
 
+Route::post('/enviando', 'PreguntasControlador@sendPregunta');
+
 Route::get('/perfil', 'UsuariosControlador@getPerfil')->middleware('auth');
 
 Route::get('/editar-perfil', 'UsuariosControlador@editPerfil')->middleware('auth');

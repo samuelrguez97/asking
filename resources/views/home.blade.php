@@ -8,27 +8,34 @@
             <aside class="text-center">
                 <img class="img_ask" src="{{ url('imagenes/favicon/favicon.png') }}">
             </aside>
-            <form class=".form_pregunta" action="" method="post">
+            <form class=".form_pregunta" action="{{ action('PreguntasControlador@sendPregunta') }}" method="post">
+
+                @csrf
+
                 <label>
-                    <input type="text" class="w-user input text-white" placeholder="Introduce el usuario"
-                        name="usuario">
+                    <input type="text" class="w-user input text-white" placeholder="Introduce el usuario" name="usuario"
+                        value="{{ old('usuario') }}">
                     <div class="line-box w-user">
                         <div class="line"></div>
                     </div>
                 </label>
                 <label>
                     <input type="text" class="input text-white" name="pregunta" placeholder="Introduce tu pregunta"
-                        data-emojiable="true" data-emoji-input="unicode">
+                        data-emojiable="true" data-emoji-input="unicode" value="{{ old('pregunta') }}">
                     <div class="line-box">
                         <div class="line"></div>
                     </div>
                 </label>
                 <label>
                     <p class="label-txt">Selecciona el tema</p>
-                    <div class="select" name="tema">
-                        <select>
-                            <option>Selecciona</option>
-                            <option>Prueba 1</option>
+                    <div class="select">
+                        <select name="tema">
+                            <option value="selecciona">Selecciona</option>
+                            @if(isset($temas))
+                                @foreach($temas as $tema)
+                                    <option value="{{ $tema->id }}">{{ $tema->tema }}</option>
+                                @endforeach
+                            @endif
                         </select>
                         <div class="select_arrow">
                         </div>
@@ -42,10 +49,37 @@
                             comunidad</a> * </span>
                 </label>
                 <div class="text-center mt-5">
-                    <button class="btn-sm" id="enviar_pregunta" type="submit">Enviar pregunta</button>
+                    <button class="btn-sm" id="enviar_pregunta" type="submit" name="submit">Enviar pregunta</button>
                 </div>
             </form>
         </div>
+
+    </div>
+    <div class="col-md-3 mx-auto text-center">
+        @if( Session::has('success') )
+        <aside class="mt-4 alert alert-success" role="alert">
+            {{ session('success') }}
+        </aside>
+        @endif
+
+        @if( Session::has('error') )
+        <aside class="mt-4 alert alert-danger" role="alert">
+            {{ session('error') }}
+        </aside>
+        @endif
+
+        @if ($errors->any())
+        <div class="mt-4 alert alert-danger">
+            @foreach ($errors->all() as $error)
+                @if ($loop->last)
+                    {{ $error }}
+                @else
+                    {{ $error }}
+                    <hr/>
+                @endif
+            @endforeach
+        </div>
+        @endif
     </div>
 </div>
 
