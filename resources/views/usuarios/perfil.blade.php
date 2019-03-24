@@ -67,7 +67,13 @@
                             </div>
                         </div>
                         <div class="card-footer">
-                            <aside class="float-left tiempo">hace 20 minutos</aside>
+                            <aside class="float-left tiempo">
+                            @if ($pregunta->created_at->hour > date('H') )
+                                hace {{ date('H') - $pregunta->created_at->hour }} horas
+                            @else
+                                hace {{ date('i') - $pregunta->created_at->minute }} minutos
+                            @endif
+                            </aside>
                             <span class="badge badge-info tema">{{ $pregunta->tema }}</span>
                             <div class="text-right float-right">
                                 <a href=""><i class="fa fa-times text-danger" aria-aside="Close" data-toggle="tooltip"
