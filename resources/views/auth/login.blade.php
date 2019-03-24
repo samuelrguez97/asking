@@ -12,7 +12,7 @@
 
         <div class="form-group row">
 
-            <div class="col-md-6 offset-md-3">
+            <div class="col-md-8 offset-md-2">
                 <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}"
                     name="email" value="{{ old('email') }}" required autofocus placeholder="E-mail">
 
@@ -25,7 +25,7 @@
         </div>
 
         <div class="form-group row">
-            <div class="col-md-6 offset-md-3">
+            <div class="col-md-8 offset-md-2">
                 <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}"
                     name="password" required placeholder="Contraseña">
 
@@ -38,7 +38,7 @@
         </div>
 
         <div class="form-group row">
-            <div class="col-md-6 offset-md-3">
+            <div class="col-md-8 offset-md-2">
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" name="remember" id="remember"
                         {{ old('remember') ? 'checked' : '' }}>
@@ -51,7 +51,7 @@
         </div>
 
         <div class="form-group row mb-0">
-            <div class="col-md-7 offset-md-3">
+            <div class="col-md-8 offset-md-2">
                 <button type="submit" class="boton btn-sm draw-border">
                     Entrar
                 </button>

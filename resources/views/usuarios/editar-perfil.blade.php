@@ -8,43 +8,46 @@
 
             @csrf
 
-            <aside class="text-center mb-4">
-                <h1 class="letraTitulo">Editar perfil</h1>
+            <div class="text-center mb-4">
+                <h2 class="letraTitulo">Editar perfil</h2>
+            </div>
+
+            <aside class="form-group row">
+                <aside class="col-md-10 offset-md-1">
+                    <aside class="aside-edit">Contraseña actual *</aside><input class="input-edit" type="password"
+                        name="clave_actual" />
+                    <small class="text-muted">Debes introducir la <strong>contraseña actual</strong> para realizar cambios.</small>
+                    <hr />
+                </aside>
             </aside>
 
             <aside class="form-group row">
-                <aside class="col-md-8 offset-md-2">
-                    <aside class="aside-edit">Usuario</aside><input class="input-edit" type="text" name="usuario"
+                <aside class="col-md-10 offset-md-1">
+                    <aside class="aside-edit">Usuario *</aside><input class="input-edit" type="text" name="usuario"
                         value="{{ Auth::user()->name }}" />
                 </aside>
             </aside>
             <aside class="form-group row">
-                <aside class="col-md-8 offset-md-2">
-                    <aside class="aside-edit">Email</aside><input class="input-edit" type="text" name="email"
+                <aside class="col-md-10 offset-md-1">
+                    <aside class="aside-edit">Email *</aside><input class="input-edit" type="text" name="email"
                         value="{{ Auth::user()->email }}" />
                 </aside>
             </aside>
             <aside class="form-group row">
-                <aside class="col-md-8 offset-md-2">
-                    <aside class="aside-edit">Contraseña actual</aside><input class="input-edit" type="password"
-                        name="antigua-clave" />
-                </aside>
-            </aside>
-            <aside class="form-group row">
-                <aside class="col-md-8 offset-md-2">
+                <aside class="col-md-10 offset-md-1">
                     <aside class="aside-edit">Nueva contraseña</aside><input class="input-edit" type="password"
-                        name="nueva-clave" />
+                        name="nueva_clave" />
                 </aside>
             </aside>
             <aside class="form-group row">
-                <aside class="col-md-8 offset-md-2">
+                <aside class="col-md-10 offset-md-1">
                     <aside class="aside-edit">Imagen de perfil</aside><input type="file" id="avatar" name="avatar"
                         accept="image/png, image/jpeg">
                 </aside>
             </aside>
             <aside class="form-group row">
-                <aside class="col-md-8 offset-md-2 mt-3">
-                    <button type="submit" name="submit" class="btn btn-sm btn-success">Enviar</button>
+                <aside class="col-md-10 offset-md-1 mt-3">
+                    <button type="submit" name="submit" class="btn btn-sm btn-success">Editar</button>
                     <a class="ml-3 btn btn-sm btn-warning"
                         href="{{ action('UsuariosControlador@getPerfil') }}">Cancelar</a>
                 </aside>

@@ -38,7 +38,7 @@
                 
                 @if( Session::has('success') )
                 <div class="form-group row mt-3 mx-auto">
-                    <div class="col-md-8 mx-auto">
+                    <div class="col-md-12 mx-auto">
                         <aside class="mt-4 alert alert-success" role="alert">
                             {{ session('success') }}
                         </aside>
@@ -48,7 +48,7 @@
 
                 @if ($errors->any())
                 <div class="form-group row mt-3 mx-auto">
-                    <div class="col-md-12 mx-auto">
+                    <div class="col-md-8 mx-auto">
                         <div class="alert alert-danger">
                             @foreach ($errors->all() as $error)
                                 {{ $error }}<br />

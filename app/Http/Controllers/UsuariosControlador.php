@@ -27,7 +27,7 @@ class UsuariosControlador extends Controller
         $user = Auth::user();
         
         // Compruebo que haya introducido la clave actual y si es la misma que la del usuario, si no es así no se podrá actualizar el perfil
-        if (Hash::check($request->input('antigua-clave'), $user->password))
+        if (Hash::check($request->input('clave_actual'), $user->password))
         {
             // Dictamino todas las validaciones de los campos del formulario
             $request->validate([
@@ -45,12 +45,12 @@ class UsuariosControlador extends Controller
                     La antigua clava es requerida, como minimo tiene que tener 6 carácteres 
                     y como máximo tiene que ser de 255 carácteres.
                 */
-                'antigua-clave' => 'required|min:6|max:255',
+                'clave_actual' => 'required|min:6|max:255',
                 /*
                     La nueva clave no es requerida, como minimo tiene que tener 6 carácteres 
                     y como máximo tiene que ser de 255 carácteres.
                 */
-                'nueva-clave' => 'nullable|min:6|max:255'
+                'nueva_clave' => 'nullable|min:6|max:255'
             ]);
             
             // Compruebo si el avatar no es nulo 
@@ -75,10 +75,10 @@ class UsuariosControlador extends Controller
             $user->email = $nuevoEmail;
 
             // Compruebo si la nueva contraseña no es nula
-            if ($request->input('nueva-clave') != NULL)
+            if ($request->input('nueva_clave') != NULL)
             {
                 // Recojo el dato de la nueva contraseña
-                $nuevaClave = Hash::make($request->input('nueva-clave'));
+                $nuevaClave = Hash::make($request->input('nueva_clave'));
                 // Y lo inserto al usuario actual
                 $user->password = $nuevaClave;
             }

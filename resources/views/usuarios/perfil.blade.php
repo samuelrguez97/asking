@@ -27,7 +27,7 @@
                 </table>
             </div>
             <br />
-            <a class="btn btn-info" href="{{ action('UsuariosControlador@editPerfil') }}">Editar perfil</a>
+            <a class="btn btn-info mb-5" href="{{ action('UsuariosControlador@editPerfil') }}">Editar perfil</a>
             @if( Session::has('success') )
             <aside class="mt-4 alert alert-success" role="alert">
                 {{ session('success') }}
