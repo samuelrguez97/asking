@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use App\User;
+use App\preguntas;
 use Auth;
 use Hash;
 
@@ -12,7 +13,11 @@ class UsuariosControlador extends Controller
 {
     public function getPerfil() 
     {
-        return view('usuarios.perfil');
+        $preguntas = preguntas::orderBy('created_at', 'desc')
+            ->where('usuario', Auth::user()->name)
+            ->where('respuesta', 0)
+            ->get();
+        return view("usuarios.perfil",  ["preguntas" => $preguntas]);
     }
 
     public function editPerfil() {

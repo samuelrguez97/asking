@@ -47,13 +47,39 @@
             <h1 class="display-4 letraTitulo">Tus preguntas</h1>
             <h4 class="text-white">Preguntas realizadas para ti</h4>
 
-
-            <!-- ZONA PARA METER LAS PREGUNTAS DESDE LA BASE DE DATOS-->
-
-
-            <!-- --------------------------------------------------- -->
-
             <div class="row mt-5">
+
+                <!-- ZONA PARA METER LAS PREGUNTAS DESDE LA BASE DE DATOS-->
+
+                @foreach ($preguntas as $pregunta)
+                <div class="col-sm-6 mb-5">
+                    <div class="card text-white bg-secondary">
+                        <div class="card-body">
+                            <h6 class="card-text ml-3 texto-pregunta">{{ $pregunta->pregunta }}</h6>
+                            <div class="float-right">
+                                <button href="" class="btn btn-secondary btn-sm"> <i class="fa fa-reply"></i>
+                                    Responder</button>
+                            </div>
+                            <div class="float-left mt-2">
+                                <a class="like" href=""><img class="float-left img-likes"
+                                        src="{{ url('imagenes/preguntas/mg_t.png') }}" /></a>
+                                <aside class="float-left likes ml-2">{{ $pregunta->likes }}</aside>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <aside class="float-left tiempo">hace 20 minutos</aside>
+                            <span class="badge badge-info tema">{{ $pregunta->tema }}</span>
+                            <div class="text-right float-right">
+                                <a href=""><i class="fa fa-times text-danger" aria-aside="Close" data-toggle="tooltip"
+                                        data-placement="right" title="Eliminar pregunta"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @endforeach
+
+                <!-- --------------------------------------------------- -->
+
                 <div class="col-sm-6 mb-5">
                     <div class="card text-white bg-secondary">
                         <div class="card-body">
@@ -63,7 +89,8 @@
                                     Responder</button>
                             </div>
                             <div class="float-left mt-2">
-                                <a class="like" href=""><img class="float-left img-likes" src="{{ url('imagenes/preguntas/mg_t.png') }}" /></a>
+                                <a class="like" href=""><img class="float-left img-likes"
+                                        src="{{ url('imagenes/preguntas/mg_t.png') }}" /></a>
                                 <aside class="float-left likes ml-2">200</aside>
                             </div>
                         </div>
@@ -87,12 +114,13 @@
                                     Responder</button>
                             </div>
                             <div class="float-left mt-2">
-                                <a class="like" href=""><img class="float-left img-likes" src="{{ url('imagenes/preguntas/mg_t.png') }}" /></a>
+                                <a class="like" href=""><img class="float-left img-likes"
+                                        src="{{ url('imagenes/preguntas/mg_t.png') }}" /></a>
                                 <aside class="float-left likes ml-2">15</aside>
                             </div>
                         </div>
                         <div class="card-footer">
-                        <aside class="float-left tiempo">hace 1 hora</aside>
+                            <aside class="float-left tiempo">hace 1 hora</aside>
                             <span class="badge badge-info tema">Entretenimiento</span>
                             <div class="text-right float-right">
                                 <a href=""><i class="fa fa-times text-danger" aria-aside="Close" data-toggle="tooltip"
@@ -101,59 +129,13 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-6 mb-5">
-                    <div class="card text-white bg-secondary">
-                        <div class="card-body">
-                            <h6 class="card-text ml-3 texto-pregunta">preuba 2</h6>
-                            <div class="float-right">
-                                <button href="" class="btn btn-secondary btn-sm"> <i class="fa fa-reply"></i>
-                                    Responder</button>
-                            </div>
-                            <div class="float-left mt-2">
-                                <a class="like" href=""><img class="float-left img-likes" src="{{ url('imagenes/preguntas/mg_t.png') }}" /></a>
-                                <aside class="float-left likes ml-2">32</aside>
-                            </div>
-                        </div>
-                        <div class="card-footer">
-                            <aside class="float-left tiempo">hace 10 minutos</aside>
-                            <span class="badge badge-info tema">Videojuegos</span>
-                            <div class="text-right float-right">
-                                <a href=""><i class="fa fa-times text-danger" aria-aside="Close" data-toggle="tooltip"
-                                        data-placement="right" title="Eliminar pregunta"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 mb-5">
-                    <div class="card text-white bg-secondary">
-                        <div class="card-body">
-                            <h6 class="card-text ml-3 texto-pregunta">preuba 42</h6>
-                            <div class="float-right">
-                                <button href="" class="btn btn-secondary btn-sm"> <i class="fa fa-reply"></i>
-                                    Responder</button>
-                            </div>
-                            <div class="float-left mt-2">
-                                <a class="like" href=""><img class="float-left img-likes" src="{{ url('imagenes/preguntas/mg_t.png') }}" /></a>
-                                <aside class="float-left likes ml-2">125</aside>
-                            </div>
-                        </div>
-                        <div class="card-footer">
-                            <aside class="float-left tiempo">hace 10 minutos</aside>
-                            <span class="badge badge-info tema">Entretenimiento</span>
-                            <div class="text-right float-right">
-                                <a class="like" href=""><i class="fa fa-times text-danger" aria-aside="Close" data-toggle="tooltip"
-                                        data-placement="right" title="Eliminar pregunta"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
+                
             </div>
             <div class="mb-5 text-center">
                 <button class="btn btn-lg btn-success">Ver todas</button>
             </div>
 
-            <hr/>
+            <hr />
 
             <!-- ZONA DE PREGUNTAS REALIZADAS -->
 
@@ -185,7 +167,8 @@
                             <aside class="float-left tiempo">hace 20 minutos</aside>
                             <span class="badge badge-info tema">Caballos</span>
                             <div class="float-right ml-3">
-                                <a class="like" href=""><img class="float-left img-likes" src="{{ url('imagenes/preguntas/mg_f.png') }}" /></a>
+                                <a class="like" href=""><img class="float-left img-likes"
+                                        src="{{ url('imagenes/preguntas/mg_f.png') }}" /></a>
                                 <aside class="float-left likes ml-2">125</aside>
                             </div>
                         </div>
@@ -209,7 +192,8 @@
                             <aside class="float-left tiempo">hace 20 minutos</aside>
                             <span class="badge badge-info tema">Ordenadores</span>
                             <div class="float-right ml-3">
-                                <a class="like" href=""><img class="float-left img-likes" src="{{ url('imagenes/preguntas/mg_f.png') }}" /></a>
+                                <a class="like" href=""><img class="float-left img-likes"
+                                        src="{{ url('imagenes/preguntas/mg_f.png') }}" /></a>
                                 <aside class="float-left likes ml-2">32</aside>
                             </div>
                         </div>

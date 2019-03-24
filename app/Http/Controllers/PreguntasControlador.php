@@ -40,10 +40,10 @@ class PreguntasControlador extends Controller
         
 
         $request->validate([
-            // El usuario es requerido, como máximo tiene que ser de 255 carácteres.
-            'usuario' => 'required|max:255',
-            // La pregunta es requerida, tiene que tener como minimo 15 carácteres y como máximo tiene que ser de 255 carácteres.
-            'pregunta' => 'required|min:15|max:255',
+            // El usuario es requerido, como máximo tiene que ser de 30 carácteres.
+            'usuario' => 'required|max:30',
+            // La pregunta es requerida y puede tener como máximo 140 carácteres.
+            'pregunta' => 'required|max:140',
             // El tema es requerido y no puede ser igual a selecciona.
             'tema' => 'required',
             // Está requerido marcar las normas como leídas.
@@ -62,6 +62,7 @@ class PreguntasControlador extends Controller
                 $pregunta->usuario = $request->usuario;
                 $pregunta->pregunta = $request->pregunta;
                 $pregunta->tema = $request->tema;
+                $pregunta->respuesta = false;
         
                 // Guardo los datos y se insertan la tabla de preguntas.
                 $pregunta->save();
@@ -72,7 +73,6 @@ class PreguntasControlador extends Controller
             {
                 return redirect('home')->with('error','No existe ese usuario');
             }
-            
         }
         else
         {

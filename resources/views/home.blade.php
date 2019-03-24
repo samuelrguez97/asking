@@ -33,7 +33,7 @@
                             <option value="selecciona">Selecciona</option>
                             @if(isset($temas))
                                 @foreach($temas as $tema)
-                                    <option value="{{ $tema->id }}">{{ $tema->tema }}</option>
+                                    <option value="{{ $tema->tema }}">{{ $tema->tema }}</option>
                                 @endforeach
                             @endif
                         </select>
