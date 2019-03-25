@@ -55,13 +55,13 @@ class UsuariosControlador extends Controller
         $preguntas_a_ti = preguntas::orderBy('created_at', 'desc') // de forma descendente, las mas nuevas primero
             ->where('usuario', Auth::user()->name) // solo las que son para ese usuario
             ->where('respuesta', 0) // que no hayan sido respondidas
-            ->take(4) // solo las 4 primeras
+            ->take(2) // solo las 2 primeras
             ->get(); // recojo los datos
 
         // Selecciono las preguntas que ha enviado el usuario con estos criterios ...
         $preguntas_por_ti = preguntas::orderBy('created_at', 'desc') // de forma descendente, las mas nuevas primero
             ->where('by_usuario', Auth::user()->name) // solo las que son enviadas por ese usuario
-            ->take(4) // solo las 4 primeras
+            ->take(2) // solo las 2 primeras
             ->get(); // recojo los datos
 
         $preguntas_like = usuario_pregunta_like::where("id_usuario", Auth::user()->id)->get();

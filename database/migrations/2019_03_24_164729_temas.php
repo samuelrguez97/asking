@@ -21,9 +21,8 @@ class Temas extends Migration
 
         $temas = array(
             array('tema' => 'General'),
-            array('tema' => 'Entretenimiento'),
-            array('tema' => 'Informática'),
-            array('tema' => 'Automoción'),
+            array('tema' => 'Coches'),
+            array('tema' => 'Motos'),
             array('tema' => 'Estudios'),
             array('tema' => 'Fiestas'),
             array('tema' => 'Trabajo')

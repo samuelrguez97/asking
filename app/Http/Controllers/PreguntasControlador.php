@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Auth;
 use App\preguntas;
 use App\usuario_pregunta_like;
@@ -125,37 +126,48 @@ class PreguntasControlador extends Controller
 
     }
 
-    /* -- Defino el método para los likes -- */
+    /* -- Defino el método para los likes/dislikes -- */
 
-    public function accionLike($id_pregunta, Request $request) {
+    public function accionLike($id_pregunta, Request $request) { 
+    // Recojo el id de la pregunta a la que se efectaura el like/dislike
         
+        // Compruebo que sea una peticion ajax
         if ($request->ajax())
         {
+            // Compruebo si hay un usuario activo, si no, no se puede dar like/dislike
             if (Auth::check())
             {
+                // Recojo el id del usuario en activo
                 $id_usuario = Auth::user()->id;
 
+                // Recojo el like que haya dado el usuario a esa pregunta
                 $like = usuario_pregunta_like::where('id_usuario', $id_usuario)->where('id_pregunta', $id_pregunta);
 
-                $pregunta = preguntas::find($id_pregunta)->first();
-
+                // Compruebo si existe ya el like
                 if (!$like->first())
                 {
+                    // Si no existe creo el vinculo en la tabla usuario_pregunta_like
                     $like_nuevo = new usuario_pregunta_like;
                     $like_nuevo->id_pregunta = $id_pregunta;
                     $like_nuevo->id_usuario = $id_usuario;
                     $like_nuevo->save();
 
+                    // Y incremento en 1 los likes de la pregunta en la tabla de las preguntas
                     preguntas::find($id_pregunta)->increment('likes');
 
+                    // Y devuelvo a la peticion ajax la accion que se ha efectuado
                     return 'like';
                 }
                 else
                 {
+                    // Si ya existe el like significa que la accion es un dislike
+                    // por tanto elimino el like recojido anteriormente
                     $like->delete();
 
+                    // Y resto 1 a los likes de la pregunta en la tabla preguntas
                     preguntas::find($id_pregunta)->decrement('likes');
 
+                    // Y devuelvo a la peticion ajax la accion que se ha efectuado
                     return 'unlike';
                 }
                 

@@ -22,7 +22,7 @@ class Preguntas extends Migration
             $table->bigInteger('likes')->default(0);
             $table->boolean('respuesta')->default(false);
             $table->string('by_usuario')->default("");
-            $table->timestamp('created_at');
+            $table->timestamp('created_at')->useCurrent();
         });
     }
 

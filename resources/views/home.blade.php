@@ -136,7 +136,7 @@
                         </div>
                         <div class="card-footer">
                             <aside class="float-left tiempo">
-                                {{ $pregunta->created_at->diffForHumans(date('Y-m-d H:i:s')) }}
+                                {{ $pregunta->created_at->diffForHumans() }}
                             </aside>
                             <div class="float-right ml-3">
                                 @if (Auth::check())
