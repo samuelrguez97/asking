@@ -36,9 +36,11 @@ class PreguntasControlador extends Controller
         return view('contacto');
     }
 
+    /* -- Defino el método para enviar una pregunta -- */
+
     public function sendPregunta(Request $request) {
         
-
+        // Dictamino todas las validaciones de los campos del formulario
         $request->validate([
             // El usuario es requerido, como máximo tiene que ser de 30 carácteres.
             'usuario' => 'required|max:30',
@@ -50,39 +52,84 @@ class PreguntasControlador extends Controller
             'normas' => 'required'
         ]);
 
+        // Compruebo si se ha seleccionado el tema
         if ($request->tema != 'selecciona')
         {
-
+            // Selecciono al usuario que concuerda con el usuario introducido
             $usuario = User::where('name', $request->usuario)->first();
-
+            
+            // Compruebo si existe el usuario
             if ($usuario != NULL)
             {
+                // Genero una nueva instancia del modelo preguntas
                 $pregunta = new preguntas;
-
+                
+                /* Introduzco todos los datos de la pregunta en la instancia */
+                // Introduzco el usuario al que se le envia la pregunta
                 $pregunta->usuario = $request->usuario;
+                // Introduzco la pregunta
                 $pregunta->pregunta = $request->pregunta;
+                // Introduzco el tema
                 $pregunta->tema = $request->tema;
-                $pregunta->respuesta = false;
+                  
+                // Compruebo si hay un usuario activo
+                if (Auth::check())
+                {
+                    // Introduzco el usuario que ha realizado la pregunta
+                    $pregunta->by_usuario = Auth::user()->name;
+                }
         
                 // Guardo los datos y se insertan la tabla de preguntas.
                 $pregunta->save();
         
-                return redirect('home')->with('success','¡Has enviado tu pregunta!');
+                // Redirijo al home con el mensaje de que se ha enviado la pregunta
+                return redirect('home')->with('success', '¡Has enviado tu pregunta!');
             }
             else
             {
-                return redirect('home')->with('error','No existe ese usuario');
+                // Redirijo al home con el mensaje de que no existe ese usuario
+                return redirect('home')->with('error', 'No existe ese usuario');
             }
         }
         else
         {
-            return redirect('home')->with('error','¡Debes elegir un tema!');
+            // Redirijo al home con el mensaje de que se debe elegir un tema
+            return redirect('home')->with('error', '¡Debes elegir un tema!');
         }
         
 
     }
 
-    // Defino el método para el contacto
+    /* Defino el método para eliminar pregunta */
+
+    public function eliminarPregunta($id_pregunta) { // Recojo el id de la pregunta que se envia desde la vista
+
+        // Elimino de la base de datos la pregunta que coincide con el id
+        preguntas::find($id_pregunta)->delete();
+
+        // Redirijo al perfil con el mensaje de que se ha eliminado la pregunta
+        return redirect('perfil')->with('eliminada', '¡Has eliminado la pregunta!');
+
+    }
+
+    /* Defino el método para dar me gusta/no me gusta a la pregunta */
+
+    public function actuarPregunta(Request $request, $id)
+    {
+        $action = $request->get('action');
+        switch ($action) {
+            case 'Like':
+                preguntas::where('id', $id)->increment('likes');
+                break;
+            case 'Unlike':
+                preguntas::where('id', $id)->decrement('likes');
+                break;
+        }
+        return '';
+    }
+
+    /* Defino el método para el contacto */
+
     public function sendContacto(Request $request) {
         
         // Creo una nueva instancia del modelo contacto conectado a la base de datos
@@ -104,7 +151,7 @@ class PreguntasControlador extends Controller
         $contacto->save();
 
         // Redirijo a la página del contacto con un mensaje de que se ha enviado el formulario de contacto.
-        return redirect('contacto')->with('success','Gracias! Has enviado tu consulta, pronto nos pondremos en contacto contigo via email.');
+        return redirect('contacto')->with('success', 'Gracias! Has enviado tu consulta, pronto nos pondremos en contacto contigo via email.');
 
     }
 

@@ -4,6 +4,8 @@
 <div class="container-fluid w-fit-content h-fit-content">
     <div class="mt-5 row">
 
+        <!-- ZONA PARA MOSTRAR INFORMACIÓN DEL PERFIL -->
+
         <div class="card-perfil col-md-3 offset-md-1">
             <div class="card fit-content">
                 <img class="img-perfil" src="{{ url('storage/imagenes/usuarios') }}/{{ Auth::user()->avatar }}" />
@@ -47,36 +49,42 @@
             <h1 class="display-4 letraTitulo">Tus preguntas</h1>
             <h4 class="text-white">Preguntas realizadas para ti</h4>
 
+            @if ( $preguntas_a_ti->isEmpty() )
+            <aside class="mt-4 text-center alert alert-warning" role="alert">
+                No tienes preguntas ahora mismo ...
+            </aside>
+            @else
+
             <div class="row mt-5">
 
                 <!-- ZONA PARA METER LAS PREGUNTAS DESDE LA BASE DE DATOS-->
 
-                @foreach ($preguntas as $pregunta)
+                @foreach ( $preguntas_a_ti as $pregunta )
                 <div class="col-sm-6 mb-5">
                     <div class="card text-white bg-secondary">
                         <div class="card-body">
-                            <h6 class="card-text ml-3 texto-pregunta">{{ $pregunta->pregunta }}</h6>
+                            @if ( date('H') - $pregunta->created_at->hour == 0 )
+                            <span class="float-right badge badge-success ml-3 mb-2">Nueva</span>
+                            @endif
+                            <h6 class="card-text ml-3">{{ $pregunta->pregunta }}</h6>
                             <div class="float-right">
                                 <button href="" class="btn btn-secondary btn-sm"> <i class="fa fa-reply"></i>
                                     Responder</button>
                             </div>
                             <div class="float-left mt-2">
-                                <a class="like" href=""><img class="float-left img-likes"
-                                        src="{{ url('imagenes/preguntas/mg_t.png') }}" /></a>
+                                <img class="float-left img-likes" src="{{ url('imagenes/preguntas/mg_t.png') }}" />
                                 <aside class="float-left likes ml-2">{{ $pregunta->likes }}</aside>
                             </div>
                         </div>
                         <div class="card-footer">
                             <aside class="float-left tiempo">
-                            @if ($pregunta->created_at->hour > date('H') )
-                                hace {{ date('H') - $pregunta->created_at->hour }} horas
-                            @else
-                                hace {{ date('i') - $pregunta->created_at->minute }} minutos
-                            @endif
+                                {{ $pregunta->created_at->diffForHumans(date('Y-m-d H:i:s')) }}
                             </aside>
                             <span class="badge badge-info tema">{{ $pregunta->tema }}</span>
                             <div class="text-right float-right">
-                                <a href=""><i class="fa fa-times text-danger" aria-aside="Close" data-toggle="tooltip"
+                                <a
+                                    href="{{ action('PreguntasControlador@eliminarPregunta', ['id_pregunta' => $pregunta->id]) }}"><i
+                                        class="fa fa-times text-danger" aria-aside="Close" data-toggle="tooltip"
                                         data-placement="right" title="Eliminar pregunta"></i></a>
                             </div>
                         </div>
@@ -86,60 +94,21 @@
 
                 <!-- --------------------------------------------------- -->
 
-                <div class="col-sm-6 mb-5">
-                    <div class="card text-white bg-secondary">
-                        <div class="card-body">
-                            <h6 class="card-text ml-3 texto-pregunta">Pregunta</h6>
-                            <div class="float-right">
-                                <button href="" class="btn btn-secondary btn-sm"> <i class="fa fa-reply"></i>
-                                    Responder</button>
-                            </div>
-                            <div class="float-left mt-2">
-                                <a class="like" href=""><img class="float-left img-likes"
-                                        src="{{ url('imagenes/preguntas/mg_t.png') }}" /></a>
-                                <aside class="float-left likes ml-2">200</aside>
-                            </div>
-                        </div>
-                        <div class="card-footer">
-                            <aside class="float-left tiempo">hace 20 minutos</aside>
-                            <span class="badge badge-info tema">Variado</span>
-                            <div class="text-right float-right">
-                                <a href=""><i class="fa fa-times text-danger" aria-aside="Close" data-toggle="tooltip"
-                                        data-placement="right" title="Eliminar pregunta"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 mb-5">
-                    <div class="card text-white bg-secondary">
-                        <div class="card-body">
-                            <span class="float-right badge badge-success ml-3 mb-2">Nueva</span>
-                            <h6 class="card-text ml-3 texto-pregunta">de jajas xd</h6>
-                            <div class="float-right">
-                                <button href="" class="btn btn-secondary btn-sm"> <i class="fa fa-reply"></i>
-                                    Responder</button>
-                            </div>
-                            <div class="float-left mt-2">
-                                <a class="like" href=""><img class="float-left img-likes"
-                                        src="{{ url('imagenes/preguntas/mg_t.png') }}" /></a>
-                                <aside class="float-left likes ml-2">15</aside>
-                            </div>
-                        </div>
-                        <div class="card-footer">
-                            <aside class="float-left tiempo">hace 1 hora</aside>
-                            <span class="badge badge-info tema">Entretenimiento</span>
-                            <div class="text-right float-right">
-                                <a href=""><i class="fa fa-times text-danger" aria-aside="Close" data-toggle="tooltip"
-                                        data-placement="right" title="Eliminar pregunta"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
             </div>
+
+
+
+            @if( Session::has('eliminada') )
+            <aside class="mt-4 text-center alert alert-warning" role="alert">
+                {{ session('eliminada') }}
+            </aside>
+            @endif
+
             <div class="mb-5 text-center">
                 <button class="btn btn-lg btn-success">Ver todas</button>
             </div>
+
+            @endif
 
             <hr />
 
@@ -148,68 +117,60 @@
             <h1 class="display-4 letraTitulo">Preguntas realizadas</h1>
             <h4 class="text-white">Preguntas realizadas por ti</h4>
 
-            <!-- ZONA PARA METER LAS PREGUNTAS DESDE LA BASE DE DATOS-->
-
-
-            <!-- --------------------------------------------------- -->
+            @if ( $preguntas_por_ti->isEmpty() )
+            <aside class="mt-4 text-center alert alert-warning" role="alert">
+                No has realizado ninguna pregunta ...
+            </aside>
+            @else
 
             <div class="row mt-5">
+
+                <!-- ZONA PARA METER LAS PREGUNTAS DESDE LA BASE DE DATOS-->
+
+                @foreach ( $preguntas_a_ti as $pregunta )
                 <div class="col-sm-6 mb-5">
                     <div class="card text-white bg-secondary">
                         <div class="card-header">
                             <div class="pregunta-user">
                                 <aside class="float-left">
-                                    <span>Para: </span><span class="letraTitulo">gabri</span>
+                                    <span>Para: </span><span class="letraTitulo">{{ $pregunta->usuario }}</span>
                                 </aside>
                                 <aside class="float-right">
+                                    @if ($pregunta->respuesta == 0)
+                                    <span class="float-right badge badge-warning ml-3 mb-2">Sin respuesta</span>
+                                    @else
                                     <button class="btn btn-secondary btn-sm">Ver respuesta</button>
+                                    @endif
                                 </aside>
                             </div>
                         </div>
                         <div class="card-body">
-                            <h6 class="card-text ml-3 texto-pregunta">Pregunta</h6>
+                            <h6 class="card-text ml-3 texto-pregunta">{{ $pregunta->pregunta }}</h6>
                         </div>
                         <div class="card-footer">
-                            <aside class="float-left tiempo">hace 20 minutos</aside>
-                            <span class="badge badge-info tema">Caballos</span>
+                            <aside class="float-left tiempo">
+                                {{ $pregunta->created_at->diffForHumans(date('Y-m-d H:i:s')) }}
+                            </aside>
+                            <span class="badge badge-info tema">{{ $pregunta->tema }}</span>
                             <div class="float-right ml-3">
-                                <a class="like" href=""><img class="float-left img-likes"
-                                        src="{{ url('imagenes/preguntas/mg_f.png') }}" /></a>
-                                <aside class="float-left likes ml-2">125</aside>
+                                <button class="like btn btn-sm btn-primary-outline" onclick="actuarPregunta(event);" data-pregunta-id="{{ $pregunta->id }}"><img class="float-left img-likes"
+                                        src="{{ url('imagenes/preguntas/mg_f.png') }}" /></button>
+                                <aside id="contar-likes-{{ $pregunta->id }}" class="float-left likes mt-1 ml-2">{{ $pregunta->likes }}</aside>
                             </div>
                         </div>
                     </div>
                 </div>
+                @endforeach
 
-                <div class="col-sm-6 mb-5">
-                    <div class="card text-white bg-secondary">
-                        <div class="card-header">
-                            <div class="pregunta-user">
-                                <aside class="float-left">
-                                    <span>Para: </span><span class="letraTitulo">gabri</span>
-                                </aside>
-                                <span class="float-right badge badge-warning ml-3 mb-2">Sin respuesta</span>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <h6 class="card-text ml-3 texto-pregunta">que te pasaa 😃😟</h6>
-                        </div>
-                        <div class="card-footer">
-                            <aside class="float-left tiempo">hace 20 minutos</aside>
-                            <span class="badge badge-info tema">Ordenadores</span>
-                            <div class="float-right ml-3">
-                                <a class="like" href=""><img class="float-left img-likes"
-                                        src="{{ url('imagenes/preguntas/mg_f.png') }}" /></a>
-                                <aside class="float-left likes ml-2">32</aside>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <!-- --------------------------------------------------- -->
 
             </div>
             <div class="mb-5 text-center">
                 <button class="btn btn-lg btn-success">Ver todas</button>
             </div>
+
+            @endif
+
         </div>
     </div>
 </div>

@@ -11,13 +11,26 @@ use Hash;
 
 class UsuariosControlador extends Controller
 {
+
+    /* -- Defino el metodo para mostrar el perfil -- */
+
     public function getPerfil() 
     {
-        $preguntas = preguntas::orderBy('created_at', 'desc')
-            ->where('usuario', Auth::user()->name)
-            ->where('respuesta', 0)
-            ->get();
-        return view("usuarios.perfil",  ["preguntas" => $preguntas]);
+        // Selecciono las preguntas que se han enviado al usuario con estos criterios ...
+        $preguntas_a_ti = preguntas::orderBy('created_at', 'desc') // de forma descendente, las mas nuevas primero
+            ->where('usuario', Auth::user()->name) // solo las que son para ese usuario
+            ->where('respuesta', 0) // que no hayan sido respondidas
+            ->take(4) // solo las 4 primeras
+            ->get(); // recojo los datos
+
+        // Selecciono las preguntas que ha enviado el usuario con estos criterios ...
+        $preguntas_por_ti = preguntas::orderBy('created_at', 'desc') // de forma descendente, las mas nuevas primero
+            ->where('by_usuario', Auth::user()->name) // solo las que son enviadas por ese usuario
+            ->take(4) // solo las 4 primeras
+            ->get(); // recojo los datos
+
+        // y los envio a la vista del perfil con un objeto llamado preguntas_a_ti y preguntas_por_ti
+        return view("usuarios.perfil",  ["preguntas_a_ti" => $preguntas_a_ti, "preguntas_por_ti" => $preguntas_por_ti]);
     }
 
     public function editPerfil() {

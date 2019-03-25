@@ -23,6 +23,10 @@ Route::post('/envio-contacto', 'PreguntasControlador@sendContacto');
 
 Route::post('/enviando', 'PreguntasControlador@sendPregunta');
 
+Route::get('/eliminar-pregunta/{id_pregunta}', 'PreguntasControlador@eliminarPregunta')->middleware('auth');
+
+Route::post('/preguntas/{id}/accion', 'PreguntasControlador@actuarPregunta')->middleware('auth');
+
 Route::get('/perfil', 'UsuariosControlador@getPerfil')->middleware('auth');
 
 Route::get('/editar-perfil', 'UsuariosControlador@editPerfil')->middleware('auth');

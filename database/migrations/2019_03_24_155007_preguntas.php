@@ -20,7 +20,8 @@ class Preguntas extends Migration
             $table->string('pregunta');
             $table->string('tema');
             $table->bigInteger('likes')->default(0);
-            $table->boolean('respuesta');
+            $table->boolean('respuesta')->default(false);
+            $table->string('by_usuario')->default(null);
             $table->timestamp('created_at');
         });
     }
