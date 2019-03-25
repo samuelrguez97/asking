@@ -176,6 +176,10 @@ html, body {
     font-size: .8em;
 }
 
+.like {
+    background-color: transparent;
+}
+
 .tema {
     margin-left: 5%;
 }

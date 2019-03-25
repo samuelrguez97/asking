@@ -51,6 +51,7 @@ label {
     background: transparent;
     border: none;
     outline: none;
+    overflow-y: hidden;
 }
 
 .input::placeholder {

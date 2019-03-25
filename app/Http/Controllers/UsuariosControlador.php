@@ -6,11 +6,46 @@ use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use App\User;
 use App\preguntas;
+use App\usuario_pregunta_like;
+use App\contacto;
 use Auth;
 use Hash;
 
 class UsuariosControlador extends Controller
 {
+
+    /* -- Defino el método para la vista del contacto -- */
+    public function getContacto()
+    {
+        return view('contacto');
+    }
+
+    /* -- Defino el método para el envio del contacto -- */
+
+    public function sendContacto(Request $request) {
+            
+        // Creo una nueva instancia del modelo contacto conectado a la base de datos
+        $contacto = new contacto;
+
+        // Valido los datos del formulario de contacto
+        $request->validate([
+            // El mail es requerido, tiene que ser de tipo mail y como máximo tiene que ser de 255 carácteres.
+            'email' => 'required|email|max:255',
+            // El texto del contacto es requerido, tiene que tener como minimo 15 carácteres y como máximo tiene que ser de 255 carácteres.
+            'texto_contacto' => 'required|min:15|max:255'
+        ]);
+        
+        // Asocio cada campo del formulario con el campo de la base de datos
+        $contacto->email = $request->email;
+        $contacto->texto_contacto = $request->texto_contacto;
+        
+        // Guardo los datos y se insertan en la fila del usuario.
+        $contacto->save();
+
+        // Redirijo a la página del contacto con un mensaje de que se ha enviado el formulario de contacto.
+        return redirect('contacto')->with('success', 'Gracias! Has enviado tu consulta, pronto nos pondremos en contacto contigo via email.');
+
+    }
 
     /* -- Defino el metodo para mostrar el perfil -- */
 
@@ -29,8 +64,10 @@ class UsuariosControlador extends Controller
             ->take(4) // solo las 4 primeras
             ->get(); // recojo los datos
 
+        $preguntas_like = usuario_pregunta_like::where("id_usuario", Auth::user()->id)->get();
+
         // y los envio a la vista del perfil con un objeto llamado preguntas_a_ti y preguntas_por_ti
-        return view("usuarios.perfil",  ["preguntas_a_ti" => $preguntas_a_ti, "preguntas_por_ti" => $preguntas_por_ti]);
+        return view("usuarios.perfil",  ["preguntas_a_ti" => $preguntas_a_ti, "preguntas_por_ti" => $preguntas_por_ti, "preguntas_like" => $preguntas_like]);
     }
 
     public function editPerfil() {

@@ -4,15 +4,19 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Auth;
-use App\contacto;
 use App\preguntas;
+use App\usuario_pregunta_like;
 use App\temas;
 use App\User;
 
+
 class PreguntasControlador extends Controller
 {
+
+    /* -- Defino el método para devolver el home o el index depenediendo de si hay usuario conectado -- */
+
     public function index() 
-    {
+    {       
         if ( Auth::check() )
         {
             principal();
@@ -20,23 +24,29 @@ class PreguntasControlador extends Controller
         else
         {
             return view('index');
-        }
-        
+        }  
     }
+
+    /* -- Defino el método para devolver la página principal con los datos de las preguntas -- */
 
     public function principal()
     {
+        // Recojo todos los temas que hay
         $temas = temas::all();
-        $preguntas_todas = preguntas::all();
-        $preguntas_destacadas = preguntas::orderBy('likes', 'asc')
-            ->take(5)
-            ->get();
-        return view("home", ["temas" => $temas, "preguntas_todas" => $preguntas_todas, "preguntas_destacadas" => $preguntas_destacadas]);
-    }
-
-    public function getContacto()
-    {
-        return view('contacto');
+        // Recojo las preguntas ordenadas por fecha, las más recientes primero
+        $preguntas_todas = preguntas::orderBy('created_at', 'desc')->get();
+        if (Auth::check())
+        {
+            $preguntas_like = usuario_pregunta_like::where("id_usuario", Auth::user()->id)->get();
+            // Devuelvo la vista del home con todos los datos adjuntados
+            return view("home", ["temas" => $temas, "preguntas_todas" => $preguntas_todas, "preguntas_like" => $preguntas_like]);
+        }
+        else
+        {
+            return view("home", ["temas" => $temas, "preguntas_todas" => $preguntas_todas]);
+        }
+        
+        
     }
 
     /* -- Defino el método para enviar una pregunta -- */
@@ -103,7 +113,7 @@ class PreguntasControlador extends Controller
 
     }
 
-    /* Defino el método para eliminar pregunta */
+    /* -- Defino el método para eliminar pregunta -- */
 
     public function eliminarPregunta($id_pregunta) { // Recojo el id de la pregunta que se envia desde la vista
 
@@ -115,32 +125,43 @@ class PreguntasControlador extends Controller
 
     }
 
-    /* Defino el método para el contacto */
+    /* -- Defino el método para los likes -- */
 
-    public function sendContacto(Request $request) {
+    public function accionLike($id_pregunta, Request $request) {
         
-        // Creo una nueva instancia del modelo contacto conectado a la base de datos
-        $contacto = new contacto;
+        if ($request->ajax())
+        {
+            if (Auth::check())
+            {
+                $id_usuario = Auth::user()->id;
 
-        // Valido los datos del formulario de contacto
-        $request->validate([
-            // El mail es requerido, tiene que ser de tipo mail y como máximo tiene que ser de 255 carácteres.
-            'email' => 'required|email|max:255',
-            // El texto del contacto es requerido, tiene que tener como minimo 15 carácteres y como máximo tiene que ser de 255 carácteres.
-            'texto_contacto' => 'required|min:15|max:255'
-        ]);
-        
-        // Asocio cada campo del formulario con el campo de la base de datos
-        $contacto->email = $request->email;
-        $contacto->texto_contacto = $request->texto_contacto;
-        
-        // Guardo los datos y se insertan en la fila del usuario.
-        $contacto->save();
+                $like = usuario_pregunta_like::where('id_usuario', $id_usuario)->where('id_pregunta', $id_pregunta);
 
-        // Redirijo a la página del contacto con un mensaje de que se ha enviado el formulario de contacto.
-        return redirect('contacto')->with('success', 'Gracias! Has enviado tu consulta, pronto nos pondremos en contacto contigo via email.');
+                $pregunta = preguntas::find($id_pregunta)->first();
+
+                if (!$like->first())
+                {
+                    $like_nuevo = new usuario_pregunta_like;
+                    $like_nuevo->id_pregunta = $id_pregunta;
+                    $like_nuevo->id_usuario = $id_usuario;
+                    $like_nuevo->save();
+
+                    preguntas::find($id_pregunta)->increment('likes');
+
+                    return 'like';
+                }
+                else
+                {
+                    $like->delete();
+
+                    preguntas::find($id_pregunta)->decrement('likes');
+
+                    return 'unlike';
+                }
+                
+            }
+        } 
 
     }
-
 
 }

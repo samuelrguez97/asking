@@ -2,8 +2,9 @@
 
 <head>
     <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="32x32" href="{{ url('imagenes/favicon/favicon.png') }}">
@@ -21,6 +22,9 @@
     <!-- Emojis CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="{{ url('emojis/css/emoji.css') }}" rel="stylesheet">
+
+    <!-- Notificaciones CSS -->
+    <link href="{{ url('plugins/overhang.js/dist/overhang.min.css') }}" rel="stylesheet">
 
     <!-- Otros CSS-->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
@@ -45,11 +49,14 @@
     </div>
 
     @include('partials.footer')
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <!-- jQuery primero, luego JQuery UI, despues Popper.js y por ultimo Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.js"
         integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
-        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous">
+    <script src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.5/jquery-ui.min.js'>
+    <script src = "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+        integrity = "sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+        crossorigin = "anonymous" >
+
     </script>
     <script src="{{ url('/assets/bootstrap/js/bootstrap.min.js') }}" integrity="" crossorigin="anonymous"></script>
     <!-- Emojis JS -->
@@ -73,8 +80,11 @@
         });
 
     </script>
-    <!-- Optional JavaScript -->
+    <!-- Notificaciones JS -->
+    <script src="{{ url('plugins/overhang.js/dist/overhang.min.js') }}"></script>
+    <!-- Mis JavaScript -->
     <script src="{{ url('js/miJS.js') }}"></script>
+    <script src="{{ url('js/likes.js') }}"></script>
 </body>
 
 </html>

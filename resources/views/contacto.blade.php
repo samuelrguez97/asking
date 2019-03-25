@@ -10,7 +10,7 @@
                 <h2 class="letraTitulo">Contacto</h2>
             </div>
 
-            <form method="POST" action="{{ action('PreguntasControlador@sendContacto') }}">
+            <form method="POST" action="{{ action('UsuariosControlador@sendContacto') }}">
                 @csrf
 
                 <div class="form-group row">

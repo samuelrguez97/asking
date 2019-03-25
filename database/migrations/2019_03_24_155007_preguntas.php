@@ -21,7 +21,7 @@ class Preguntas extends Migration
             $table->string('tema');
             $table->bigInteger('likes')->default(0);
             $table->boolean('respuesta')->default(false);
-            $table->string('by_usuario')->default(null);
+            $table->string('by_usuario')->default("");
             $table->timestamp('created_at');
         });
     }

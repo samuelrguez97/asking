@@ -13,7 +13,7 @@
                             <a class="nav-link" href="{{ action('PreguntasControlador@principal') }}">Inicio</a>
                         </li>
                         <li class="nav-item {{ Request::is('contacto') ? 'active' : '' }}">
-                            <a class="nav-link" href="{{ action('PreguntasControlador@getContacto') }}">Contacto</a>
+                            <a class="nav-link" href="{{ action('UsuariosControlador@getContacto') }}">Contacto</a>
                         </li>
                         @if( Auth::check() )
                         <li class="nav-item {{ Request::is('perfil') ? 'active' : '' }}">

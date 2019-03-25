@@ -153,9 +153,19 @@
                             </aside>
                             <span class="badge badge-info tema">{{ $pregunta->tema }}</span>
                             <div class="float-right ml-3">
-                                <a class="like"><img class="float-left img-likes"
-                                        src="{{ url('imagenes/preguntas/mg_f.png') }}" /></button>
-                                <aside id="contar-likes-{{ $pregunta->id }}" class="float-left likes mt-1 ml-2">{{ $pregunta->likes }}</aside>
+                                @if ($preguntas_like->contains('id_pregunta', $pregunta->id))
+                                <button class="btn btn-sm like text-white" data-id-pregunta="{{ $pregunta->id }}"
+                                    data-token="{{ csrf_token() }}"><img class="float-left img-likes"
+                                        src="https://img.icons8.com/color/48/000000/filled-like.png" />
+                                </button>
+                                @else
+                                <button class="btn btn-sm like text-white" data-id-pregunta="{{ $pregunta->id }}"
+                                    data-token="{{ csrf_token() }}"><img class="float-left img-likes"
+                                        src="https://img.icons8.com/like" />
+                                </button>
+                                @endif
+                                <aside id="contar-likes-{{ $pregunta->id }}" class="float-left likes mt-2 ml-2">
+                                    {{ $pregunta->likes }}</aside>
                             </div>
                         </div>
                     </div>
@@ -170,6 +180,9 @@
             </div>
 
             @endif
+
+            {!! Form::open(['route' => ['like', ':id_pregunta'], 'method' => 'LIKE', 'id' => 'form-like']) !!}
+            {!! Form::close() !!}
 
         </div>
     </div>
