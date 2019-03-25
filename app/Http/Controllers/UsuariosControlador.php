@@ -64,6 +64,7 @@ class UsuariosControlador extends Controller
             ->take(2) // solo las 2 primeras
             ->get(); // recojo los datos
 
+        // Preguntas que ha dado like el usuario
         $preguntas_like = usuario_pregunta_like::where("id_usuario", Auth::user()->id)->get();
 
         // y los envio a la vista del perfil con un objeto llamado preguntas_a_ti y preguntas_por_ti
@@ -183,5 +184,37 @@ class UsuariosControlador extends Controller
         }
 
     }
+
+    /* -- Defino el método para ver todas las preguntas del usuario -- */
+
+    public function tusPreguntas() {
+
+        // Selecciono las preguntas que se han enviado al usuario con estos criterios ...
+        $preguntas_a_ti = preguntas::orderBy('created_at', 'desc') // de forma descendente, las mas nuevas primero
+            ->where('usuario', Auth::user()->name) // solo las que son para ese usuario
+            ->where('respuesta', 0) // que no hayan sido respondidas
+            ->get(); // recojo los datos
+
+        // envio los datos a la vista de tus-preguntas del usuario
+        return view("usuarios.tus-preguntas",  ["preguntas_a_ti" => $preguntas_a_ti]);
+    }
+
+    /* -- Defino el método para ver todas las preguntas realizadas por el usuario -- */
+
+    public function preguntasRealizadas() {
+        
+        // Selecciono las preguntas que ha enviado el usuario con estos criterios ...
+        $preguntas_por_ti = preguntas::orderBy('created_at', 'desc') // de forma descendente, las mas nuevas primero
+            ->where('by_usuario', Auth::user()->name) // solo las que son por ese usuario
+            ->get(); // recojo los datos
+
+        // Preguntas que ha dado like el usuario
+        $preguntas_like = usuario_pregunta_like::where("id_usuario", Auth::user()->id)->get();
+
+        // envio los datos a la vista de tus-preguntas-realizadas del usuario
+        return view("usuarios.tus-preguntas-realizadas",  ["preguntas_por_ti" => $preguntas_por_ti, "preguntas_like" => $preguntas_like]);
+    }
+
+
 
 }

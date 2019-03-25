@@ -36,6 +36,10 @@ Route::get('/editar-perfil', 'UsuariosControlador@editPerfil')->middleware('auth
 
 Route::post('/editando', 'UsuariosControlador@makeEdit')->middleware('auth');
 
+Route::get('/tus-preguntas', 'UsuariosControlador@tusPreguntas')->middleware('auth');
+
+Route::get('/tus-preguntas-realizadas', 'UsuariosControlador@preguntasRealizadas')->middleware('auth');
+
 
 
 

@@ -122,7 +122,7 @@ class PreguntasControlador extends Controller
         preguntas::find($id_pregunta)->delete();
 
         // Redirijo al perfil con el mensaje de que se ha eliminado la pregunta
-        return redirect('perfil')->with('eliminada', '¡Has eliminado la pregunta!');
+        return back()->with('eliminada', '¡Has eliminado la pregunta!');
 
     }
 

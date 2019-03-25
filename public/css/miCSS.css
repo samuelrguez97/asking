@@ -79,6 +79,8 @@ html, body {
     z-index: 0 !important;
 }
 
+/* Este CSS se aplica para arreglar el height del contenedor principal del Firefox */
+
 .firefox-height {
     min-height: 100%;
 }

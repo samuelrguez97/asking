@@ -114,6 +114,12 @@
         <div class="show-preguntas">
             <div class="row mt-5">
 
+                @if ( $preguntas_todas->isEmpty() )
+                <aside class="mx-auto mb-5 text-center alert alert-warning" role="alert">
+                    <strong>¡Vaya!</strong> Parece que no hay preguntas ahora mismo ... ¡sé el primero en preguntar!
+                </aside>
+                @endif
+
                 @foreach ($preguntas_todas as $pregunta)
                 <div class="col-sm-4 mb-5">
                     <div class="card text-white bg-secondary">

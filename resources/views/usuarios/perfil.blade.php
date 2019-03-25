@@ -105,7 +105,7 @@
             @endif
 
             <div class="mb-5 text-center">
-                <button class="btn btn-lg btn-success">Ver todas</button>
+                <a class="btn btn-lg btn-success" href="{{ action('UsuariosControlador@tusPreguntas') }}">Ver todas</a>
             </div>
 
             @endif
@@ -176,7 +176,7 @@
 
             </div>
             <div class="mb-5 text-center">
-                <button class="btn btn-lg btn-success">Ver todas</button>
+                <a class="btn btn-lg btn-success" href="{{ action('UsuariosControlador@preguntasRealizadas') }}">Ver todas</a>
             </div>
 
             @endif
