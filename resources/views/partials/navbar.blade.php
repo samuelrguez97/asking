@@ -1,4 +1,4 @@
-<nav class="sticky-top">
+<nav class="sticky-top sticky-top-ie">
     <div class="row">
         <div class="col-md-8 offset-md-2">
             <nav class="navbar-home navbar-expand-lg navbar-dark borde-nav colorBackground p-2">

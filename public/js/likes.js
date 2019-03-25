@@ -49,7 +49,7 @@ $(document).ready(function () {
                 $("body").overhang({ 
                     type: "error",
                     message: "Debes estar registrado.",
-                    closeConfirm: "true"
+                    duration: 1
                   });
             }
 
