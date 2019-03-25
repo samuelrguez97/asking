@@ -127,10 +127,10 @@
 
                 <!-- ZONA PARA METER LAS PREGUNTAS DESDE LA BASE DE DATOS-->
 
-                @foreach ( $preguntas_a_ti as $pregunta )
+                @foreach ( $preguntas_por_ti as $pregunta )
                 <div class="col-sm-6 mb-5">
                     <div class="card text-white bg-secondary">
-                        <div class="card-header">
+                        <div class="card-header fit-content">
                             <div class="pregunta-user">
                                 <aside class="float-left">
                                     <span>Para: </span><span class="letraTitulo">{{ $pregunta->usuario }}</span>
@@ -153,7 +153,7 @@
                             </aside>
                             <span class="badge badge-info tema">{{ $pregunta->tema }}</span>
                             <div class="float-right ml-3">
-                                <button class="like btn btn-sm btn-primary-outline" onclick="actuarPregunta(event);" data-pregunta-id="{{ $pregunta->id }}"><img class="float-left img-likes"
+                                <a class="like"><img class="float-left img-likes"
                                         src="{{ url('imagenes/preguntas/mg_f.png') }}" /></button>
                                 <aside id="contar-likes-{{ $pregunta->id }}" class="float-left likes mt-1 ml-2">{{ $pregunta->likes }}</aside>
                             </div>

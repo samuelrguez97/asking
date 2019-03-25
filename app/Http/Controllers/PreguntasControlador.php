@@ -27,8 +27,11 @@ class PreguntasControlador extends Controller
     public function principal()
     {
         $temas = temas::all();
-        $preguntas = preguntas::all();
-        return view("home", ["temas" => $temas], ["preguntas" => $preguntas]);
+        $preguntas_todas = preguntas::all();
+        $preguntas_destacadas = preguntas::orderBy('likes', 'asc')
+            ->take(5)
+            ->get();
+        return view("home", ["temas" => $temas, "preguntas_todas" => $preguntas_todas, "preguntas_destacadas" => $preguntas_destacadas]);
     }
 
     public function getContacto()
@@ -110,22 +113,6 @@ class PreguntasControlador extends Controller
         // Redirijo al perfil con el mensaje de que se ha eliminado la pregunta
         return redirect('perfil')->with('eliminada', '¡Has eliminado la pregunta!');
 
-    }
-
-    /* Defino el método para dar me gusta/no me gusta a la pregunta */
-
-    public function actuarPregunta(Request $request, $id)
-    {
-        $action = $request->get('action');
-        switch ($action) {
-            case 'Like':
-                preguntas::where('id', $id)->increment('likes');
-                break;
-            case 'Unlike':
-                preguntas::where('id', $id)->decrement('likes');
-                break;
-        }
-        return '';
     }
 
     /* Defino el método para el contacto */

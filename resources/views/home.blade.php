@@ -32,9 +32,9 @@
                         <select name="tema">
                             <option value="selecciona">Selecciona</option>
                             @if(isset($temas))
-                                @foreach($temas as $tema)
-                                    <option value="{{ $tema->tema }}">{{ $tema->tema }}</option>
-                                @endforeach
+                            @foreach($temas as $tema)
+                            <option value="{{ $tema->tema }}">{{ $tema->tema }}</option>
+                            @endforeach
                             @endif
                         </select>
                         <div class="select_arrow">
@@ -71,12 +71,12 @@
         @if ($errors->any())
         <div class="mt-4 alert alert-danger">
             @foreach ($errors->all() as $error)
-                @if ($loop->last)
-                    {{ $error }}
-                @else
-                    {{ $error }}
-                    <hr/>
-                @endif
+            @if ($loop->last)
+            {{ $error }}
+            @else
+            {{ $error }}
+            <hr />
+            @endif
             @endforeach
         </div>
         @endif
@@ -95,518 +95,119 @@
 
     <div class="carousel-inner">
 
+        @foreach ($preguntas_destacadas as $pregunta)
+        @if ($loop->first)
         <div class="carousel-item active">
-            <div class="col-sm-4 offset-md-4 mb-5 mt-5">
-                <div class="card text-white bg-secondary">
-                    <div class="card-header borde-bottom-0">
-                        <div class="pregunta-user">
-                            <aside class="float-left">
-                                <span>Para: </span><span class="letraTitulo">samu</span>
-                            </aside>
-                            <aside class="float-right">
-                                <button class="btn btn-secondary btn-sm">Ver respuesta</button>
-                            </aside>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <h6 class="card-text ml-3 texto-pregunta">Heyy</h6>
-                    </div>
-                    <div class="card-footer borde-top-0">
-                        <aside class="float-left tiempo">hace 20 minutos</aside>
-                        <span class="badge badge-info tema">Coches</span>
-                        <div class="float-right ml-3">
-                            <a class="like" href=""><img class="float-left img-likes"
-                                    src="{{ url('imagenes/preguntas/mg_f.png') }}" /></a>
-                            <aside class="float-left ml-2 likes">32</aside>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="carousel-item">
-            <div class="col-sm-4 offset-md-4 mb-5 mt-5">
-                <div class="card text-white bg-secondary">
-                    <div class="card-header borde-bottom-0">
-                        <div class="pregunta-user">
-                            <aside class="float-left">
-                                <span>Para: </span><span class="letraTitulo">samu</span>
-                            </aside>
-                            <aside class="float-right">
-                                <button class="btn btn-secondary btn-sm">Ver respuesta</button>
-                            </aside>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <h6 class="card-text ml-3 texto-pregunta">Holaaaaaaa t kiero ver? :D</h6>
-                    </div>
-                    <div class="card-footer borde-top-0">
-                        <aside class="float-left tiempo">hace 20 minutos</aside>
-                        <span class="badge badge-info tema">Coches</span>
-                        <div class="float-right ml-3">
-                            <a class="like" href=""><img class="float-left img-likes"
-                                    src="{{ url('imagenes/preguntas/mg_f.png') }}" /></a>
-                            <aside class="float-left ml-2 likes">32</aside>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="carousel-item">
-            <div class="col-sm-4 offset-md-4 mb-5 mt-5">
-                <div class="card text-white bg-secondary">
-                    <div class="card-header borde-bottom-0">
-                        <div class="pregunta-user">
-                            <aside class="float-left">
-                                <span>Para: </span><span class="letraTitulo">samu</span>
-                            </aside>
-                            <aside class="float-right">
-                                <button class="btn btn-secondary btn-sm">Ver respuesta</button>
-                            </aside>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <h6 class="card-text ml-3 texto-pregunta">Holu</h6>
-                    </div>
-                    <div class="card-footer borde-top-0">
-                        <aside class="float-left tiempo">hace 20 minutos</aside>
-                        <span class="badge badge-info tema">Coches</span>
-                        <div class="float-right ml-3">
-                            <a class="like" href=""><img class="float-left img-likes"
-                                    src="{{ url('imagenes/preguntas/mg_f.png') }}" /></a>
-                            <aside class="float-left ml-2 likes">32</aside>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </div>
-</div>
-
-<hr class="hr-home" />
-
-<div class="row mt-5">
-
-    <div class="col-sm-8 offset-md-2">
-        <h2 class="letraTitulo">Preguntas</h2>
-        <div class="menu-preguntas">
-            <ul class="float-left navbar-nav mr-auto">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Ordenar preguntas
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Preguntas más recientes</a>
-                        <a class="dropdown-item" href="#">Preguntas con más likes</a>
-                    </div>
-                </li>
-            </ul>
-            <div class="float-right">
-                <div class="mt-2 min-container">
-                    <h6 class="float-left text-white">Ordenado por: </h6>
-                    <aside class="ml-2 float-right text-ord">Preguntas más recientes</aside>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-sm-10 offset-md-1">
-        <div class="show-preguntas">
-            <div class="row mt-5">
-
-                <div class="col-sm-4 mb-5">
+            @else
+            <div class="carousel-item">
+                @endif
+                <div class="col-sm-4 offset-md-4 mb-5 mt-5">
                     <div class="card text-white bg-secondary">
-                        <div class="card-header borde-bottom-0">
+                        <div class="card-header fit-content">
                             <div class="pregunta-user">
                                 <aside class="float-left">
-                                    <span>Para: </span><span class="letraTitulo">samu</span>
+                                    <span>Para: </span><span class="letraTitulo">{{ $pregunta->usuario }}</span>
                                 </aside>
                                 <aside class="float-right">
+                                    @if ($pregunta->respuesta == 0)
+                                    <span class="float-right badge badge-warning ml-3 mb-2">Sin respuesta</span>
+                                    @else
                                     <button class="btn btn-secondary btn-sm">Ver respuesta</button>
+                                    @endif
                                 </aside>
                             </div>
                         </div>
                         <div class="card-body">
-                            <h6 class="card-text ml-3 texto-pregunta">Holaaaaaaa t kiero ver? :D</h6>
+                            <h6 class="card-text ml-3">{{ $pregunta->pregunta }}</h6>
                         </div>
-                        <div class="card-footer borde-top-0">
-                            <aside class="float-left tiempo">hace 20 minutos</aside>
-                            <span class="badge badge-info tema">Coches</span>
+                        <div class="card-footer">
+                            <aside class="float-left tiempo">
+                                {{ $pregunta->created_at->diffForHumans(date('Y-m-d H:i:s')) }}
+                            </aside>
+                            <span class="badge badge-info tema">{{ $pregunta->tema }}</span>
                             <div class="float-right ml-3">
-                                <a class="like" href=""><img class="float-left img-likes"
-                                        src="{{ url('imagenes/preguntas/mg_f.png') }}" /></a>
-                                <aside class="float-left ml-2 likes">32</aside>
+                                <a class="like"><img class="float-left img-likes"
+                                        src="{{ url('imagenes/preguntas/mg_f.png') }}" /></button>
+                                    <aside id="contar-likes-{{ $pregunta->id }}" class="float-left likes mt-1 ml-2">
+                                        {{ $pregunta->likes }}</aside>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
+            @endforeach
 
-                <div class="col-sm-4 mb-5">
-                    <div class="card text-white bg-secondary">
-                        <div class="card-header borde-bottom-0">
-                            <div class="pregunta-user">
-                                <aside class="float-left">
-                                    <span>Para: </span><span class="letraTitulo">pepe</span>
-                                </aside>
-                                <aside class="float-right">
-                                    <button class="btn btn-secondary btn-sm">Ver respuesta</button>
-                                </aside>
+        </div>
+    </div>
+
+    <hr class="hr-home" />
+
+    <div class="row mt-5">
+
+        <div class="col-sm-8 offset-md-2">
+            <h2 class="letraTitulo">Preguntas</h2>
+            <div class="menu-preguntas">
+                <ul class="float-left navbar-nav mr-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Ordenar preguntas
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">Preguntas más recientes</a>
+                            <a class="dropdown-item" href="#">Preguntas con más likes</a>
+                        </div>
+                    </li>
+                </ul>
+                <div class="float-right">
+                    <div class="mt-2 min-container">
+                        <h6 class="float-left text-white">Ordenado por: </h6>
+                        <aside class="ml-2 float-right text-ord">Preguntas más recientes</aside>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-10 offset-md-1">
+            <div class="show-preguntas">
+                <div class="row mt-5">
+
+                    @foreach ($preguntas_todas as $pregunta)
+                    <div class="col-sm-4 mb-5">
+                        <div class="card text-white bg-secondary">
+                            <div class="card-header fit-content">
+                                <div class="pregunta-user">
+                                    <aside class="float-left">
+                                        <span>Para: </span><span class="letraTitulo">{{ $pregunta->usuario }}</span>
+                                    </aside>
+                                    <aside class="float-right">
+                                        @if ($pregunta->respuesta == 0)
+                                        <span class="float-right badge badge-warning ml-3 mb-2">Sin respuesta</span>
+                                        @else
+                                        <button class="btn btn-secondary btn-sm">Ver respuesta</button>
+                                        @endif
+                                    </aside>
+                                </div>
                             </div>
-                        </div>
-                        <div class="card-body">
-                            <h6 class="card-text ml-3 texto-pregunta">
-                                fdjogasdiusavgdisapovcasPIOYfvsaipasVFasFycsaVFisayfvasIfvsaiyhfvasIFvasIPfvasHFpvsaifvasIYHfvASIfvASIYFvsapiyvasdPIYfv
-                            </h6>
-                        </div>
-                        <div class="card-footer borde-top-0">
-                            <aside class="float-left">hace 20 minutos</aside>
-                            <div class="float-right ml-3">
-                                <a class="like" href=""><img class="float-left"
-                                        src="{{ url('imagenes/preguntas/mg_f.png') }}" /></a>
-                                <aside class="float-left ml-2">32</aside>
+                            <div class="card-body">
+                                <h6 class="card-text ml-3">{{ $pregunta->pregunta }}</h6>
+                            </div>
+                            <div class="card-footer">
+                                <aside class="float-left tiempo">
+                                    {{ $pregunta->created_at->diffForHumans(date('Y-m-d H:i:s')) }}
+                                </aside>
+                                <span class="badge badge-info tema">{{ $pregunta->tema }}</span>
+                                <div class="float-right ml-3">
+                                    <a class="like"><img class="float-left img-likes"
+                                            src="{{ url('imagenes/preguntas/mg_f.png') }}" /></button>
+                                        <aside id="contar-likes-{{ $pregunta->id }}" class="float-left likes mt-1 ml-2">
+                                            {{ $pregunta->likes }}</aside>
+                                </div>
                             </div>
                         </div>
                     </div>
+                    @endforeach
+                
                 </div>
-
-                <div class="col-sm-4 mb-5">
-                    <div class="card text-white bg-secondary">
-                        <div class="card-header borde-bottom-0">
-                            <div class="pregunta-user">
-                                <aside class="float-left">
-                                    <span>Para: </span><span class="letraTitulo">gabri</span>
-                                </aside>
-                                <span class="float-right badge badge-warning ml-3 mb-2">Sin respuesta</span>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <h6 class="card-text ml-3 texto-pregunta">hollllllaaaaa</h6>
-                        </div>
-                        <div class="card-footer borde-top-0">
-                            <aside class="float-left">hace 20 minutos</aside>
-                            <div class="float-right ml-3">
-                                <a class="like" href=""><img class="float-left"
-                                        src="{{ url('imagenes/preguntas/mg_f.png') }}" /></a>
-                                <aside class="float-left ml-2">32</aside>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-4 mb-5">
-                    <div class="card text-white bg-secondary">
-                        <div class="card-header borde-bottom-0">
-                            <div class="pregunta-user">
-                                <aside class="float-left">
-                                    <span>Para: </span><span class="letraTitulo">gabri</span>
-                                </aside>
-                                <span class="float-right badge badge-warning ml-3 mb-2">Sin respuesta</span>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <h6 class="card-text ml-3 texto-pregunta">lel xd</h6>
-                        </div>
-                        <div class="card-footer borde-top-0">
-                            <aside class="float-left">hace 20 minutos</aside>
-                            <div class="float-right ml-3">
-                                <a class="like" href=""><img class="float-left"
-                                        src="{{ url('imagenes/preguntas/mg_f.png') }}" /></a>
-                                <aside class="float-left ml-2">32</aside>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-4 mb-5">
-                    <div class="card text-white bg-secondary">
-                        <div class="card-header borde-bottom-0">
-                            <div class="pregunta-user">
-                                <aside class="float-left">
-                                    <span>Para: </span><span class="letraTitulo">gabri</span>
-                                </aside>
-                                <span class="float-right badge badge-warning ml-3 mb-2">Sin respuesta</span>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <h6 class="card-text ml-3 texto-pregunta">Pregunta</h6>
-                        </div>
-                        <div class="card-footer borde-top-0">
-                            <aside class="float-left">hace 20 minutos</aside>
-                            <div class="float-right ml-3">
-                                <a class="like" href=""><img class="float-left"
-                                        src="{{ url('imagenes/preguntas/mg_f.png') }}" /></a>
-                                <aside class="float-left ml-2">32</aside>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-4 mb-5">
-                    <div class="card text-white bg-secondary">
-                        <div class="card-header borde-bottom-0">
-                            <div class="pregunta-user">
-                                <aside class="float-left">
-                                    <span>Para: </span><span class="letraTitulo">gabri</span>
-                                </aside>
-                                <span class="float-right badge badge-warning ml-3 mb-2">Sin respuesta</span>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <h6 class="card-text ml-3 texto-pregunta">Pregunta</h6>
-                        </div>
-                        <div class="card-footer borde-top-0">
-                            <aside class="float-left">hace 20 minutos</aside>
-                            <div class="float-right ml-3">
-                                <a class="like" href=""><img class="float-left"
-                                        src="{{ url('imagenes/preguntas/mg_f.png') }}" /></a>
-                                <aside class="float-left ml-2">32</aside>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-4 mb-5">
-                    <div class="card text-white bg-secondary">
-                        <div class="card-header borde-bottom-0">
-                            <div class="pregunta-user">
-                                <aside class="float-left">
-                                    <span>Para: </span><span class="letraTitulo">gabri</span>
-                                </aside>
-                                <span class="float-right badge badge-warning ml-3 mb-2">Sin respuesta</span>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <h6 class="card-text ml-3 texto-pregunta">Pregunta</h6>
-                        </div>
-                        <div class="card-footer borde-top-0">
-                            <aside class="float-left">hace 20 minutos</aside>
-                            <div class="float-right ml-3">
-                                <a class="like" href=""><img class="float-left"
-                                        src="{{ url('imagenes/preguntas/mg_f.png') }}" /></a>
-                                <aside class="float-left ml-2">32</aside>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-4 mb-5">
-                    <div class="card text-white bg-secondary">
-                        <div class="card-header borde-bottom-0">
-                            <div class="pregunta-user">
-                                <aside class="float-left">
-                                    <span>Para: </span><span class="letraTitulo">gabri</span>
-                                </aside>
-                                <span class="float-right badge badge-warning ml-3 mb-2">Sin respuesta</span>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <h6 class="card-text ml-3 texto-pregunta">me cago en to mis muertooooos</h6>
-                        </div>
-                        <div class="card-footer borde-top-0">
-                            <aside class="float-left">hace 20 minutos</aside>
-                            <div class="float-right ml-3">
-                                <a class="like" href=""><img class="float-left"
-                                        src="{{ url('imagenes/preguntas/mg_f.png') }}" /></a>
-                                <aside class="float-left ml-2">32</aside>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-4 mb-5">
-                    <div class="card text-white bg-secondary">
-                        <div class="card-header borde-bottom-0">
-                            <div class="pregunta-user">
-                                <aside class="float-left">
-                                    <span>Para: </span><span class="letraTitulo">gabri</span>
-                                </aside>
-                                <span class="float-right badge badge-warning ml-3 mb-2">Sin respuesta</span>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <h6 class="card-text ml-3 texto-pregunta">Pregunta</h6>
-                        </div>
-                        <div class="card-footer borde-top-0">
-                            <aside class="float-left">hace 20 minutos</aside>
-                            <div class="float-right ml-3">
-                                <a class="like" href=""><img class="float-left"
-                                        src="{{ url('imagenes/preguntas/mg_f.png') }}" /></a>
-                                <aside class="float-left ml-2">32</aside>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-4 mb-5">
-                    <div class="card text-white bg-secondary">
-                        <div class="card-header borde-bottom-0">
-                            <div class="pregunta-user">
-                                <aside class="float-left">
-                                    <span>Para: </span><span class="letraTitulo">gabri</span>
-                                </aside>
-                                <span class="float-right badge badge-warning ml-3 mb-2">Sin respuesta</span>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <h6 class="card-text ml-3 texto-pregunta">Pregunta</h6>
-                        </div>
-                        <div class="card-footer borde-top-0">
-                            <aside class="float-left">hace 20 minutos</aside>
-                            <div class="float-right ml-3">
-                                <a class="like" href=""><img class="float-left"
-                                        src="{{ url('imagenes/preguntas/mg_f.png') }}" /></a>
-                                <aside class="float-left ml-2">32</aside>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-4 mb-5">
-                    <div class="card text-white bg-secondary">
-                        <div class="card-header borde-bottom-0">
-                            <div class="pregunta-user">
-                                <aside class="float-left">
-                                    <span>Para: </span><span class="letraTitulo">gabri</span>
-                                </aside>
-                                <span class="float-right badge badge-warning ml-3 mb-2">Sin respuesta</span>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <h6 class="card-text ml-3 texto-pregunta">Pregunta</h6>
-                        </div>
-                        <div class="card-footer borde-top-0">
-                            <aside class="float-left">hace 20 minutos</aside>
-                            <div class="float-right ml-3">
-                                <a class="like" href=""><img class="float-left"
-                                        src="{{ url('imagenes/preguntas/mg_f.png') }}" /></a>
-                                <aside class="float-left ml-2">32</aside>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-4 mb-5">
-                    <div class="card text-white bg-secondary">
-                        <div class="card-header borde-bottom-0">
-                            <div class="pregunta-user">
-                                <aside class="float-left">
-                                    <span>Para: </span><span class="letraTitulo">gabri</span>
-                                </aside>
-                                <span class="float-right badge badge-warning ml-3 mb-2">Sin respuesta</span>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <h6 class="card-text ml-3 texto-pregunta">Pregunta</h6>
-                        </div>
-                        <div class="card-footer borde-top-0">
-                            <aside class="float-left">hace 20 minutos</aside>
-                            <div class="float-right ml-3">
-                                <a class="like" href=""><img class="float-left"
-                                        src="{{ url('imagenes/preguntas/mg_f.png') }}" /></a>
-                                <aside class="float-left ml-2">32</aside>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-4 mb-5">
-                    <div class="card text-white bg-secondary">
-                        <div class="card-header borde-bottom-0">
-                            <div class="pregunta-user">
-                                <aside class="float-left">
-                                    <span>Para: </span><span class="letraTitulo">gabri</span>
-                                </aside>
-                                <span class="float-right badge badge-warning ml-3 mb-2">Sin respuesta</span>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <h6 class="card-text ml-3 texto-pregunta">Pregunta</h6>
-                        </div>
-                        <div class="card-footer borde-top-0">
-                            <aside class="float-left">hace 20 minutos</aside>
-                            <div class="float-right ml-3">
-                                <a class="like" href=""><img class="float-left"
-                                        src="{{ url('imagenes/preguntas/mg_f.png') }}" /></a>
-                                <aside class="float-left ml-2">32</aside>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-4 mb-5">
-                    <div class="card text-white bg-secondary">
-                        <div class="card-header borde-bottom-0">
-                            <div class="pregunta-user">
-                                <aside class="float-left">
-                                    <span>Para: </span><span class="letraTitulo">gabri</span>
-                                </aside>
-                                <span class="float-right badge badge-warning ml-3 mb-2">Sin respuesta</span>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <h6 class="card-text ml-3 texto-pregunta">Pregunta</h6>
-                        </div>
-                        <div class="card-footer borde-top-0">
-                            <aside class="float-left">hace 20 minutos</aside>
-                            <div class="float-right ml-3">
-                                <a class="like" href=""><img class="float-left"
-                                        src="{{ url('imagenes/preguntas/mg_f.png') }}" /></a>
-                                <aside class="float-left ml-2">32</aside>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-4 mb-5">
-                    <div class="card text-white bg-secondary">
-                        <div class="card-header borde-bottom-0">
-                            <div class="pregunta-user">
-                                <aside class="float-left">
-                                    <span>Para: </span><span class="letraTitulo">gabri</span>
-                                </aside>
-                                <span class="float-right badge badge-warning ml-3 mb-2">Sin respuesta</span>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <h6 class="card-text ml-3 texto-pregunta">Pregunta</h6>
-                        </div>
-                        <div class="card-footer borde-top-0">
-                            <aside class="float-left">hace 20 minutos</aside>
-                            <div class="float-right ml-3">
-                                <a class="like" href=""><img class="float-left"
-                                        src="{{ url('imagenes/preguntas/mg_f.png') }}" /></a>
-                                <aside class="float-left ml-2">32</aside>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-4 mb-5">
-                    <div class="card text-white bg-secondary">
-                        <div class="card-header borde-bottom-0">
-                            <div class="pregunta-user">
-                                <aside class="float-left">
-                                    <span>Para: </span><span class="letraTitulo">gabri</span>
-                                </aside>
-                                <span class="float-right badge badge-warning ml-3 mb-2">Sin respuesta</span>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <h6 class="card-text ml-3 texto-pregunta">Pregunta</h6>
-                        </div>
-                        <div class="card-footer borde-top-0">
-                            <aside class="float-left">hace 20 minutos</aside>
-                            <div class="float-right ml-3">
-                                <a class="like" href=""><img class="float-left"
-                                        src="{{ url('imagenes/preguntas/mg_f.png') }}" /></a>
-                                <aside class="float-left ml-2">32</aside>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
             </div>
         </div>
 
