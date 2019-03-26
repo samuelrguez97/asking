@@ -61,8 +61,17 @@ html, body {
     box-shadow: -2px -1px 18px 0px #ac9e31;
 }
 
+.form-nav {
+    display: inline;
+}
+
 .margen-fixed {
     position: relative !important;
+}
+
+.img-buscar {
+    width: 15%;
+    height: 7%;
 }
 
 .fix-height {

@@ -1,6 +1,16 @@
 @extends('layouts.master')
 
 @section('content')
+
+@if( Session::has('error-busqueda') )
+<aside class="col-md-8 offset-md-2 mt-4">
+    <aside class="text-center alert alert-danger" role="alert">
+        {{ session('error-busqueda') }}
+    </aside>
+</aside>
+Session::forget('error-busqueda');
+@endif
+
 <div class="mt-5 row">
 
     <div class="col-md-8 offset-md-2">
@@ -60,12 +70,14 @@
         <aside class="mt-4 alert alert-success" role="alert">
             {{ session('success') }}
         </aside>
+        Session::forget('success');
         @endif
 
         @if( Session::has('error') )
         <aside class="mt-4 alert alert-danger" role="alert">
             {{ session('error') }}
         </aside>
+        Session::forget('error');
         @endif
 
         @if ($errors->any())
@@ -80,6 +92,7 @@
             @endforeach
         </div>
         @endif
+
     </div>
 </div>
 
@@ -97,21 +110,29 @@
                         Ordenar preguntas
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Preguntas más recientes</a>
-                        <a class="dropdown-item" href="#">Preguntas con más likes</a>
+                        <a class="dropdown-item" href="{{ action('PreguntasControlador@principal') }}">Preguntas más
+                            recientes</a>
+                        <a class="dropdown-item" href="{{ action('PreguntasControlador@ordenarLikesHome') }}">Preguntas
+                            con más likes</a>
                     </div>
                 </li>
             </ul>
             <div class="float-right">
                 <div class="mt-2 min-container">
                     <h6 class="float-left text-white">Ordenado por: </h6>
-                    <aside class="ml-2 float-right text-ord">Preguntas más recientes</aside>
+                    <aside class="ml-2 float-right text-ord">
+                        @if( !empty($orden) )
+                        {{ $orden }}
+                        @else
+                        Preguntas más recientes
+                        @endif
+                    </aside>
                 </div>
             </div>
         </div>
     </div>
     <div class="col-sm-10 offset-md-1">
-        <div class="show-preguntas">
+        <div id="preguntas" class="show-preguntas">
             <div class="row mt-5">
 
                 @if ( $preguntas_todas->isEmpty() )
@@ -177,6 +198,7 @@
         </div>
     </div>
 
+    <!-- Creo el formulario para actualizar los likes por ajax -->
     {!! Form::open(['route' => ['like', ':id_pregunta'], 'method' => 'LIKE', 'id' => 'form-like']) !!}
     {!! Form::close() !!}
 

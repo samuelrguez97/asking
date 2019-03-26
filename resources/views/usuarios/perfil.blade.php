@@ -30,15 +30,20 @@
             </div>
             <br />
             <a class="btn btn-info mb-3" href="{{ action('UsuariosControlador@editPerfil') }}">Editar perfil</a>
+            <a class="btn btn-primary ml-2 mb-3"
+                href="{{ action('UsuariosControlador@getPerfilPublico', ['nombre' => Auth::user()->name ]) }}">Tu perfil
+                público</a>
             @if( Session::has('success') )
             <aside class="mt-4 alert alert-success" role="alert">
                 {{ session('success') }}
             </aside>
+            Session::forget('success');
             @endif
             @if( Session::has('warning') )
             <aside class="mt-4 alert alert-warning" role="alert">
                 {{ session('warning') }}
             </aside>
+            Session::forget('warning');
             @endif
         </div>
 
@@ -78,7 +83,7 @@
                         </div>
                         <div class="card-footer">
                             <aside class="float-left tiempo">
-                                {{ $pregunta->created_at->diffForHumans(date('Y-m-d H:i:s')) }}
+                                {{ $pregunta->created_at->diffForHumans() }}
                             </aside>
                             <span class="badge badge-info tema">{{ $pregunta->tema }}</span>
                             <div class="text-right float-right">
@@ -102,6 +107,7 @@
             <aside class="mt-4 text-center alert alert-warning" role="alert">
                 {{ session('eliminada') }}
             </aside>
+            Session::forget('eliminada');
             @endif
 
             <div class="mb-5 text-center">
@@ -149,7 +155,7 @@
                         </div>
                         <div class="card-footer">
                             <aside class="float-left tiempo">
-                                {{ $pregunta->created_at->diffForHumans(date('Y-m-d H:i:s')) }}
+                                {{ $pregunta->created_at->diffForHumans() }}
                             </aside>
                             <span class="badge badge-info tema">{{ $pregunta->tema }}</span>
                             <div class="float-right ml-3">
@@ -176,12 +182,13 @@
 
             </div>
             <div class="mb-5 text-center">
-                <a class="btn btn-lg btn-success" href="{{ action('UsuariosControlador@preguntasRealizadas') }}">Ver todas</a>
+                <a class="btn btn-lg btn-success" href="{{ action('UsuariosControlador@preguntasRealizadas') }}">Ver
+                    todas</a>
             </div>
 
             @endif
 
-            <!-- Creo el formulario para actualziar los likes por ajax -->
+            <!-- Creo el formulario para actualizar los likes por ajax -->
             {!! Form::open(['route' => ['like', ':id_pregunta'], 'method' => 'LIKE', 'id' => 'form-like']) !!}
             {!! Form::close() !!}
 

@@ -50,6 +50,26 @@ class PreguntasControlador extends Controller
         
     }
 
+    /* -- Defino el metodo para ordenar las preguntas en el home por likes -- */
+
+    public function ordenarLikesHome() {
+
+        // Recojo todos los temas que hay
+        $temas = temas::all();
+        // Recojo las preguntas ordenadas por likes, las que más tienen primero
+        $preguntas_todas = preguntas::orderBy('likes', 'desc')->get();
+        if (Auth::check())
+        {
+            $preguntas_like = usuario_pregunta_like::where("id_usuario", Auth::user()->id)->get();
+            // Devuelvo la vista del home con todos los datos adjuntados
+            return view("home", ["temas" => $temas, "preguntas_todas" => $preguntas_todas, "preguntas_like" => $preguntas_like])->with('orden', 'Preguntas con más likes');
+        }
+        else
+        {
+            return view("home", ["temas" => $temas, "preguntas_todas" => $preguntas_todas])->with('orden', 'Preguntas con más likes');
+        }
+    }
+
     /* -- Defino el método para enviar una pregunta -- */
 
     public function sendPregunta(Request $request) {
@@ -173,6 +193,29 @@ class PreguntasControlador extends Controller
                 
             }
         } 
+
+    }
+
+    /* -- Defino la función para mostrar las preguntas sobre un tema -- */
+
+    public function preguntasTema($tema) {
+
+        // Recojo de la base de datos las preguntas relacionadas con ese tema
+        $preguntas = preguntas::orderBy('created_at', 'desc')->where('tema', $tema)->get();
+
+        if (Auth::check())
+        {
+            $preguntas_like = usuario_pregunta_like::where("id_usuario", Auth::user()->id)->get();
+            // Devuelvo la vista de preguntas tema con todos los datos adjuntados
+            return view('preguntas-tema', ['tema' => $tema, 'preguntas' => $preguntas, 'preguntas_like' => $preguntas_like]);
+        }
+        else
+        {
+            // Lo envio a la vista junto a la colección de datos
+            return view('preguntas-tema', ['tema' => $tema, 'preguntas' => $preguntas]);
+        }
+        
+       
 
     }
 

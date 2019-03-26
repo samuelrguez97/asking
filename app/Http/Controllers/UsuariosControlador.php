@@ -8,6 +8,7 @@ use App\User;
 use App\preguntas;
 use App\usuario_pregunta_like;
 use App\contacto;
+use App\temas;
 use Auth;
 use Hash;
 
@@ -46,6 +47,66 @@ class UsuariosControlador extends Controller
         return redirect('contacto')->with('success', 'Gracias! Has enviado tu consulta, pronto nos pondremos en contacto contigo via email.');
 
     }
+
+    /* -- Defino el metodo para la funcionalidad de buscar -- */
+
+    public function buscar(Request $request) {
+
+        // La busqueda contempla que pueda ser de usuarios o temas
+        // por tanto primero hay que saber donde hay que buscar
+
+        // Recojo el termino que el usuario introdujo
+        $termino = $request->buscador;
+        
+        $usuarios = User::where('name', 'LIKE', '%'.$termino.'%')->get();
+
+        $temas = temas::where('tema', 'LIKE', '%'.$termino.'%')->get();
+
+        if ($usuarios->isNotEmpty())
+        {
+            return view('usuarios.busqueda-usuarios', ['usuarios' => $usuarios]);
+        }
+        elseif ($temas->isNotEmpty())
+        {
+            return view('usuarios.busqueda-temas', ['temas' => $temas]);
+        }
+        else
+        {
+            return back()->with('error-busqueda', 'Lo sentimos, no encontramos ningun resultado con su búsqueda');
+        }
+
+    }
+
+    /* -- Defino el metodo para mostrar el perfil público -- */
+    
+    public function getPerfilPublico($nombre) {
+
+        // Selecciono las preguntas que se han enviado al usuario con estos criterios ...
+        $preguntas = preguntas::orderBy('created_at', 'desc') // de forma descendente, las mas nuevas primero
+        ->where('usuario', $nombre) // solo las que son para ese usuario
+        ->get(); // recojo los datos
+
+        // Selecciono los datos del usuario
+        $usuario = User::where('name', $nombre)->first();
+
+        // Las preguntas que ha dado like el usuario solo se envia si hay usuario activo
+        if (Auth::check())
+        {
+            // Preguntas que ha dado like el usuario
+            $preguntas_like = usuario_pregunta_like::where("id_usuario", Auth::user()->id)->get();
+
+            return view("usuarios.perfil-publico", ["usuario" => $usuario, "preguntas" => $preguntas, "preguntas_like" => $preguntas_like]);
+        }
+        else
+        {
+            return view("usuarios.perfil-publico", ["usuario" => $usuario, "preguntas" => $preguntas]);
+        }
+        
+    }
+
+    /* -- Defino el método para mostrar preguntas sobre un tema -- */
+
+
 
     /* -- Defino el metodo para mostrar el perfil -- */
 

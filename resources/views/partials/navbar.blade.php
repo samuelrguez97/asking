@@ -20,7 +20,7 @@
                             <a class="nav-link" href="{{ action('UsuariosControlador@getPerfil') }}">Perfil</a>
                         </li>
                         <li class="nav-item">
-                            <form action="{{ url('/logout') }}" method="POST" style="display:inline">
+                            <form action="{{ url('/logout') }}" method="POST" class="form-nav">
                                 {{ csrf_field() }}
                                 <button type="submit" class="btn btn-link nav-link">Cerrar
                                     sesión</button>
@@ -36,10 +36,15 @@
                         @endif
                     </ul>
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item searchbar">
-                            <input class="search_input" type="text" name="buscador" id="buscador"
-                                placeholder="Buscar usuario o tema...">
-                            <a class="search_icon" href="#"><i class="fas fa-search"></i></a>
+                        <li class="nav-item">
+                            <form action="{{ action('UsuariosControlador@buscar') }}" method="POST" class="form-nav">
+                                {{ csrf_field() }}
+                                <div class="searchbar">
+                                    <input class="search_input" type="text" name="buscador" id="buscador"
+                                        placeholder="Buscar usuario o tema...">
+                                    <a class="search_icon" href="#"><i class="fas fa-search"></i></a>
+                                </div>
+                            </form>
                         </li>
                     </ul>
                 </div>

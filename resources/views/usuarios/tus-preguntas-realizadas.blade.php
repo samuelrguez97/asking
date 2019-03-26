@@ -62,13 +62,13 @@
             @endforeach
         </div>
 
-        <aside class="text-center">
-            <a class="btn btn-info col-sm-4 mt-4 text-center" href="{{ url()->previous() }}">Volver</a>
-        </aside>
-
         @endif
 
-        <!-- Creo el formulario para actualziar los likes por ajax -->
+        <aside class="text-center">
+            <a class="btn btn-info col-sm-4 mt-4 text-center" href="{{ url('perfil') }}">Volver</a>
+        </aside>
+
+        <!-- Creo el formulario para actualizar los likes por ajax -->
         {!! Form::open(['route' => ['like', ':id_pregunta'], 'method' => 'LIKE', 'id' => 'form-like']) !!}
         {!! Form::close() !!}
     </div>
