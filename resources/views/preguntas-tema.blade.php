@@ -4,7 +4,7 @@
 <div class="container-fluid w-fit-content h-fit-content">
     <div class="mt-5 row">
 
-        <div class="col-md-6 offset-md-1">
+        <div class="col-md-10 offset-md-1">
 
             <!-- ZONA DE PREGUNTAS AL USUARIO -->
 
@@ -22,7 +22,7 @@
                 <!-- ZONA PARA METER LAS PREGUNTAS DESDE LA BASE DE DATOS-->
 
                 @foreach ( $preguntas as $pregunta )
-                <div class="col-sm-6 mb-5">
+                <div class="col-sm-4 mb-5">
                     <div class="card text-white bg-secondary">
                         <div class="card-header fit-content">
                             <div class="pregunta-user">

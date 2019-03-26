@@ -21,7 +21,7 @@
                 </table>
             </div>
             <br />
-            <a class="btn btn-info mb-3" href="{{ url('home') }}">Volver</a>
+            <a class="btn btn-info mb-3" href="{{ url('home') }}">Inicio</a>
         </div>
         
 

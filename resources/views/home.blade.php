@@ -117,6 +117,9 @@ Session::forget('error-busqueda');
                     </div>
                 </li>
             </ul>
+            <div class="float-left mt-1 ml-4">
+                <a class="text-white btn btn-info btn-sm" href="{{ action('PreguntasControlador@temasTodos') }}">Ver todos los temas</a>
+            </div>
             <div class="float-right">
                 <div class="mt-2 min-container">
                     <h6 class="float-left text-white">Ordenado por: </h6>

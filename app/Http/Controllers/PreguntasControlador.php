@@ -20,7 +20,7 @@ class PreguntasControlador extends Controller
     {       
         if ( Auth::check() )
         {
-            principal();
+            return redirect()->action('PreguntasControlador@principal');
         }
         else
         {
@@ -196,6 +196,18 @@ class PreguntasControlador extends Controller
 
     }
 
+    /* -- Defino la función para ver todos los temas -- */
+
+    public function temasTodos() {
+
+        // Recojo todos los temas
+        $temas = temas::all();
+        
+        // Y los envio a la vista para mostrarlos
+        return view('usuarios.busqueda-temas', ['temas' => $temas]);
+
+    }
+
     /* -- Defino la función para mostrar las preguntas sobre un tema -- */
 
     public function preguntasTema($tema) {
@@ -203,20 +215,20 @@ class PreguntasControlador extends Controller
         // Recojo de la base de datos las preguntas relacionadas con ese tema
         $preguntas = preguntas::orderBy('created_at', 'desc')->where('tema', $tema)->get();
 
+        // Si hay un usuario activo envio las preguntas a las que le dió like
         if (Auth::check())
         {
             $preguntas_like = usuario_pregunta_like::where("id_usuario", Auth::user()->id)->get();
             // Devuelvo la vista de preguntas tema con todos los datos adjuntados
             return view('preguntas-tema', ['tema' => $tema, 'preguntas' => $preguntas, 'preguntas_like' => $preguntas_like]);
         }
+        // .. y si no hay usuario activo
         else
         {
-            // Lo envio a la vista junto a la colección de datos
+            // Envio a la vista simplemente el tema y las preguntas asociadas a ese tema
             return view('preguntas-tema', ['tema' => $tema, 'preguntas' => $preguntas]);
         }
         
-       
-
     }
 
 }

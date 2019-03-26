@@ -27,6 +27,8 @@ Route::view('/busqueda-usuarios', 'usuarios.busqueda-usuarios');
 // Y entes la vista de busqueda de los temas
 Route::view('/busqueda-temas', 'usuarios.busqueda-temas');
 
+Route::get('/temas-todos', 'PreguntasControlador@temasTodos');
+
 Route::get('/temas/{tema}', 'PreguntasControlador@preguntasTema');
 
 Route::get('/home/ordenar-likes', 'PreguntasControlador@ordenarLikesHome');

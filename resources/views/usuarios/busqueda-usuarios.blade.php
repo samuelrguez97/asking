@@ -14,7 +14,7 @@
                             class="mr-3 img-thumbnail w-25" alt="avatar">
                         <div class="media-body">
                             <h5 class="mt-0 text-white">{{ $usuario->name }}</h5>
-                            <a class="btn btn-primary ml-2 mb-3"
+                            <a class="btn btn-primary mb-3"
                                 href="{{ action('UsuariosControlador@getPerfilPublico', ['nombre' => $usuario->name ]) }}">
                                     Ir a su perfil
                                 </a>

@@ -58,20 +58,26 @@ class UsuariosControlador extends Controller
         // Recojo el termino que el usuario introdujo
         $termino = $request->buscador;
         
+        // Busco cualquier parecido del termino en la base de datos de los usuarios
         $usuarios = User::where('name', 'LIKE', '%'.$termino.'%')->get();
 
+        // Lo mismo en la base de datos de los temas
         $temas = temas::where('tema', 'LIKE', '%'.$termino.'%')->get();
 
+        // Si hay algun dato recogido de los usuarios .. 
         if ($usuarios->isNotEmpty())
         {
+            // Devuelvo la vista de la busqueda de los usuarios encontrados
             return view('usuarios.busqueda-usuarios', ['usuarios' => $usuarios]);
         }
         elseif ($temas->isNotEmpty())
         {
+            // Si se dio el caso de encontrar temas relacionados envio los temas parecidos al término
             return view('usuarios.busqueda-temas', ['temas' => $temas]);
         }
         else
         {
+            // Y si no se da ningún caso devuelvo un error de que no hay datos similares al término en las bases de datos
             return back()->with('error-busqueda', 'Lo sentimos, no encontramos ningun resultado con su búsqueda');
         }
 
@@ -94,18 +100,17 @@ class UsuariosControlador extends Controller
         {
             // Preguntas que ha dado like el usuario
             $preguntas_like = usuario_pregunta_like::where("id_usuario", Auth::user()->id)->get();
-
+            
+            // Devuelvo la vista con todos los datos recogidos
             return view("usuarios.perfil-publico", ["usuario" => $usuario, "preguntas" => $preguntas, "preguntas_like" => $preguntas_like]);
         }
         else
         {
+            // Si no hay usuario activo envio los datos del usuario y sus preguntas
             return view("usuarios.perfil-publico", ["usuario" => $usuario, "preguntas" => $preguntas]);
         }
         
     }
-
-    /* -- Defino el método para mostrar preguntas sobre un tema -- */
-
 
 
     /* -- Defino el metodo para mostrar el perfil -- */
@@ -182,7 +187,7 @@ class UsuariosControlador extends Controller
             {
                 // Creo el nombre del avatar que se alamacenara en la base de datos y en el servidor usando el id del usuario
                 $avatarName = $user->id.'_avatar'.time().'.'.request()->avatar->getClientOriginalExtension();
-                // Almaceno la imagen dela vatar del usuario en el servidor
+                // Almaceno la imagen del avatar del usuario en el servidor
                 $request->avatar->storeAs('imagenes/usuarios', $avatarName);
                 // Y inserto el nombre del archivo para luego acceder a el en la base de datos
                 $user->avatar = $avatarName;
@@ -256,8 +261,11 @@ class UsuariosControlador extends Controller
             ->where('respuesta', 0) // que no hayan sido respondidas
             ->get(); // recojo los datos
 
+        // Preguntas que ha dado like el usuario
+        $preguntas_like = usuario_pregunta_like::where("id_usuario", Auth::user()->id)->get();
+
         // envio los datos a la vista de tus-preguntas del usuario
-        return view("usuarios.tus-preguntas",  ["preguntas_a_ti" => $preguntas_a_ti]);
+        return view("usuarios.tus-preguntas",  ["preguntas_a_ti" => $preguntas_a_ti, "preguntas_like" => $preguntas_like]);
     }
 
     /* -- Defino el método para ver todas las preguntas realizadas por el usuario -- */
