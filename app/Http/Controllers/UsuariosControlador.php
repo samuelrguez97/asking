@@ -78,7 +78,7 @@ class UsuariosControlador extends Controller
         else
         {
             // Y si no se da ningún caso devuelvo un error de que no hay datos similares al término en las bases de datos
-            return back()->with('error-busqueda', 'Lo sentimos, no encontramos ningun resultado con su búsqueda');
+            return redirect()->action('PreguntasControlador@principal')->with('error-busqueda', 'Lo sentimos, no encontramos ningun resultado con esa búsqueda.');
         }
 
     }

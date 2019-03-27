@@ -10,9 +10,12 @@
                 @foreach ($temas as $tema)
                 <div class="col-sm-4">
                     <div class="input-group mb-3">
-                        <nav type="text" class="form-control" value="{{ $tema->tema }}" aria-describedby="button-addon2">{{ $tema->tema }}</nav>
+                        <nav type="text" class="form-control" value="{{ $tema->tema }}"
+                            aria-describedby="button-addon2">{{ $tema->tema }}</nav>
                         <div class="input-group-append">
-                            <a class="btn btn-primary" id="button-addon2" href="{{ action('PreguntasControlador@preguntasTema', ['tema' => $tema->tema]) }}">Ver este tema</a>
+                            <a class="btn btn-primary" id="button-addon2"
+                                href="{{ action('PreguntasControlador@preguntasTema', ['tema' => $tema->tema]) }}">Ver
+                                este tema</a>
                         </div>
                     </div>
                 </div>

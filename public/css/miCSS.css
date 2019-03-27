@@ -90,6 +90,10 @@ html, body {
 
 /* CSS para la redimensión de las imagenes de los usuarios */
 
+.img-perfil {
+    height: 410px;
+}
+
 .med-img-perfil {
     width: 90px !important;
     height: 90px !important;
@@ -242,10 +246,6 @@ html, body {
 
 .card-perfil {
     min-width: 28% !important;
-}
-
-.img-perfil {
-    height: 300px;
 }
 
 /* ------------- */
