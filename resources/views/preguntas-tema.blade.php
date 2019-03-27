@@ -49,23 +49,23 @@
                             <div class="float-right ml-3">
                                 @if (Auth::check())
                                 @if ($preguntas_like->contains('id_pregunta', $pregunta->id))
-                                <button class="btn btn-sm like text-white" data-id-pregunta="{{ $pregunta->id }}"
+                                <button class="float-left btn btn-sm like text-white" data-id-pregunta="{{ $pregunta->id }}"
                                     data-token="{{ csrf_token() }}"><img class="float-left img-likes"
                                         src="https://img.icons8.com/color/48/000000/filled-like.png" />
                                 </button>
                                 @else
-                                <button class="btn btn-sm like text-white" data-id-pregunta="{{ $pregunta->id }}"
+                                <button class="float-left btn btn-sm like text-white" data-id-pregunta="{{ $pregunta->id }}"
                                     data-token="{{ csrf_token() }}"><img class="float-left img-likes"
                                         src="https://img.icons8.com/like" />
                                 </button>
                                 @endif
                                 @else
-                                <button class="btn btn-sm like text-white" data-id-pregunta="{{ $pregunta->id }}"
+                                <button class="float-left btn btn-sm like text-white" data-id-pregunta="{{ $pregunta->id }}"
                                     data-token="{{ csrf_token() }}"><img class="float-left img-likes"
                                         src="https://img.icons8.com/like" />
                                 </button>
                                 @endif
-                                <aside id="contar-likes-{{ $pregunta->id }}" class="float-left likes mt-2 ml-2">
+                                <aside id="contar-likes-{{ $pregunta->id }}" class="float-left likes mt-2">
                                     {{ $pregunta->likes }}</aside>
                             </div>
                         </div>

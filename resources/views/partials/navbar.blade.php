@@ -1,6 +1,6 @@
 <nav class="sticky-top sticky-top-ie">
     <div class="row">
-        <div class="col-md-8 offset-md-2">
+        <div class="col-md-10 offset-md-1">
             <nav class="navbar-home navbar-expand-lg navbar-dark borde-nav colorBackground p-2">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsingNavbarLg">
                     <span class="navbar-toggler-icon"></span>

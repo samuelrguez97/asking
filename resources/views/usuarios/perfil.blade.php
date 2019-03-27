@@ -30,7 +30,7 @@
             </div>
             <br />
             <a class="btn btn-info mb-3" href="{{ action('UsuariosControlador@editPerfil') }}">Editar perfil</a>
-            <a class="btn btn-primary ml-2 mb-3"
+            <a class="btn btn-primary mb-3"
                 href="{{ action('UsuariosControlador@getPerfilPublico', ['nombre' => Auth::user()->name ]) }}">Tu perfil
                 público</a>
             @if( Session::has('success') )
@@ -51,7 +51,7 @@
 
             <!-- ZONA DE PREGUNTAS AL USUARIO -->
 
-            <h1 class="display-4 letraTitulo">Tus preguntas</h1>
+            <h1 class="letraTitulo">Tus preguntas</h1>
             <h4 class="text-white">Preguntas realizadas para ti</h4>
 
             @if ( $preguntas_a_ti->isEmpty() )
@@ -78,17 +78,17 @@
                             </div>
                             <div class="float-left mt-2">
                                 @if ($preguntas_like->contains('id_pregunta', $pregunta->id))
-                                <button class="btn btn-sm like text-white" data-id-pregunta="{{ $pregunta->id }}"
+                                <button class="float-left btn btn-sm like text-white" data-id-pregunta="{{ $pregunta->id }}"
                                     data-token="{{ csrf_token() }}"><img class="float-left img-likes"
                                         src="https://img.icons8.com/color/48/000000/filled-like.png" />
                                 </button>
                                 @else
-                                <button class="btn btn-sm like text-white" data-id-pregunta="{{ $pregunta->id }}"
+                                <button class="float-left btn btn-sm like text-white" data-id-pregunta="{{ $pregunta->id }}"
                                     data-token="{{ csrf_token() }}"><img class="float-left img-likes"
                                         src="https://img.icons8.com/like" />
                                 </button>
                                 @endif
-                                <aside id="contar-likes-{{ $pregunta->id }}" class="float-left likes mt-2 ml-2">
+                                <aside id="contar-likes-{{ $pregunta->id }}" class="float-left likes mt-2">
                                     {{ $pregunta->likes }}</aside>
                             </div>
                         </div>
@@ -131,7 +131,7 @@
 
             <!-- ZONA DE PREGUNTAS REALIZADAS -->
 
-            <h1 class="display-4 letraTitulo">Preguntas realizadas</h1>
+            <h1 class="letraTitulo">Preguntas realizadas</h1>
             <h4 class="text-white">Preguntas realizadas por ti</h4>
 
             @if ( $preguntas_por_ti->isEmpty() )
@@ -171,17 +171,17 @@
                             <span class="badge badge-info tema">{{ $pregunta->tema }}</span>
                             <div class="float-right ml-3">
                                 @if ($preguntas_like->contains('id_pregunta', $pregunta->id))
-                                <button class="btn btn-sm like text-white" data-id-pregunta="{{ $pregunta->id }}"
+                                <button class="float-left btn btn-sm like text-white" data-id-pregunta="{{ $pregunta->id }}"
                                     data-token="{{ csrf_token() }}"><img class="float-left img-likes"
                                         src="https://img.icons8.com/color/48/000000/filled-like.png" />
                                 </button>
                                 @else
-                                <button class="btn btn-sm like text-white" data-id-pregunta="{{ $pregunta->id }}"
+                                <button class="float-left btn btn-sm like text-white" data-id-pregunta="{{ $pregunta->id }}"
                                     data-token="{{ csrf_token() }}"><img class="float-left img-likes"
                                         src="https://img.icons8.com/like" />
                                 </button>
                                 @endif
-                                <aside id="contar-likes-{{ $pregunta->id }}" class="float-left likes mt-2 ml-2">
+                                <aside id="contar-likes-{{ $pregunta->id }}" class="float-left likes mt-2">
                                     {{ $pregunta->likes }}</aside>
                             </div>
                         </div>

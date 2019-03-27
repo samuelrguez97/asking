@@ -98,7 +98,7 @@ html, body {
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
     .sticky-top-ie {
         position: fixed;
-        width: 99.1%;
+        width: 98.9%;
         top: 0;
         z-index: 1020;
     }
