@@ -34,17 +34,22 @@ class PreguntasControlador extends Controller
     {
         // Recojo todos los temas que hay
         $temas = temas::all();
+
         // Recojo las preguntas ordenadas por fecha, las más recientes primero
         $preguntas_todas = preguntas::orderBy('created_at', 'desc')->get();
+
+        // Recojo todos los usuarios para coger su información de perfil
+        $usuarios = User::all();
+
         if (Auth::check())
         {
             $preguntas_like = usuario_pregunta_like::where("id_usuario", Auth::user()->id)->get();
             // Devuelvo la vista del home con todos los datos adjuntados
-            return view("home", ["temas" => $temas, "preguntas_todas" => $preguntas_todas, "preguntas_like" => $preguntas_like]);
+            return view("home", ["temas" => $temas, "preguntas_todas" => $preguntas_todas, "usuarios" => $usuarios, "preguntas_like" => $preguntas_like]);
         }
         else
         {
-            return view("home", ["temas" => $temas, "preguntas_todas" => $preguntas_todas]);
+            return view("home", ["temas" => $temas, "usuarios" => $usuarios,  "preguntas_todas" => $preguntas_todas]);
         }
         
         
@@ -56,17 +61,22 @@ class PreguntasControlador extends Controller
 
         // Recojo todos los temas que hay
         $temas = temas::all();
+
         // Recojo las preguntas ordenadas por likes, las que más tienen primero
         $preguntas_todas = preguntas::orderBy('likes', 'desc')->get();
+
+        // Recojo todos los usuarios para coger su información de perfil
+        $usuarios = User::all();
+
         if (Auth::check())
         {
             $preguntas_like = usuario_pregunta_like::where("id_usuario", Auth::user()->id)->get();
             // Devuelvo la vista del home con todos los datos adjuntados
-            return view("home", ["temas" => $temas, "preguntas_todas" => $preguntas_todas, "preguntas_like" => $preguntas_like])->with('orden', 'Preguntas con más likes');
+            return view("home", ["temas" => $temas, "preguntas_todas" => $preguntas_todas, "usuarios" => $usuarios, "preguntas_like" => $preguntas_like])->with('orden', 'Preguntas con más likes');
         }
         else
         {
-            return view("home", ["temas" => $temas, "preguntas_todas" => $preguntas_todas])->with('orden', 'Preguntas con más likes');
+            return view("home", ["temas" => $temas, "preguntas_todas" => $preguntas_todas, "usuarios" => $usuarios])->with('orden', 'Preguntas con más likes');
         }
     }
 
@@ -214,19 +224,22 @@ class PreguntasControlador extends Controller
 
         // Recojo de la base de datos las preguntas relacionadas con ese tema
         $preguntas = preguntas::orderBy('created_at', 'desc')->where('tema', $tema)->get();
+        
+        // Recojo todos los usuarios para coger su información de perfil
+        $usuarios = User::all();
 
         // Si hay un usuario activo envio las preguntas a las que le dió like
         if (Auth::check())
         {
             $preguntas_like = usuario_pregunta_like::where("id_usuario", Auth::user()->id)->get();
             // Devuelvo la vista de preguntas tema con todos los datos adjuntados
-            return view('preguntas-tema', ['tema' => $tema, 'preguntas' => $preguntas, 'preguntas_like' => $preguntas_like]);
+            return view('preguntas-tema', ['tema' => $tema, 'preguntas' => $preguntas, "usuarios" => $usuarios, 'preguntas_like' => $preguntas_like]);
         }
         // .. y si no hay usuario activo
         else
         {
             // Envio a la vista simplemente el tema y las preguntas asociadas a ese tema
-            return view('preguntas-tema', ['tema' => $tema, 'preguntas' => $preguntas]);
+            return view('preguntas-tema', ['tema' => $tema, 'preguntas' => $preguntas, "usuarios" => $usuarios]);
         }
         
     }

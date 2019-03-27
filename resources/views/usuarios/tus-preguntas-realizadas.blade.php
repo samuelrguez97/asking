@@ -22,7 +22,11 @@
                     <div class="card-header fit-content">
                         <div class="pregunta-user">
                             <aside class="float-left">
-                                <span>Para: </span><span class="letraTitulo">{{ $pregunta->usuario }}</span>
+                                <img src="{{ url('storage/imagenes/usuarios') }}/{{ $usuarios->where('name', $pregunta->usuario)->first()->avatar }}"
+                                    class="mr-3 img-thumbnail min-img-perfil" alt="avatar">
+                                <div class="media-body">
+                                    <h6>{{ $pregunta->usuario }}</h6>
+                                </div>
                             </aside>
                             <aside class="float-right">
                                 @if ($pregunta->respuesta == 0)
@@ -65,7 +69,7 @@
         @endif
 
         <aside class="text-center">
-            <a class="btn btn-info col-sm-4 mt-4 text-center" href="{{ url('perfil') }}">Volver</a>
+            <a class="btn btn-info col-sm-1 mt-4 text-center" href="{{ url('perfil') }}">Volver</a>
         </aside>
 
         <!-- Creo el formulario para actualizar los likes por ajax -->

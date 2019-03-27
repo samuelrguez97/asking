@@ -118,7 +118,8 @@ Session::forget('error-busqueda');
                 </li>
             </ul>
             <div class="float-left mt-1 ml-4">
-                <a class="text-white btn btn-info btn-sm" href="{{ action('PreguntasControlador@temasTodos') }}">Ver todos los temas</a>
+                <a class="text-white btn btn-info btn-sm" href="{{ action('PreguntasControlador@temasTodos') }}">Ver
+                    todos los temas</a>
             </div>
             <div class="float-right">
                 <div class="mt-2 min-container">
@@ -150,7 +151,13 @@ Session::forget('error-busqueda');
                         <div class="card-header fit-content">
                             <div class="pregunta-user">
                                 <aside class="float-left">
-                                    <span>Para: </span><span class="letraTitulo">{{ $pregunta->usuario }}</span>
+                                    <div class="media">
+                                        <img src="{{ url('storage/imagenes/usuarios') }}/{{ $usuarios->where('name', $pregunta->usuario)->first()->avatar }}"
+                                            class="mr-3 img-thumbnail min-img-perfil" alt="avatar">
+                                        <div class="media-body">
+                                            <h6>{{ $pregunta->usuario }}</h6>
+                                        </div>
+                                    </div>
                                 </aside>
                                 <aside class="float-right">
                                     @if ($pregunta->respuesta == 0)
@@ -171,20 +178,21 @@ Session::forget('error-busqueda');
                             <div class="float-right ml-3">
                                 @if (Auth::check())
                                 @if ($preguntas_like->contains('id_pregunta', $pregunta->id))
-                                <button class="float-left btn btn-sm like text-white" data-id-pregunta="{{ $pregunta->id }}"
-                                    data-token="{{ csrf_token() }}"><img class="float-left img-likes"
+                                <button class="float-left btn btn-sm like text-white"
+                                    data-id-pregunta="{{ $pregunta->id }}" data-token="{{ csrf_token() }}"><img
+                                        class="float-left img-likes"
                                         src="https://img.icons8.com/color/48/000000/filled-like.png" />
                                 </button>
                                 @else
-                                <button class="float-left btn btn-sm like text-white" data-id-pregunta="{{ $pregunta->id }}"
-                                    data-token="{{ csrf_token() }}"><img class="float-left img-likes"
-                                        src="https://img.icons8.com/like" />
+                                <button class="float-left btn btn-sm like text-white"
+                                    data-id-pregunta="{{ $pregunta->id }}" data-token="{{ csrf_token() }}"><img
+                                        class="float-left img-likes" src="https://img.icons8.com/like" />
                                 </button>
                                 @endif
                                 @else
-                                <button class="float-left btn btn-sm like text-white" data-id-pregunta="{{ $pregunta->id }}"
-                                    data-token="{{ csrf_token() }}"><img class="float-left img-likes"
-                                        src="https://img.icons8.com/like" />
+                                <button class="float-left btn btn-sm like text-white"
+                                    data-id-pregunta="{{ $pregunta->id }}" data-token="{{ csrf_token() }}"><img
+                                        class="float-left img-likes" src="https://img.icons8.com/like" />
                                 </button>
                                 @endif
                                 <aside id="contar-likes-{{ $pregunta->id }}" class="float-left likes mt-2">

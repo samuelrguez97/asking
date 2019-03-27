@@ -88,6 +88,18 @@ html, body {
     z-index: 0 !important;
 }
 
+/* CSS para la redimensión de las imagenes de los usuarios */
+
+.med-img-perfil {
+    width: 90px !important;
+    height: 90px !important;
+}
+
+.min-img-perfil {
+    width: 45px !important;
+    height: 45px !important;
+}
+
 /* Este CSS se aplica para arreglar el height del contenedor principal del Firefox */
 
 .firefox-height {

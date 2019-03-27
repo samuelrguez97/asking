@@ -95,6 +95,9 @@ class UsuariosControlador extends Controller
         // Selecciono los datos del usuario
         $usuario = User::where('name', $nombre)->first();
 
+        // Recojo todos los usuarios para coger su información de perfil
+        $usuarios = User::all();
+
         // Las preguntas que ha dado like el usuario solo se envia si hay usuario activo
         if (Auth::check())
         {
@@ -102,12 +105,12 @@ class UsuariosControlador extends Controller
             $preguntas_like = usuario_pregunta_like::where("id_usuario", Auth::user()->id)->get();
             
             // Devuelvo la vista con todos los datos recogidos
-            return view("usuarios.perfil-publico", ["usuario" => $usuario, "preguntas" => $preguntas, "preguntas_like" => $preguntas_like]);
+            return view("usuarios.perfil-publico", ["usuario" => $usuario, "usuarios" => $usuarios, "preguntas" => $preguntas, "preguntas_like" => $preguntas_like]);
         }
         else
         {
             // Si no hay usuario activo envio los datos del usuario y sus preguntas
-            return view("usuarios.perfil-publico", ["usuario" => $usuario, "preguntas" => $preguntas]);
+            return view("usuarios.perfil-publico", ["usuario" => $usuario, "usuarios" => $usuarios, "preguntas" => $preguntas]);
         }
         
     }
@@ -133,8 +136,11 @@ class UsuariosControlador extends Controller
         // Preguntas que ha dado like el usuario
         $preguntas_like = usuario_pregunta_like::where("id_usuario", Auth::user()->id)->get();
 
+        // Recojo todos los usuarios para coger su información de perfil
+        $usuarios = User::all();
+
         // y los envio a la vista del perfil con un objeto llamado preguntas_a_ti y preguntas_por_ti
-        return view("usuarios.perfil",  ["preguntas_a_ti" => $preguntas_a_ti, "preguntas_por_ti" => $preguntas_por_ti, "preguntas_like" => $preguntas_like]);
+        return view("usuarios.perfil",  ["preguntas_a_ti" => $preguntas_a_ti, "preguntas_por_ti" => $preguntas_por_ti, "preguntas_like" => $preguntas_like, "usuarios" => $usuarios]);
     }
 
     public function editPerfil() {
@@ -280,8 +286,11 @@ class UsuariosControlador extends Controller
         // Preguntas que ha dado like el usuario
         $preguntas_like = usuario_pregunta_like::where("id_usuario", Auth::user()->id)->get();
 
+        // Recojo todos los usuarios para coger su información de perfil
+        $usuarios = User::all();
+
         // envio los datos a la vista de tus-preguntas-realizadas del usuario
-        return view("usuarios.tus-preguntas-realizadas",  ["preguntas_por_ti" => $preguntas_por_ti, "preguntas_like" => $preguntas_like]);
+        return view("usuarios.tus-preguntas-realizadas",  ["preguntas_por_ti" => $preguntas_por_ti, "preguntas_like" => $preguntas_like, "usuarios" => $usuarios]);
     }
 
 
