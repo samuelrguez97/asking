@@ -36,7 +36,7 @@ class PreguntasControlador extends Controller
         $temas = temas::all();
 
         // Recojo las preguntas ordenadas por fecha, las más recientes primero
-        $preguntas_todas = preguntas::orderBy('created_at', 'desc')->get();
+        $preguntas = preguntas::orderBy('created_at', 'desc')->get();
 
         // Recojo todos los usuarios para coger su información de perfil
         $usuarios = User::all();
@@ -45,11 +45,11 @@ class PreguntasControlador extends Controller
         {
             $preguntas_like = usuario_pregunta_like::where("id_usuario", Auth::user()->id)->get();
             // Devuelvo la vista del home con todos los datos adjuntados
-            return view("home", ["temas" => $temas, "preguntas_todas" => $preguntas_todas, "usuarios" => $usuarios, "preguntas_like" => $preguntas_like]);
+            return view("home", ["temas" => $temas, "preguntas" => $preguntas, "usuarios" => $usuarios, "preguntas_like" => $preguntas_like]);
         }
         else
         {
-            return view("home", ["temas" => $temas, "usuarios" => $usuarios,  "preguntas_todas" => $preguntas_todas]);
+            return view("home", ["temas" => $temas, "usuarios" => $usuarios,  "preguntas" => $preguntas]);
         }
         
         
@@ -63,7 +63,7 @@ class PreguntasControlador extends Controller
         $temas = temas::all();
 
         // Recojo las preguntas ordenadas por likes, las que más tienen primero
-        $preguntas_todas = preguntas::orderBy('likes', 'desc')->get();
+        $preguntas = preguntas::orderBy('likes', 'desc')->get();
 
         // Recojo todos los usuarios para coger su información de perfil
         $usuarios = User::all();
@@ -72,11 +72,11 @@ class PreguntasControlador extends Controller
         {
             $preguntas_like = usuario_pregunta_like::where("id_usuario", Auth::user()->id)->get();
             // Devuelvo la vista del home con todos los datos adjuntados
-            return view("home", ["temas" => $temas, "preguntas_todas" => $preguntas_todas, "usuarios" => $usuarios, "preguntas_like" => $preguntas_like])->with('orden', 'Preguntas con más likes');
+            return view("home", ["temas" => $temas, "preguntas" => $preguntas, "usuarios" => $usuarios, "preguntas_like" => $preguntas_like])->with('orden', 'Preguntas con más likes');
         }
         else
         {
-            return view("home", ["temas" => $temas, "preguntas_todas" => $preguntas_todas, "usuarios" => $usuarios])->with('orden', 'Preguntas con más likes');
+            return view("home", ["temas" => $temas, "preguntas" => $preguntas, "usuarios" => $usuarios])->with('orden', 'Preguntas con más likes');
         }
     }
 

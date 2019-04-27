@@ -33,8 +33,6 @@ Route::get('/temas/{tema}', 'PreguntasControlador@preguntasTema');
 
 Route::get('/home/ordenar-likes', 'PreguntasControlador@ordenarLikesHome');
 
-Route::get('/home/ordenar-recientes', 'PreguntasControlador@ordenarRecientesHome');
-
 Route::get('/eliminar-pregunta/{id_pregunta}', 'PreguntasControlador@eliminarPregunta')->middleware('auth');
 
 Route::post('/preguntas/{id}/accion', 'PreguntasControlador@actuarPregunta')->middleware('auth');
