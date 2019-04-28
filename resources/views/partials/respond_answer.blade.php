@@ -10,7 +10,7 @@
                     </button>
                     <input type="text" class="w-user input text-white" placeholder="Introduce tu respuesta"
                         name="respuesta" value="{{ old('respuesta') }}">
-                    <input type="hidden" name="id_pregunta" value="">
+                    <input id="send-respuesta-id" type="hidden" name="id_pregunta" value="">
                     <div class="line-box w-user">
                         <div class="line"></div>
                     </div>

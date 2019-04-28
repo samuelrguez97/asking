@@ -78,19 +78,28 @@
         });
 
     </script>
+    <!-- Script para visualizar el modal de ver respuesta -->
+    @if (session('ver_pregunta')))
+    <script>
+        $(function () {
+            $('#verRespuesta').modal('show');
+        });
+    </script>
+    @endif
+    <!-- Mostrar modal de respuesta -->
+    <script>
+        $(document).ready(function() {
+
+            var id_pregunta = $('#boton-env-resp').data("id-pregunta");
+            $("#send-respuesta-id").val(id_pregunta);
+
+        });
+    </script>
     <!-- Notificaciones JS -->
     <script src="{{ url('plugins/overhang.js/dist/overhang.min.js') }}"></script>
     <!-- Mis JavaScript -->
     <script src="{{ url('js/miJS.js') }}"></script>
     <script src="{{ url('js/likes.js') }}"></script>
-    <!-- Mostrar modal de respuesta -->
-    @if (!empty(session('ver_pregunta')))
-    <script>
-        $(document).ready(function() {
-            $("#verRespuesta").modal();
-        });
-    </script>
-    @endif
 </body>
 
 </html>

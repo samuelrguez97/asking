@@ -11,7 +11,7 @@
                     Responder</button>
             </div>
             <div class="float-left mt-2">
-                <button class="float-left btn btn-sm like text-white" data-id-pregunta="{{ $pregunta->id }}"
+                <button id="boton-env-resp" class="float-left btn btn-sm like text-white" data-id-pregunta="{{ $pregunta->id }}"
                     data-token="{{ csrf_token() }}"><i
                         class="{{ Auth::check() ? ($preguntas_like->contains('id_pregunta', $pregunta->id) ? 'color-like' : '') : '' }} far fa-heart fa-lg"></i>
                 </button>
