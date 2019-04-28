@@ -17,6 +17,8 @@
         <div class="row mt-5">
 
         @include('partials.ask_yours')
+
+        @include('partials.respond_answer')
         
         </div>
 

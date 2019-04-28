@@ -9,6 +9,7 @@ use App\preguntas;
 use App\usuario_pregunta_like;
 use App\temas;
 use App\User;
+use App\respuestas;
 
 
 class PreguntasControlador extends Controller
@@ -154,6 +155,61 @@ class PreguntasControlador extends Controller
         // Redirijo al perfil con el mensaje de que se ha eliminado la pregunta
         return back()->with('eliminada', '¡Has eliminado la pregunta!');
 
+    }
+
+    /* -- Defino el método para enviar la respuesta -- */
+
+    public function sendRespuesta(Request $request) { // Recojo el id de la pregunta que se envia desde la vista
+        
+        // Valido la respuesta recibida del formulario
+        $request->validate([
+            'respuesta' => 'required|max:140'
+        ]);
+        
+        // Asigno el id de la pregunta a una variable
+        $id_pregunta = $request->id_pregunta;
+
+        // Creo el vínculo entre la pregunta y la respuesta en la tabla 'respuestas'
+        $respuesta = new respuestas;
+        $respuesta->id_pregunta = $id_pregunta;
+        $respuesta->respuesta = $request->respuesta;
+        $respuesta->save();
+        
+        // Cambio el campo booleano de respuesta de las preguntas a true
+        $pregunta = preguntas::where('id', $id_pregunta)->first();
+        $pregunta->respuesta = true;
+        $pregunta->save();
+        
+        // Vuelvo a la anterior página con el mensaje de que es ha enviado la respuesta
+        return back()->with('respondida', '¡Se ha enviado la respuesta con éxito!');
+    }
+
+    /* -- Defino el método para ver la respuesta -- */
+
+    public function verRespuesta(Request $request) {
+        // Asigno el id de la pregunta desde el fromulario a una variable
+        $id_pregunta = $request->id_pregunta;
+
+        // Recojo los datos de la pregunta
+        $pregunta = preguntas::where('id', $id_pregunta)->first();
+
+        // Recojo los datos de la respuesta ha esa pregunta
+        $respuesta = respuestas::where('id_pregunta', $id_pregunta)->first();
+
+        // Compruebo si hay un usuario en activo
+        if (Auth::user()) 
+        {
+            // Si es así devuelvo si el usuario ha dado like a la pregunta o no junto con los demás datos
+            $ver_preguntas_like = usuario_pregunta_like::where("id_usuario", Auth::user()->id)->get();
+            return back()->with(['ver_pregunta' => $pregunta, 'ver_respuesta' => $respuesta, 'ver_preguntas_like' => $ver_preguntas_like]);
+        }
+        else 
+        {
+            // y si no es así devuelvo la pregunta y la respuesta únicamente
+            return back()->with(['ver_pregunta' => $pregunta, 'ver_respuesta' => $respuesta]);
+        }
+        
+        
     }
 
     /* -- Defino el método para los likes/dislikes -- */

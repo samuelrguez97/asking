@@ -135,7 +135,7 @@ Session::forget('error-busqueda');
             </div>
         </div>
     </div>
-    <div class="col-sm-10 offset-md-1">
+    <div class="col-md-10 offset-md-1">
         <div id="preguntas" class="show-preguntas">
             <div class="row mt-5">
 
@@ -146,6 +146,8 @@ Session::forget('error-busqueda');
                 @endif
 
                 @include('partials.ask_external')
+
+                @include('partials.see_answer')
 
             </div>
         </div>

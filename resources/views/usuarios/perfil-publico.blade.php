@@ -2,6 +2,12 @@
 
 @section('content')
 <div class="container-fluid w-fit-content h-fit-content">
+    @if( Session::has('respondida') )
+    <aside class="mt-4 text-center alert alert-success" role="alert">
+        {{ session('respondida') }}
+    </aside>
+    Session::forget('respondida');
+    @endif
     <div class="mt-5 row">
 
         <!-- ZONA PARA MOSTRAR INFORMACIÓN DEL PERFIL PÚBLICO -->
@@ -43,6 +49,8 @@
                 <!-- ZONA PARA METER LAS PREGUNTAS DESDE LA BASE DE DATOS-->
 
                 @include('partials.ask_external')
+
+                @include('partials.see_answer')
 
                 @endif
 

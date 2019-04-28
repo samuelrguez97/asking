@@ -17,7 +17,7 @@ $(document).ready(function () {
         // Serializo el formulario para enviarlo por ajax
         var data = form.serialize();
         
-        // Paso el token de seguridad csrf del formulario a la peticion ajax (método de seguridad de laravel)
+        // Paso el token de seguridad csrf del formulario a la peticion ajax (método de seguridad)
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -30,16 +30,16 @@ $(document).ready(function () {
             type: "POST", // digo que  es de tipo POST el envío
             data: data, // le paso los datos serializados
             success: function (data) { // en caso de hacer la peticion correctamente ..
-                // recibo los datos y se asignan  la variable data
+                // recibo los datos y se asignan la variable data
 
                 // compruebo si la acción es like o dislike
                 if (data == 'like') {
                     // en caso de ser like cambio el corazon a uno coloreado y sumo 1 like en ese momento para feedback del usuario
-                    boton.find("img").attr("src", "https://img.icons8.com/color/48/000000/filled-like.png");
+                    boton.find("i").addClass("color-like");
                     boton.next().html(parseInt(boton.next().html(), 10) + 1);
                 } else {
                     // en caso de ser dislike cambio el corazon a uno vacio y resto 1 like en ese momento para feedback del usuario
-                    boton.find("img").attr("src", "https://img.icons8.com/like");
+                    boton.find("i").removeClass("color-like");
                     boton.next().html(parseInt(boton.next().html(), 10) - 1);
                 }
 
@@ -50,7 +50,7 @@ $(document).ready(function () {
                     type: "error",
                     message: "Debes estar registrado.",
                     duration: 1
-                  });
+                });
             }
 
         });

@@ -16,7 +16,9 @@
 
         <div class="row mt-5">
 
-        @include('partials.ask_external')
+        @include('partials.ask_from_you')
+
+        @include('partials.see_answer')
 
         </div>
 

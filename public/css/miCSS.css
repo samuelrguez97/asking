@@ -221,11 +221,17 @@ html, body {
 /* Estilos card de la pregunta */
 
 .no-respond {
-    font-size: .8em;
+    font-weight: bold;
+    font-size: .9em;
+}
+
+.color-like {
+    color: red !important;
 }
 
 .likes {
     font-size: .8em;
+    font-weight: bold;
 }
 
 .like {
@@ -245,6 +251,26 @@ html, body {
     font-weight: bold;
     font-size: .7em;
 }
+
+.texto-pregunta {
+    width: 80% !important;
+}
+
+/* --------------------------- */
+
+/* CSS de la respuesta */
+
+.separador-respuesta {
+    width: 2% !important;
+    height: 10% !important;
+    border-radius: 10px !important;
+    background-color: #ac9e31;
+}
+
+.respuesta {
+    max-width: 80% !important;
+}
+
 
 /* --------------------------- */
 
