@@ -108,6 +108,7 @@ html, body {
 .min-img-perfil {
     width: 45px !important;
     height: 45px !important;
+    border: 1px solid white !important;
 }
 
 /* Este CSS se aplica para arreglar el height del contenedor principal del Firefox */
@@ -256,6 +257,11 @@ html, body {
     width: 80% !important;
 }
 
+.profile-user {
+    text-decoration: none !important;
+    color: #ab9e32 !important;
+}
+
 /* --------------------------- */
 
 /* CSS de la respuesta */
@@ -269,6 +275,11 @@ html, body {
 
 .respuesta {
     max-width: 80% !important;
+}
+
+.emoji-respuesta {
+    margin-right: 30% !important;
+    margin-top: 4% !important;
 }
 
 /* --------------------------- */

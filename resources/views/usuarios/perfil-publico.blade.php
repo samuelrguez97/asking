@@ -27,7 +27,10 @@
                 </table>
             </div>
             <br />
-            <a class="btn btn-info mb-3" href="{{ url('home') }}">Inicio</a>
+            @if (Auth::check() && Auth::user()->name == $usuario->name)
+            <a class="btn btn-info mb-3" href="{{ url('perfil') }}">Volver a tu perfil</a>
+            @endif
+            <a class="btn btn-primary mb-3" href="{{ url('home') }}">Inicio</a>
         </div>
 
 

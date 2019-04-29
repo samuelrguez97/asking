@@ -4,10 +4,10 @@
         <div class="card-header fit-content">
             <div class="pregunta-user">
                 <aside class="float-left">
-                    <a href="{{ action('UsuariosControlador@getPerfilPublico', ['nombre' => $pregunta->usuario]) }}"
+                    <a class="profile-user" href="{{ action('UsuariosControlador@getPerfilPublico', ['nombre' => $pregunta->usuario]) }}"
                         class="text-muted">
                         <img src="{{ url('storage/imagenes/usuarios') }}/{{ $usuarios->where('name', $pregunta->usuario)->first()->avatar }}"
-                            class="mr-3 img-thumbnail min-img-perfil" alt="avatar">
+                            class="mr-3 rounded min-img-perfil" alt="avatar">
                         <div class="media-body">
                             <h6>{{ $pregunta->usuario }}</h6>
                         </div>

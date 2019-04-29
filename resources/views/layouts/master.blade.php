@@ -100,6 +100,7 @@
     <!-- Mis JavaScript -->
     <script src="{{ url('js/miJS.js') }}"></script>
     <script src="{{ url('js/likes.js') }}"></script>
+    <script src="{{ url('js/cargar-emojis-respuesta.js') }}"></script>
 </body>
 
 </html>

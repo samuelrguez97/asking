@@ -7,7 +7,7 @@
             @endif
             <h6 class="card-text ml-3">{{ $pregunta->pregunta }}</h6>
             <div class="float-right mt-2">
-                <button data-toggle="modal" data-target="#responder" data-id-pregunta="{{ $pregunta->id }}" class="btn btn-secondary btn-sm"> <i class="fa fa-reply"></i>
+                <button data-toggle="modal" data-target="#responder" data-id-pregunta="{{ $pregunta->id }}" class="responder btn btn-secondary btn-sm"> <i class="fa fa-reply"></i>
                     Responder</button>
             </div>
             <div class="float-left mt-2">

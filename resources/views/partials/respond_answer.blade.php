@@ -9,7 +9,7 @@
                             data-placement="right" title="Eliminar pregunta"></i>
                     </button>
                     <input type="text" class="w-user input text-white" placeholder="Introduce tu respuesta"
-                        name="respuesta" value="{{ old('respuesta') }}">
+                        name="respuesta" data-emojiable="true" data-emoji-input="unicode" value="{{ old('respuesta') }}">
                     <input id="send-respuesta-id" type="hidden" name="id_pregunta" value="">
                     <div class="line-box w-user">
                         <div class="line"></div>
