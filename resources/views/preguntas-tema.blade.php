@@ -23,6 +23,8 @@
 
                 @include('partials.ask_external')
 
+                @include('partials.see_answer')
+
                 @endif
 
                 <!-- --------------------------------------------------- -->

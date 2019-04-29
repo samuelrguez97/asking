@@ -39,6 +39,7 @@
             <a class="btn btn-primary mb-3"
                 href="{{ action('UsuariosControlador@getPerfilPublico', ['nombre' => Auth::user()->name ]) }}">Tu perfil
                 público</a>
+            <a class="btn btn-secondary mb-3" href="{{ action('UsuariosControlador@tusPreguntasRespondidas') }}">Ver preguntas respondidas</a>
             @if( Session::has('success') )
             <aside class="mt-4 alert alert-success" role="alert">
                 {{ session('success') }}
@@ -88,7 +89,7 @@
             @endif
 
             <div class="mb-5 text-center">
-                <a class="btn btn-lg btn-success" href="{{ action('UsuariosControlador@tusPreguntas') }}">Ver todas</a>
+                <a class="btn btn-lg btn-success mr-2" href="{{ action('UsuariosControlador@tusPreguntas') }}">Ver todas</a>
             </div>
 
             @endif

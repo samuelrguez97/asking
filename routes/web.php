@@ -58,6 +58,8 @@ Route::post('/editando', 'UsuariosControlador@makeEdit')->middleware('auth');
 
 Route::get('/tus-preguntas', 'UsuariosControlador@tusPreguntas')->middleware('auth');
 
+Route::get('/tus-preguntas-respondidas', 'UsuariosControlador@tusPreguntasRespondidas')->middleware('auth');
+
 Route::get('/tus-preguntas-realizadas', 'UsuariosControlador@preguntasRealizadas')->middleware('auth');
 
 

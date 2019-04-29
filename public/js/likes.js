@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    
+
     // Defino el método que se dispara al dar el boton like
     $('.like').click(function (e) {
 
@@ -16,7 +16,7 @@ $(document).ready(function () {
         var url = form.attr('action').replace(':id_pregunta', id_pregunta);
         // Serializo el formulario para enviarlo por ajax
         var data = form.serialize();
-        
+
         // Paso el token de seguridad csrf del formulario a la peticion ajax (método de seguridad)
         $.ajaxSetup({
             headers: {
@@ -36,17 +36,25 @@ $(document).ready(function () {
                 if (data == 'like') {
                     // en caso de ser like cambio el corazon a uno coloreado y sumo 1 like en ese momento para feedback del usuario
                     boton.find("i").addClass("color-like");
-                    boton.next().html(parseInt(boton.next().html(), 10) + 1);
+                    boton.next().html(parseInt(boton.next().html(), 10) + 1).animate({
+                        fontSize: '+=2'
+                    }, 100).animate({
+                        fontSize: '-=2'
+                    }, 100);
                 } else {
                     // en caso de ser dislike cambio el corazon a uno vacio y resto 1 like en ese momento para feedback del usuario
                     boton.find("i").removeClass("color-like");
-                    boton.next().html(parseInt(boton.next().html(), 10) - 1);
+                    boton.next().html(parseInt(boton.next().html(), 10) - 1).animate({
+                        fontSize: '+=2'
+                    }, 100).animate({
+                        fontSize: '-=2'
+                    }, 100);;
                 }
 
             },
             error: function () { // si no se hace correctamente es por un 401 unauthorithed, debido a que no hay usuario activo
                 // muestro una notificacion del plugin overhang
-                $("body").overhang({ 
+                $("body").overhang({
                     type: "error",
                     message: "Debes estar registrado.",
                     duration: 1

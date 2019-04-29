@@ -261,7 +261,7 @@ html, body {
 /* CSS de la respuesta */
 
 .separador-respuesta {
-    width: 2% !important;
+    width: 1.5% !important;
     height: 10% !important;
     border-radius: 10px !important;
     background-color: #ac9e31;
@@ -270,7 +270,6 @@ html, body {
 .respuesta {
     max-width: 80% !important;
 }
-
 
 /* --------------------------- */
 

@@ -89,8 +89,8 @@ class UsuariosControlador extends Controller
 
         // Selecciono las preguntas que se han enviado al usuario con estos criterios ...
         $preguntas = preguntas::orderBy('created_at', 'desc') // de forma descendente, las mas nuevas primero
-        ->where('usuario', $nombre) // solo las que son para ese usuario
-        ->get(); // recojo los datos
+            ->where('usuario', $nombre) // solo las que son para ese usuario
+            ->get(); // recojo los datos
 
         // Selecciono los datos del usuario
         $usuario = User::where('name', $nombre)->first();
@@ -274,6 +274,26 @@ class UsuariosControlador extends Controller
         return view("usuarios.tus-preguntas",  ["preguntas_a_ti" => $preguntas_a_ti, "preguntas_like" => $preguntas_like]);
     }
 
+    /* -- Defino el método para ver todas las preguntas del usuario ya respondidas -- */
+    
+    public function tusPreguntasRespondidas() {
+        
+        // Selecciono las preguntas que se han enviado al usuario con estos criterios ...
+        $preguntas = preguntas::orderBy('created_at', 'desc') // de forma descendente, las mas nuevas primero
+            ->where('usuario', Auth::user()->name) // solo las que son para ese usuario
+            ->where('respuesta', 1) // que hayan sido respondidas
+            ->get(); // recojo los datos
+
+        // Preguntas que ha dado like el usuario
+        $preguntas_like = usuario_pregunta_like::where("id_usuario", Auth::user()->id)->get();
+
+        // Recojo todos los usuarios para coger su información de perfil
+        $usuarios = User::all();
+
+        // envio los datos a la vista de tus-preguntas-respondidas del usuario
+        return view("usuarios.tus-preguntas-respondidas",  ["preguntas" => $preguntas, "usuarios" => $usuarios, "preguntas_like" => $preguntas_like]);
+
+    }
     /* -- Defino el método para ver todas las preguntas realizadas por el usuario -- */
 
     public function preguntasRealizadas() {

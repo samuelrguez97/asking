@@ -7,10 +7,10 @@ $ver_respuesta = session('ver_respuesta');
 <aside id="verRespuesta" class="modal" tabindex="-1" role="dialog">
     <aside class="modal-dialog modal-dialog-centered" role="document">
         <aside class="modal-content">
-            <aside class="p-2">
+            <aside class="p-2 mb-3">
                 <aside class="row">
                     <div class="col-sm-12">
-                        <div class="card text-white bg-transparent bordes-ask">
+                        <div class="card text-white bg-transparent {{ !empty($ver_pregunta) ? '' : 'bordes-ask' }}">
                             <div class="card-header fit-content">
                                 <div class="ver_pregunta-user">
                                     <aside class="float-left">
@@ -32,6 +32,10 @@ $ver_respuesta = session('ver_respuesta');
                                 <aside class="float-left tiempo">
                                     {{ $ver_pregunta->created_at->diffForHumans() }}
                                 </aside>
+                                <a
+                                    href="{{ action('PreguntasControlador@preguntasTema', ['tema' => $ver_pregunta->tema]) }}">
+                                    <span class="badge badge-info tema">{{ $ver_pregunta->tema }}</span>
+                                </a>
                                 <div class="float-right ml-3">
                                     <aside class="float-left btn btn-sm text-white"><i class="{{ Auth::check() ? ($ver_preguntas_like->contains('id_pregunta', $ver_pregunta->id) ? 'color-like' : '') : ''}}
                                     far fa-heart fa-lg"></i>
@@ -46,6 +50,7 @@ $ver_respuesta = session('ver_respuesta');
                 <aside class="float-left ml-4 mt-3 separador-respuesta"></aside>
                 <aside class="float-left respuesta p-3 text-white">{{ $ver_respuesta->respuesta }}</aside>
             </aside>
+            <button type="button" class="btn btn-primary" data-dismiss="modal" aria-label="Close">Cerrar</button>
         </aside>
     </aside>
 </aside>

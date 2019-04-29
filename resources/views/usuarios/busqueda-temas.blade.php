@@ -21,6 +21,9 @@
                 </div>
                 @endforeach
             </div>
+            <aside class="text-center">
+                <a class="btn btn-info col-sm-1 mt-4 text-center" href="{{ url('home') }}">Inicio</a>
+            </aside>
         </div>
     </div>
 </div>
