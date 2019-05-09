@@ -186,30 +186,20 @@ class PreguntasControlador extends Controller
 
     /* -- Defino el método para ver la respuesta -- */
 
-    public function verRespuesta(Request $request) {
-        // Asigno el id de la pregunta desde el fromulario a una variable
-        $id_pregunta = $request->id_pregunta;
+    public function verRespuesta($id_pregunta, Request $request) {
 
-        // Recojo los datos de la pregunta
-        $pregunta = preguntas::where('id', $id_pregunta)->first();
-
-        // Recojo los datos de la respuesta ha esa pregunta
-        $respuesta = respuestas::where('id_pregunta', $id_pregunta)->first();
-
-        // Compruebo si hay un usuario en activo
-        if (Auth::user()) 
+        if ($request->ajax()) 
         {
-            // Si es así devuelvo si el usuario ha dado like a la pregunta o no junto con los demás datos
-            $ver_preguntas_like = usuario_pregunta_like::where("id_usuario", Auth::user()->id)->get();
-            return back()->with(['ver_pregunta' => $pregunta, 'ver_respuesta' => $respuesta, 'ver_preguntas_like' => $ver_preguntas_like]);
+            // Recojo los datos de la pregunta
+            $pregunta = preguntas::where('id', $id_pregunta)->first();
+
+            // Recojo los datos de la respuesta ha esa pregunta
+            $respuesta = respuestas::where('id_pregunta', $id_pregunta)->first();
+            
+            return response()->json(['respuesta' => $respuesta]);
+            
         }
-        else 
-        {
-            // y si no es así devuelvo la pregunta y la respuesta únicamente
-            return back()->with(['ver_pregunta' => $pregunta, 'ver_respuesta' => $respuesta]);
-        }
-        
-        
+    
     }
 
     /* -- Defino el método para los likes/dislikes -- */

@@ -16,15 +16,11 @@
                 <aside class="float-left p-2 texto-pregunta">
                     <h6 class="card-text ml-3">{{ $pregunta->pregunta }}</h6>
                 </aside>
-                <aside class="float-right mt-2">
+                <aside id="aRespuesta" class="float-right mt-2">
                     @if ($pregunta->respuesta == 0)
                     <span class="float-right badge badge-warning ml-3 mb-2">Sin respuesta</span>
                     @else
-                    <form method="POST" id="ver-respuesta" action="{{ action('PreguntasControlador@verRespuesta') }}">
-                        @csrf
-                        <input type="hidden" name="id_pregunta" value="{{ $pregunta->id }}">
-                        <button id="ver-respuesta-go" class="btn btn-secondary btn-sm">Ver respuesta</button>
-                    </form>
+                    <button id="ver-respuesta-go" data-id-pregunta="{{ $pregunta->id }}" class="answer btn btn-secondary btn-sm">Ver respuesta</button>
                     @endif
                 </aside>
             </div>

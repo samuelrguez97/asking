@@ -38,9 +38,9 @@
 
 <body>
     @include('partials.navbar')
-
-    <div class="row firefox-height">
-
+    @include('partials.likes-ajax-form')
+    @include('partials.answer-ajax-form')
+    <div class="row firefox-height {{ Request::is('home') ? '' : 'h-100' }}">
         <div class="col-md-10 offset-md-1">
             <div class="container-contenido margen-fixed h-fit-content colorBackground padding-top-ie">
                 @yield('content')
@@ -49,6 +49,7 @@
     </div>
 
     @include('partials.footer')
+
     <!-- jQuery primero, luego JQuery UI, despues Popper.js y por ultimo Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.js"
         integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
@@ -78,15 +79,7 @@
         });
 
     </script>
-    <!-- Script para visualizar el modal de ver respuesta -->
-    @if (session('ver_pregunta')))
-    <script>
-        $(function () {
-            $('#verRespuesta').modal('show');
-        });
-    </script>
-    @endif
-    <!-- Mostrar modal de respuesta -->
+    <!-- Mostrar modal de enviar respuesta -->
     <script>
         $(document).ready(function() {
 
@@ -100,6 +93,7 @@
     <!-- Mis JavaScript -->
     <script src="{{ url('js/miJS.js') }}"></script>
     <script src="{{ url('js/likes.js') }}"></script>
+    <script src="{{ url('js/answer.js') }}"></script>
     <script src="{{ url('js/cargar-emojis-respuesta.js') }}"></script>
 </body>
 

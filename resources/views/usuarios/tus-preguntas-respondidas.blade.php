@@ -22,21 +22,11 @@
         
         </div>
 
-        @if( Session::has('eliminada') )
-        <aside class="mx-auto col-sm-4 mt-4 text-center alert alert-warning" role="alert">
-            {{ session('eliminada') }}
-        </aside>
-        @endif
-
         @endif
 
         <aside class="text-center">
             <a class="btn btn-info col-sm-1 mt-4 text-center" href="{{ url('perfil') }}">Volver</a>
         </aside>
-
-        <!-- Creo el formulario para actualizar los likes por ajax -->
-        {!! Form::open(['route' => ['like', ':id_pregunta'], 'method' => 'LIKE', 'id' => 'form-like']) !!}
-        {!! Form::close() !!}
 
     </div>
 </div>
