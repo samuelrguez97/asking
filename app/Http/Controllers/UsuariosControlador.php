@@ -87,9 +87,12 @@ class UsuariosControlador extends Controller
     
     public function getPerfilPublico($nombre) {
 
+        // Recojo el id del usuario
+        $id_usuario = User::where('name', $nombre)->first()->id;
+
         // Selecciono las preguntas que se han enviado al usuario con estos criterios ...
         $preguntas = preguntas::orderBy('created_at', 'desc') // de forma descendente, las mas nuevas primero
-            ->where('usuario', $nombre) // solo las que son para ese usuario
+            ->where('id_usuario', $id_usuario) // solo las que son para ese usuario
             ->get(); // recojo los datos
 
         // Selecciono los datos del usuario
@@ -129,7 +132,7 @@ class UsuariosControlador extends Controller
 
         // Selecciono las preguntas que ha enviado el usuario con estos criterios ...
         $preguntas_por_ti = preguntas::orderBy('created_at', 'desc') // de forma descendente, las mas nuevas primero
-            ->where('by_usuario', Auth::user()->name) // solo las que son enviadas por ese usuario
+            ->where('by_usuario', Auth::user()->id) // solo las que son enviadas por ese usuario
             ->take(2) // solo las 2 primeras
             ->get(); // recojo los datos
 
@@ -263,7 +266,7 @@ class UsuariosControlador extends Controller
 
         // Selecciono las preguntas que se han enviado al usuario con estos criterios ...
         $preguntas_a_ti = preguntas::orderBy('created_at', 'desc') // de forma descendente, las mas nuevas primero
-            ->where('usuario', Auth::user()->name) // solo las que son para ese usuario
+            ->where('id_usuario', Auth::user()->id) // solo las que son para ese usuario
             ->where('respuesta', 0) // que no hayan sido respondidas
             ->get(); // recojo los datos
 
@@ -280,7 +283,7 @@ class UsuariosControlador extends Controller
         
         // Selecciono las preguntas que se han enviado al usuario con estos criterios ...
         $preguntas = preguntas::orderBy('created_at', 'desc') // de forma descendente, las mas nuevas primero
-            ->where('usuario', Auth::user()->name) // solo las que son para ese usuario
+            ->where('id_usuario', Auth::user()->id) // solo las que son para ese usuario
             ->where('respuesta', 1) // que hayan sido respondidas
             ->get(); // recojo los datos
 
@@ -300,7 +303,7 @@ class UsuariosControlador extends Controller
         
         // Selecciono las preguntas que ha enviado el usuario con estos criterios ...
         $preguntas_por_ti = preguntas::orderBy('created_at', 'desc') // de forma descendente, las mas nuevas primero
-            ->where('by_usuario', Auth::user()->name) // solo las que son por ese usuario
+            ->where('by_usuario', Auth::user()->id) // solo las que son por ese usuario
             ->get(); // recojo los datos
 
         // Preguntas que ha dado like el usuario

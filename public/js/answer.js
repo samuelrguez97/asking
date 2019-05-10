@@ -37,8 +37,8 @@ $('.answer').on("click", function (e) {
             // recibo los datos y se asignan la variable data
             // hecho esto, asocio todos los datos y los implemento a sus respectivos campos para mostrar la pregunta y la respuesta
             $('.modal-content').html(anterior_content);
-            $('#rProfile-user').attr('href', 'http://localhost/asking/public/perfil-publico/' + data.pregunta.usuario);
-            $('#rNombre').html(data.pregunta.usuario);
+            $('#rProfile-user').attr('href', 'http://localhost/asking/public/perfil-publico/' + data.nombre);
+            $('#rNombre').html(data.nombre);
             $('#rImagen').attr('src', 'http://localhost/asking/public/storage/imagenes/usuarios/' + data.imagen[0]);
             $('#respuesta').html(data.respuesta.respuesta);
             $('#rTemaA').attr('href', 'http://localhost/asking/public/temas/' + data.pregunta.tema);

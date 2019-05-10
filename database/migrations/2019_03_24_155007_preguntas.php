@@ -16,6 +16,7 @@ class Preguntas extends Migration
         //
         Schema::create('preguntas', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('id_usuario');
             $table->string('usuario');
             $table->string('pregunta');
             $table->string('tema');

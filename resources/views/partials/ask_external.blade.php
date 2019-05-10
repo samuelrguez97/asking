@@ -9,12 +9,12 @@
                 </aside>
                 <aside class="float-left">
                     <a class="profile-user"
-                        href="{{ action('UsuariosControlador@getPerfilPublico', ['nombre' => $pregunta->usuario]) }}"
+                        href="{{ action('UsuariosControlador@getPerfilPublico', ['nombre' => $usuarios->where('id', $pregunta->id_usuario)->first()->name]) }}"
                         class="text-muted">
-                        <img src="{{ url('storage/imagenes/usuarios') }}/{{ $usuarios->where('name', $pregunta->usuario)->first()->avatar }}"
+                        <img src="{{ url('storage/imagenes/usuarios') }}/{{ $usuarios->where('id', $pregunta->id_usuario)->first()->avatar }}"
                             class="mr-3 rounded min-img-perfil" alt="avatar">
                         <div class="media-body">
-                            <h6>{{ $pregunta->usuario }}</h6>
+                            <h6>{{ $usuarios->where('id', $pregunta->id_usuario)->first()->name }}</h6>
                         </div>
                     </a>
                 </aside>

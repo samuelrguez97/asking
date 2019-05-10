@@ -110,6 +110,8 @@ class PreguntasControlador extends Controller
                 $pregunta = new preguntas;
                 
                 /* Introduzco todos los datos de la pregunta en la instancia */
+                // Introduzco el id del usuario al que se le envia la pregunta
+                $pregunta->id_usuario = $usuario->id;
                 // Introduzco el usuario al que se le envia la pregunta
                 $pregunta->usuario = $request->usuario;
                 // Introduzco la pregunta
@@ -121,7 +123,7 @@ class PreguntasControlador extends Controller
                 if (Auth::check())
                 {
                     // Introduzco el usuario que ha realizado la pregunta
-                    $pregunta->by_usuario = Auth::user()->name;
+                    $pregunta->by_usuario = Auth::user()->id;
                 }
         
                 // Guardo los datos y se insertan la tabla de preguntas.
@@ -195,11 +197,14 @@ class PreguntasControlador extends Controller
             // Recojo los datos de la pregunta
             $pregunta = preguntas::where('id', $id_pregunta)->first();
 
+            // Recojo el nombre del usuario al que se le hizo la pregunta
+            $nombre = User::where('id', $pregunta->id_usuario)->first()->name;
+
             // Recojo los datos de la respuesta ha esa pregunta
             $respuesta = respuestas::where('id_pregunta', $id_pregunta)->first();
 
             // Recojo la imagen del usuario al que se le hizo la pregunta
-            $imagen = User::where('name', $pregunta->usuario)->pluck('avatar');
+            $imagen = User::where('id', $pregunta->id_usuario)->pluck('avatar');
 
             // Recojo cuando se creo la pregunta y lo formateo para visualización del usuario
             $tiempo = $pregunta->created_at->diffForHumans();
@@ -228,7 +233,7 @@ class PreguntasControlador extends Controller
             }
             
             // Envio los datos en formato json
-            return response()->json(['imagen' => $imagen, 'pregunta' => $pregunta, 'respuesta' => $respuesta, 'tiempo' => $tiempo, 'token' => $token, 'clase_like' => $clase_like]);
+            return response()->json(['imagen' => $imagen, 'nombre' => $nombre, 'pregunta' => $pregunta, 'respuesta' => $respuesta, 'tiempo' => $tiempo, 'token' => $token, 'clase_like' => $clase_like]);
             
         }
     
