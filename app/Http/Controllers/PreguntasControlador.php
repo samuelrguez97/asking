@@ -311,13 +311,13 @@ class PreguntasControlador extends Controller
         {
             $preguntas_like = usuario_pregunta_like::where("id_usuario", Auth::user()->id)->get();
             // Devuelvo la vista de preguntas tema con todos los datos adjuntados
-            return view('preguntas-tema', ['tema' => $tema, 'preguntas' => $preguntas, "usuarios" => $usuarios, 'preguntas_like' => $preguntas_like]);
+            return view('preguntas-tema', ['tema' => $tema, 'preguntas' => $preguntas, 'usuarios' => $usuarios, 'preguntas_like' => $preguntas_like]);
         }
         // .. y si no hay usuario activo
         else
         {
             // Envio a la vista simplemente el tema y las preguntas asociadas a ese tema
-            return view('preguntas-tema', ['tema' => $tema, 'preguntas' => $preguntas, "usuarios" => $usuarios]);
+            return view('preguntas-tema', ['tema' => $tema, 'preguntas' => $preguntas, 'usuarios' => $usuarios]);
         }
         
     }

@@ -40,7 +40,7 @@ Session::forget('error-busqueda');
                     <p class="label-txt">Selecciona el tema</p>
                     <div class="select">
                         <select name="tema">
-                            <option value="selecciona">Selecciona</option>
+                            <option value="Selecciona" >Selecciona</option>
                             @if(isset($temas))
                             @foreach($temas as $tema)
                             <option value="{{ $tema->tema }}">{{ $tema->tema }}</option>
