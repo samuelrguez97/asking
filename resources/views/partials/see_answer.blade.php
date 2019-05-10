@@ -7,6 +7,10 @@
                         <div class="card text-white bg-transparent">
                             <div class="card-header fit-content">
                                 <div class="ver_pregunta-user">
+                                    <aside class="for">
+                                        <aside class="float-left mr-1 for-ask">Ask</aside>
+                                        Para
+                                    </aside>
                                     <aside class="float-left">
                                         <a id="rProfile-user" class="profile-user" href="" class="text-muted">
                                             <img id="rImagen" src="" class="mr-3 rounded min-img-perfil" alt="avatar">
@@ -28,9 +32,8 @@
                                     <span id="rTema" class="badge badge-info tema"></span>
                                 </a>
                                 <div class="float-right ml-3">
-                                    <button id="rLike" class="float-left btn btn-sm like text-white"
-                                        data-id-pregunta="" data-token=""><i id="rLikeI"
-                                            class=""></i>
+                                    <button id="rLike" class="float-left btn btn-sm like text-white" data-id-pregunta=""
+                                        data-token=""><i id="rLikeI" class=""></i>
                                     </button>
                                     <aside id="rLikes" class="float-left likes"></aside>
                                 </div>

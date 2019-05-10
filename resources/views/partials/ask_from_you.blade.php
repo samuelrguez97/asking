@@ -3,8 +3,13 @@
     <div class="card text-white bg-transparent bordes-ask">
         <div class="card-header fit-content">
             <div class="pregunta-user">
+                <aside class="for">
+                    <aside class="float-left mr-1 for-ask">Ask</aside>
+                    Para
+                </aside>
                 <aside class="float-left">
-                    <a class="profile-user" href="{{ action('UsuariosControlador@getPerfilPublico', ['nombre' => $pregunta->usuario]) }}"
+                    <a class="profile-user"
+                        href="{{ action('UsuariosControlador@getPerfilPublico', ['nombre' => $pregunta->usuario]) }}"
                         class="text-muted">
                         <img src="{{ url('storage/imagenes/usuarios') }}/{{ $usuarios->where('name', $pregunta->usuario)->first()->avatar }}"
                             class="mr-3 rounded min-img-perfil" alt="avatar">
@@ -20,7 +25,8 @@
                     @if ($pregunta->respuesta == 0)
                     <span class="float-right badge badge-warning ml-3 mb-2">Sin respuesta</span>
                     @else
-                    <button id="ver-respuesta-go" data-id-pregunta="{{ $pregunta->id }}" class="answer btn btn-secondary btn-sm">Ver respuesta</button>
+                    <button id="ver-respuesta-go" data-id-pregunta="{{ $pregunta->id }}"
+                        class="answer btn btn-secondary btn-sm">Ver respuesta</button>
                     @endif
                 </aside>
             </div>
