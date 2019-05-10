@@ -35,7 +35,7 @@ $(document).on("click", ".like", function (e) {
                 // Compruebo si se da like desde el modal
                 var atribId = boton.attr("id");
 
-                if (typeof atribId !== typeof undefined && atribId !== false) {
+                if (typeof atribId !== typeof undefined && atribId !== false && atribId == "rLike") {
                     // Si es asi cambio el like exterior asociado a este like y su pregunta correspondiente para un mayor feedback del usuario
                     boton2 = $("button[data-id-pregunta='" + boton.attr('data-id-pregunta') + "'][class='float-left btn btn-sm like text-white']").first();
                     boton2.find("i").addClass("color-like");
@@ -59,7 +59,7 @@ $(document).on("click", ".like", function (e) {
                 // Compruebo si se da dis-like desde el modal
                 var atribId = boton.attr("id");
 
-                if (typeof atribId !== typeof undefined && atribId !== false) {
+                if (typeof atribId !== typeof undefined && atribId !== false && atribId == "rLike") {
                      // Si es asi cambio el like exterior asociado a este like y su pregunta correspondiente para un mayor feedback del usuario
                     boton2 = $("button[data-id-pregunta='" + boton.attr('data-id-pregunta') + "'][class='float-left btn btn-sm like text-white']").first();
                     boton2.find("i").removeClass("color-like");
@@ -69,7 +69,7 @@ $(document).on("click", ".like", function (e) {
                         fontSize: '-=2'
                     }, 100);;
                 }
-                
+
                 // y cambio el color del like dado
                 boton.find("i").removeClass("color-like");
                 boton.next().html(parseInt(boton.next().html(), 10) - 1).animate({

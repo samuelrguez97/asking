@@ -40,7 +40,7 @@
     @include('partials.navbar')
     @include('partials.likes-ajax-form')
     @include('partials.answer-ajax-form')
-    <div class="row firefox-height {{ Request::is('home') ? '' : 'h-100' }}">
+    <div class="row firefox-height {{ Request::is('home') || Request::is('home/ordenar-likes') ? '' : 'h-100' }}">
         <div class="col-md-10 offset-md-1">
             <div class="container-contenido margen-fixed h-fit-content colorBackground padding-top-ie">
                 @yield('content')
@@ -94,6 +94,7 @@
     <script src="{{ url('js/miJS.js') }}"></script>
     <script src="{{ url('js/likes.js') }}"></script>
     <script src="{{ url('js/answer.js') }}"></script>
+    <script src="{{ url('js/scroll.js') }}"></script>
     <script src="{{ url('js/cargar-emojis-respuesta.js') }}"></script>
 </body>
 

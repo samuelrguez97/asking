@@ -101,7 +101,7 @@ Session::forget('error-busqueda');
 <div class="row mt-5">
 
     <div class="col-sm-8 offset-md-2">
-        <h2 class="letraTitulo">Preguntas</h2>
+        <h2 id="tituloPreguntas" class="letraTitulo">Preguntas</h2>
         <div class="menu-preguntas">
             <ul class="float-left navbar-nav mr-auto">
                 <li class="nav-item dropdown">
@@ -110,9 +110,9 @@ Session::forget('error-busqueda');
                         Ordenar preguntas
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{{ action('PreguntasControlador@principal') }}">Preguntas más
+                        <a id="masRecientes" class="dropdown-item" href="{{ action('PreguntasControlador@principal') }}?">Preguntas más
                             recientes</a>
-                        <a class="dropdown-item" href="{{ action('PreguntasControlador@ordenarLikesHome') }}">Preguntas
+                        <a id="masLikes" class="dropdown-item" href="{{ action('PreguntasControlador@ordenarLikesHome') }}">Preguntas
                             con más likes</a>
                     </div>
                 </li>

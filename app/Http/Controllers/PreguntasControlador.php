@@ -187,7 +187,9 @@ class PreguntasControlador extends Controller
     /* -- Defino el método para ver la respuesta -- */
 
     public function verRespuesta($id_pregunta, Request $request) {
+    // Recojo el id de la pregunta de la cual se visualizara la respuesta
 
+        // Compruebo que sea una peticion ajax
         if ($request->ajax()) 
         {
             // Recojo los datos de la pregunta
@@ -202,21 +204,26 @@ class PreguntasControlador extends Controller
             // Recojo cuando se creo la pregunta y lo formateo para visualización del usuario
             $tiempo = $pregunta->created_at->diffForHumans();
             
-            // Creo csrf token paraa formulario de likes
+            // Creo csrf token para formulario de likes
             $token = csrf_token();
 
             // Dependiendo de si esta registrado o no envio un tipo de like o otro
             if (Auth::check()) {
 
+                // Recojo las preguntas donde el usuario a dado like
                 $preguntas_like = usuario_pregunta_like::where("id_usuario", Auth::user()->id)->get();
                
+                // Compruebo si ha dado like a la pregunta 
                 if ($preguntas_like->contains('id_pregunta', $pregunta->id)) {
+                    // Si es asi devuelve el css del corazon en modo like
                     $clase_like = "color-like far fa-heart fa-lg";
                 } else {
+                    // Sino devuelve el corazon en modo normal
                     $clase_like = "far fa-heart fa-lg";
                 }
 
             } else {
+                // Si no cumple devuelve el corazon en modo normal
                 $clase_like = "far fa-heart fa-lg";
             }
             
