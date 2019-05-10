@@ -38,7 +38,8 @@ $(document).on("click", ".like", function (e) {
                 if (typeof atribId !== typeof undefined && atribId !== false && atribId == "rLike") {
                     // Si es asi cambio el like exterior asociado a este like y su pregunta correspondiente para un mayor feedback del usuario
                     boton2 = $("button[data-id-pregunta='" + boton.attr('data-id-pregunta') + "'][class='float-left btn btn-sm like text-white']").first();
-                    boton2.find("i").addClass("color-like");
+                    boton2.find("i").addClass("color-like fas");
+                    boton2.find("i").removeClass("far");
                     boton2.next().html(parseInt(boton2.next().html(), 10) + 1).animate({
                         fontSize: '+=2'
                     }, 100).animate({
@@ -46,7 +47,8 @@ $(document).on("click", ".like", function (e) {
                     }, 100);
                 }
                 // y cambio el color del like dado
-                boton.find("i").addClass("color-like");
+                boton.find("i").addClass("color-like fas");
+                boton.find("i").removeClass("far");
                 boton.next().html(parseInt(boton.next().html(), 10) + 1).animate({
                     fontSize: '+=2'
                 }, 100).animate({
@@ -62,7 +64,8 @@ $(document).on("click", ".like", function (e) {
                 if (typeof atribId !== typeof undefined && atribId !== false && atribId == "rLike") {
                      // Si es asi cambio el like exterior asociado a este like y su pregunta correspondiente para un mayor feedback del usuario
                     boton2 = $("button[data-id-pregunta='" + boton.attr('data-id-pregunta') + "'][class='float-left btn btn-sm like text-white']").first();
-                    boton2.find("i").removeClass("color-like");
+                    boton2.find("i").removeClass("color-like fas");
+                    boton2.find("i").addClass("far");
                     boton2.next().html(parseInt(boton2.next().html(), 10) - 1).animate({
                         fontSize: '+=2'
                     }, 100).animate({
@@ -71,7 +74,8 @@ $(document).on("click", ".like", function (e) {
                 }
 
                 // y cambio el color del like dado
-                boton.find("i").removeClass("color-like");
+                boton.find("i").removeClass("color-like fas");
+                boton.find("i").addClass("far");
                 boton.next().html(parseInt(boton.next().html(), 10) - 1).animate({
                     fontSize: '+=2'
                 }, 100).animate({

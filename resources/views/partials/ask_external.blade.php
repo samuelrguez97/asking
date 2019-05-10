@@ -35,7 +35,7 @@
             <div class="float-right ml-3">
                 <button class="float-left btn btn-sm like text-white" data-id-pregunta="{{ $pregunta->id }}"
                     data-token="{{ csrf_token() }}"><i
-                        class="{{ Auth::check() ? ($preguntas_like->contains('id_pregunta', $pregunta->id) ? 'color-like' : '') : ''}} far fa-heart fa-lg"></i>
+                        class="{{ Auth::check() ? ($preguntas_like->contains('id_pregunta', $pregunta->id) ? 'color-like fas' : 'far') : ''}} fa-heart fa-lg"></i>
                 </button>
                 <aside id="contar-likes-{{ $pregunta->id }}" class="float-left likes">
                     {{ $pregunta->likes }}</aside>

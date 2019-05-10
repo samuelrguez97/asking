@@ -36,11 +36,23 @@ Session::forget('error-busqueda');
                         <div class="line"></div>
                     </div>
                 </label>
+                <div id="normas" style="display: none;" class="float-right card w-50 mr-5" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">Normas</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Normas de la comunidad</h6>
+                        <ul class="card-text">
+                            <li>Prohibido el uso de palabras susceptibles y/o ofensivas en las preguntas.</li>
+                            <li>Ante cualquier indicio de acoso o bulling se eliminara la pregunta.</li>
+                            <li>Si la pregunta es considerada ofensiva por parte del usuario tendrá total libertad de eliminarla.</li>
+                        </ul>
+                        <a href="#" id="normasCerrar" class="text-white btn btn-info text-center">Cerrar</a>
+                    </div>
+                </div>
                 <label>
                     <p class="label-txt">Selecciona el tema</p>
                     <div class="select">
                         <select name="tema">
-                            <option value="Selecciona" >Selecciona</option>
+                            <option value="Selecciona">Selecciona</option>
                             @if(isset($temas))
                             @foreach($temas as $tema)
                             <option value="{{ $tema->tema }}">{{ $tema->tema }}</option>
@@ -55,9 +67,10 @@ Session::forget('error-busqueda');
                     <div id="normas" class="float-left">
                         <input type="checkbox" name="normas" />
                     </div>
-                    <span class="terms-size text-white float-left">Estoy de acuerdo con <a href="#">las normas de la
+                    <span class="terms-size text-white float-left">Estoy de acuerdo con <a href="#" id="normasAbrir">las normas de la
                             comunidad</a> * </span>
                 </label>
+                <div class="clearfix"></div>
                 <div class="text-center mt-5">
                     <button class="btn-sm" id="enviar_pregunta" type="submit" name="submit">Enviar pregunta</button>
                 </div>
@@ -110,9 +123,11 @@ Session::forget('error-busqueda');
                         Ordenar preguntas
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a id="masRecientes" class="dropdown-item" href="{{ action('PreguntasControlador@principal') }}?">Preguntas más
+                        <a id="masRecientes" class="dropdown-item"
+                            href="{{ action('PreguntasControlador@principal') }}?">Preguntas más
                             recientes</a>
-                        <a id="masLikes" class="dropdown-item" href="{{ action('PreguntasControlador@ordenarLikesHome') }}">Preguntas
+                        <a id="masLikes" class="dropdown-item"
+                            href="{{ action('PreguntasControlador@ordenarLikesHome') }}">Preguntas
                             con más likes</a>
                     </div>
                 </li>

@@ -216,7 +216,7 @@ class PreguntasControlador extends Controller
                 // Compruebo si ha dado like a la pregunta 
                 if ($preguntas_like->contains('id_pregunta', $pregunta->id)) {
                     // Si es asi devuelve el css del corazon en modo like
-                    $clase_like = "color-like far fa-heart fa-lg";
+                    $clase_like = "color-like fas fa-heart fa-lg";
                 } else {
                     // Sino devuelve el corazon en modo normal
                     $clase_like = "far fa-heart fa-lg";

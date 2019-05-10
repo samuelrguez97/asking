@@ -14,4 +14,12 @@ $(document).ready(function(){
       $('option[value="Selecciona"]').attr("disabled", "disabled");
     });
 
+    $('#normasAbrir').click(function() {
+      $('#normas').fadeToggle('slow');
+    });
+
+    $('#normasCerrar').click(function() {
+      $('#normas').fadeOut('slow');
+    });
+
   });
