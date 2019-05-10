@@ -15,6 +15,7 @@
             <aside class="mt-4 text-center alert alert-warning" role="alert">
                 Éste tema no tiene preguntas ahora mismo ...
             </aside>
+
             @else
 
             <div class="row mt-5">
@@ -25,11 +26,21 @@
 
                 @include('partials.see_answer')
 
-                @endif
-
                 <!-- --------------------------------------------------- -->
 
             </div>
+
+            @endif
+
+            <aside class="text-center">
+                @if (url()->previous() == url('buscar'))
+                <a class="btn btn-info col-sm-1 mt-4 text-center" href="{{ url('home') }}">Volver</a>
+                @else
+                <a class="btn btn-info col-sm-1 mt-4 text-center" href="{{ url()->previous() }}">Volver</a>
+                @endif
+                
+            </aside>
+
         </div>
     </div>
 </div>

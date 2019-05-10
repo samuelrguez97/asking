@@ -195,8 +195,33 @@ class PreguntasControlador extends Controller
 
             // Recojo los datos de la respuesta ha esa pregunta
             $respuesta = respuestas::where('id_pregunta', $id_pregunta)->first();
+
+            // Recojo la imagen del usuario al que se le hizo la pregunta
+            $imagen = User::where('name', $pregunta->usuario)->pluck('avatar');
+
+            // Recojo cuando se creo la pregunta y lo formateo para visualización del usuario
+            $tiempo = $pregunta->created_at->diffForHumans();
             
-            return response()->json(['respuesta' => $respuesta]);
+            // Creo csrf token paraa formulario de likes
+            $token = csrf_token();
+
+            // Dependiendo de si esta registrado o no envio un tipo de like o otro
+            if (Auth::check()) {
+
+                $preguntas_like = usuario_pregunta_like::where("id_usuario", Auth::user()->id)->get();
+               
+                if ($preguntas_like->contains('id_pregunta', $pregunta->id)) {
+                    $clase_like = "color-like far fa-heart fa-lg";
+                } else {
+                    $clase_like = "far fa-heart fa-lg";
+                }
+
+            } else {
+                $clase_like = "far fa-heart fa-lg";
+            }
+            
+            // Envio los datos en formato json
+            return response()->json(['imagen' => $imagen, 'pregunta' => $pregunta, 'respuesta' => $respuesta, 'tiempo' => $tiempo, 'token' => $token, 'clase_like' => $clase_like]);
             
         }
     

@@ -268,7 +268,7 @@ html, body {
 
 .separador-respuesta {
     width: 1.5% !important;
-    height: 10% !important;
+    height: 65px !important;
     border-radius: 10px !important;
     background-color: #ac9e31;
 }
