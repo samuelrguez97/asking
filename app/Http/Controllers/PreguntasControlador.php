@@ -147,6 +147,12 @@ class PreguntasControlador extends Controller
 
     }
 
+    /* -- Defino el método para enviar una pregunta a un usuario ya definido -- */
+    
+    public function sendPreguntaUser($user) {
+        return redirect('home');
+    }
+
     /* -- Defino el método para eliminar pregunta -- */
 
     public function eliminarPregunta($id_pregunta) { // Recojo el id de la pregunta que se envia desde la vista

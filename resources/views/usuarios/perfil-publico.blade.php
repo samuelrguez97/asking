@@ -27,12 +27,16 @@
                 </table>
             </div>
             <br />
-            @if (Auth::check() && Auth::user()->name == $usuario->name)
-            <a class="btn btn-info mb-3" href="{{ url('perfil') }}">Volver a tu perfil</a>
-            @endif
-            <a class="btn btn-primary mb-3" href="{{ url('home') }}">Inicio</a>
+            <div class="text-center">
+                <div class="btn-group-vertical mb-3"  role="group">
+                    <a class="btn btn-primary" href="{{ url('home') }}">Inicio</a>
+                    @if (Auth::check() && Auth::user()->name == $usuario->name)
+                    <a class="btn btn-info" href="{{ url('perfil') }}">Volver a tu perfil</a>
+                    @endif
+                    <a class="btn btn-success" href="{{ action('PreguntasControlador@sendPreguntaUser', ['user' => $usuario->name]) }}" >Hacer una pregunta a este usuario</a>
+                </div>
+            </div>
         </div>
-
 
         <div class="col-md-6 offset-md-1">
 

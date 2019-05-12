@@ -19,6 +19,8 @@ Route::get('/home', 'PreguntasControlador@principal');
 
 Route::post('/home/enviando', 'PreguntasControlador@sendPregunta');
 
+Route::post('/home', 'PreguntasControlador@sendPreguntaUser');
+
 Route::post('/perfil/enviando-respuesta', 'PreguntasControlador@sendRespuesta')->middleware('auth');
 
 Route::post('/buscar', 'UsuariosControlador@buscar');

@@ -35,11 +35,15 @@
                 </table>
             </div>
             <br />
-            <a class="btn btn-info mb-3" href="{{ action('UsuariosControlador@editPerfil') }}">Editar perfil</a>
-            <a class="btn btn-primary mb-3"
-                href="{{ action('UsuariosControlador@getPerfilPublico', ['nombre' => Auth::user()->name ]) }}">Tu perfil
-                público</a>
-            <a class="btn btn-secondary mb-3" href="{{ action('UsuariosControlador@tusPreguntasRespondidas') }}">Ver preguntas respondidas</a>
+            <div class="text-center">
+                <div class="btn-group-vertical mb-3" role="group">
+                    <a class="btn btn-info" href="{{ action('UsuariosControlador@editPerfil') }}">Editar perfil</a>
+                    <a class="btn btn-primary"
+                        href="{{ action('UsuariosControlador@getPerfilPublico', ['nombre' => Auth::user()->name ]) }}">Tu perfil
+                        público</a>
+                    <a class="btn btn-secondary" href="{{ action('UsuariosControlador@tusPreguntasRespondidas') }}">Ver preguntas respondidas</a>
+                </div>
+            </div>
             @if( Session::has('success') )
             <aside class="mt-4 alert alert-success" role="alert">
                 {{ session('success') }}
@@ -52,6 +56,7 @@
             </aside>
             Session::forget('warning');
             @endif
+            
         </div>
 
         <div class="col-md-6 offset-md-1">
