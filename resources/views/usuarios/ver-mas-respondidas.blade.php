@@ -8,6 +8,13 @@
             <h1 class="display-5 letraTitulo">Usuarios</h1>
             <h4 class="text-white">Ordenados por preguntas respondidas</h4>
             <div class="row mt-5">
+
+                @if ( $usuarios->isEmpty() )
+                <aside class="mx-auto col-sm-8 mt-4 text-center alert alert-warning" role="alert">
+                    Lo sentimos, no hay usuarios con respuestas ahora mismo ...
+                </aside>
+                @else
+
                 @foreach ($usuarios as $usuario)
                 <div class="col-sm-4">
                     <div class="media mb-2">
@@ -29,6 +36,9 @@
                     </div>
                 </div>
                 @endforeach
+
+                @endif
+
             </div>
             <aside class="text-center">
                 <a class="btn btn-info col-sm-1 mt-4 text-center" href="{{ url('home') }}">Inicio</a>

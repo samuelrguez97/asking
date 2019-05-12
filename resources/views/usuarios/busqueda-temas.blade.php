@@ -9,12 +9,12 @@
             <div class="row mt-5">
                 @foreach ($temas as $tema)
                 <div class="col-sm-4">
-                    <div class="input-group mb-3">
-                        <nav type="text" class="form-control" value="{{ $tema->tema }}"
-                            aria-describedby="button-addon2">{{ $tema->tema }}</nav>
-                        <div class="input-group-append">
-                            <a class="btn btn-primary" id="button-addon2"
-                                href="{{ action('PreguntasControlador@preguntasTema', ['tema' => $tema->tema]) }}">Ver
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ $tema->tema }}</h5>
+                            <p class="card-text">Preguntas del tema: {{ $tema->nPreguntas }}</p>
+                            <a href="{{ action('PreguntasControlador@preguntasTema', ['tema' => $tema->tema]) }}"
+                                class="btn btn-primary">Ver
                                 este tema</a>
                         </div>
                     </div>

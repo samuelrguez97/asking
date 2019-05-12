@@ -118,6 +118,10 @@ class PreguntasControlador extends Controller
                 $pregunta->pregunta = $request->pregunta;
                 // Introduzco el tema
                 $pregunta->tema = $request->tema;
+                // Aumento el numero de preguntas de ese tema
+                $tema = temas::where('tema', $pregunta->tema)->first();
+                $tema->increment('nPreguntas', 1);
+                $tema->save();
                   
                 // Compruebo si hay un usuario activo
                 if (Auth::check())
@@ -157,8 +161,22 @@ class PreguntasControlador extends Controller
 
     public function eliminarPregunta($id_pregunta) { // Recojo el id de la pregunta que se envia desde la vista
 
-        // Elimino de la base de datos la pregunta que coincide con el id
-        preguntas::find($id_pregunta)->delete();
+        // Recojo la pregunta de la base de datos que coincide con el id
+        $pregunta = preguntas::where('id', $id_pregunta)->first();
+
+        // Decremento el numero de preguntas sobre el tema en cuestión
+        $tema = temas::where('tema', $pregunta->tema)->first();
+        $tema->decrement('nPreguntas', 1);
+        $tema->save();
+
+        // Elimino la relacion de likes con la pregunta eliminada para liberacion de datos innecesarios del servidor
+        $ids_collection = usuario_pregunta_like::where('id_pregunta', $id_pregunta)->get()->toArray();
+        foreach ($ids_collection as $id) {
+            usuario_pregunta_like::where('id', $id)->delete();
+        }
+
+        // Elimino de la base de datos la pregunta
+        $pregunta->delete();
 
         // Redirijo al perfil con el mensaje de que se ha eliminado la pregunta
         return back()->with('eliminada', '¡Has eliminado la pregunta!');

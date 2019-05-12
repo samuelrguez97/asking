@@ -17,6 +17,7 @@ class Temas extends Migration
         Schema::create('temas', function (Blueprint $table) {
             $table->increments('id');
             $table->string('tema');
+            $table->integer('nPreguntas')->default(0);
         });
 
         $temas = array(
