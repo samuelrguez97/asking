@@ -9,6 +9,7 @@ use App\preguntas;
 use App\usuario_pregunta_like;
 use App\contacto;
 use App\temas;
+use App\respuestas;
 use Auth;
 use Hash;
 
@@ -297,6 +298,7 @@ class UsuariosControlador extends Controller
         return view("usuarios.tus-preguntas-respondidas",  ["preguntas" => $preguntas, "usuarios" => $usuarios, "preguntas_like" => $preguntas_like]);
 
     }
+
     /* -- Defino el método para ver todas las preguntas realizadas por el usuario -- */
 
     public function preguntasRealizadas() {
@@ -314,6 +316,19 @@ class UsuariosControlador extends Controller
 
         // envio los datos a la vista de tus-preguntas-realizadas del usuario
         return view("usuarios.tus-preguntas-realizadas",  ["preguntas_por_ti" => $preguntas_por_ti, "preguntas_like" => $preguntas_like, "usuarios" => $usuarios]);
+    }
+
+    /* -- Defino el método para ver los usuarios con más preguntas respondidas en orden -- */
+
+    public function usuariosMasRespondidas() {
+
+        // Recojo la cantidad de preguntas respondidas de los usuarios ordenados de mayor a menor
+        $respuestas = User::where('respuestas', '!=', 0)
+            ->orderBy('respuestas', 'DESC')
+            ->get();
+        // Y lo devuelvo a la vista
+        return view("usuarios.ver-mas-respondidas", ["usuarios" => $respuestas]);
+      
     }
 
 

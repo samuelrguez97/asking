@@ -14,8 +14,8 @@ Session::forget('error-busqueda');
 <div class="mt-5 row">
 
     <div class="col-md-8 offset-md-2">
-        
-    @include('partials/ask')
+
+        @include('partials/ask')
 
     </div>
     <div class="col-md-3 mx-auto text-center">
@@ -55,6 +55,12 @@ Session::forget('error-busqueda');
 
     <div class="col-sm-8 offset-md-2">
         <h2 id="tituloPreguntas" class="letraTitulo">Preguntas</h2>
+        <div class="btn-group mb-3 mt-3" role="group">
+            <a class="text-white btn btn-info btn-sm" href="{{ action('PreguntasControlador@temasTodos') }}">Ver
+                todos los temas</a>
+            <a class="text-white btn btn-primary btn-sm" href="{{ action('UsuariosControlador@usuariosMasRespondidas') }}">Ver
+                usuarios con más preguntas respondidas</a>
+        </div>
         <div class="menu-preguntas">
             <ul class="float-left navbar-nav mr-auto">
                 <li class="nav-item dropdown">
@@ -72,10 +78,6 @@ Session::forget('error-busqueda');
                     </div>
                 </li>
             </ul>
-            <div class="float-left mt-1 ml-4">
-                <a class="text-white btn btn-info btn-sm" href="{{ action('PreguntasControlador@temasTodos') }}">Ver
-                    todos los temas</a>
-            </div>
             <div class="float-right">
                 <div class="mt-2 min-container">
                     <h6 class="float-left text-white">Ordenado por: </h6>

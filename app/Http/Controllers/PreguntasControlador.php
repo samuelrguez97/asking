@@ -148,7 +148,7 @@ class PreguntasControlador extends Controller
     }
 
     /* -- Defino el método para enviar una pregunta a un usuario ya definido -- */
-    
+
     public function sendPreguntaUser($user) {
         return redirect('home');
     }
@@ -177,9 +177,18 @@ class PreguntasControlador extends Controller
         // Asigno el id de la pregunta a una variable
         $id_pregunta = $request->id_pregunta;
 
+        // Asigno el id del usuario que la responde
+        $id_user = Auth::user()->id;
+
+        // Aumento el contador de respuestas del usuario
+        $usuario = User::where('id', $id_user)->first();
+        $usuario->increment('respuestas', 1);
+        $usuario->save();
+
         // Creo el vínculo entre la pregunta y la respuesta en la tabla 'respuestas'
         $respuesta = new respuestas;
         $respuesta->id_pregunta = $id_pregunta;
+        $respuesta->id_user = $id_user;
         $respuesta->respuesta = $request->respuesta;
         $respuesta->save();
         

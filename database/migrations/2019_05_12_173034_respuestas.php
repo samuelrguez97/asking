@@ -16,6 +16,7 @@ class Respuestas extends Migration
         //
         Schema::create('respuestas', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('id_user');
             $table->integer('id_pregunta');
             $table->string('respuesta');
             $table->timestamps();
