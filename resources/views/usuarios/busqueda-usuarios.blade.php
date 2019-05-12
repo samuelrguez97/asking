@@ -14,10 +14,14 @@
                             class="mr-3 img-thumbnail med-img-perfil" alt="avatar">
                         <div class="media-body">
                             <h5 class="mt-0 text-white">{{ $usuario->name }}</h5>
-                            <a class="btn btn-primary mb-3"
-                                href="{{ action('UsuariosControlador@getPerfilPublico', ['nombre' => $usuario->name]) }}">
-                                Ir a su perfil
-                            </a>
+                            <div class="btn-group-vertical" role="group">
+                                <a class="btn btn-primary"
+                                    href="{{ action('UsuariosControlador@getPerfilPublico', ['nombre' => $usuario->name]) }}">
+                                    Ir a su perfil
+                                </a>
+                                <a class="btn btn-success"
+                                    href="{{ action('PreguntasControlador@sendPreguntaUser', ['user' => $usuario->name]) }}">Preguntar</a>
+                            </div>
                         </div>
                     </div>
                 </div>

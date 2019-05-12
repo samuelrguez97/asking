@@ -31,7 +31,7 @@
                 <div class="btn-group-vertical mb-3"  role="group">
                     <a class="btn btn-primary" href="{{ url('home') }}">Inicio</a>
                     @if (Auth::check() && Auth::user()->name == $usuario->name)
-                    <a class="btn btn-info" href="{{ url('perfil') }}">Volver a tu perfil</a>
+                    <a class="btn btn-info" href="{{ url('perfil') }}">Ir a tu perfil</a>
                     @endif
                     <a class="btn btn-success" href="{{ action('PreguntasControlador@sendPreguntaUser', ['user' => $usuario->name]) }}" >Hacer una pregunta a este usuario</a>
                 </div>
