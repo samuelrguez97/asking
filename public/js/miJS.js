@@ -15,16 +15,11 @@ $(document).ready(function(){
     });
 
     $('#normasAbrir').click(function() {
-      if ($('#normas').css('visibility') == 'visible') {
-        $('#normas').css('visibility', 'hidden');
-      } else {
-        $('#normas').css('visibility', 'visible');
-      }
-      
+      $('#normas').slideToggle('slow');
     });
 
     $('#normasCerrar').click(function() {
-      $('#normas').css('visibility', 'hidden');
+      $('#normas').slideUp('slow');
     });
 
   });

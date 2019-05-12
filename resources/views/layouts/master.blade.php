@@ -42,7 +42,8 @@
     @include('partials.answer-ajax-form')
     <div class="row firefox-height {{ Request::is('home') || Request::is('home/ordenar-likes') ? '' : 'h-100' }}">
         <div class="col-md-10 offset-md-1">
-            <div class="container-contenido margen-fixed h-fit-content colorBackground padding-top-ie">
+            <div
+                class="{{ Request::is('home') || Request::is('home/ordenar-likes') ? 'arregloHome' : '' }} container-contenido margen-fixed h-fit-content colorBackground padding-top-ie">
                 @yield('content')
             </div>
         </div>
@@ -81,12 +82,13 @@
     </script>
     <!-- Mostrar modal de enviar respuesta -->
     <script>
-        $(document).ready(function() {
+        $(document).ready(function () {
 
             var id_pregunta = $('#boton-env-resp').data("id-pregunta");
             $("#send-respuesta-id").val(id_pregunta);
 
         });
+
     </script>
     <!-- Notificaciones JS -->
     <script src="{{ url('plugins/overhang.js/dist/overhang.min.js') }}"></script>

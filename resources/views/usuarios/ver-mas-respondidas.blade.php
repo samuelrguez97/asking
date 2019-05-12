@@ -11,7 +11,7 @@
 
                 @if ( $usuarios->isEmpty() )
                 <aside class="mx-auto col-sm-8 mt-4 text-center alert alert-warning" role="alert">
-                    Lo sentimos, no hay usuarios con respuestas ahora mismo ...
+                    Lo sentimos, no hay preguntas con respuestas ahora mismo ...
                 </aside>
                 @else
 

@@ -152,6 +152,10 @@ html, body {
     display: block !important;;
 }
 
+.arregloHome {
+    min-height: 1400px !important;
+}
+
 /* --------------------------- */
 
 /* Checkbox términos */
