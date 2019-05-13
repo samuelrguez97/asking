@@ -112,8 +112,6 @@ class PreguntasControlador extends Controller
                 /* Introduzco todos los datos de la pregunta en la instancia */
                 // Introduzco el id del usuario al que se le envia la pregunta
                 $pregunta->id_usuario = $usuario->id;
-                // Introduzco el usuario al que se le envia la pregunta
-                $pregunta->usuario = $request->usuario;
                 // Introduzco la pregunta
                 $pregunta->pregunta = $request->pregunta;
                 // Introduzco el tema
