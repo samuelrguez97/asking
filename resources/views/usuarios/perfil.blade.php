@@ -2,13 +2,27 @@
 
 @section('content')
 <div class="container-fluid w-fit-content h-fit-content">
-    @if( Session::has('respondida') )
-    <aside class="mt-4 text-center alert alert-success" role="alert">
-        {{ session('respondida') }}
-    </aside>
-    Session::forget('respondida');
-    @endif
-    <div class="mt-5 row">
+        <div class="row">
+            @if( Session::has('success') )
+            <aside class="col-4 offset-4 mt-4 alert alert-success text-center" role="alert">
+                {{ session('success') }}
+            </aside>
+            Session::forget('success');
+            @endif
+            @if( Session::has('warning') )
+            <aside class="col-4 offset-4 mt-4 alert alert-warning text-center" role="alert">
+                {{ session('warning') }}
+            </aside>
+            Session::forget('warning');
+            @endif
+            @if( Session::has('respondida') )
+            <aside class="col-4 offset-4 mt-4 alert alert-success text-center" role="alert">
+                {{ session('respondida') }}
+            </aside>
+            Session::forget('respondida');
+            @endif
+        </div>
+    <div class="mt-4 row">
 
         <!-- ZONA PARA MOSTRAR INFORMACIÓN DEL PERFIL -->
 
@@ -39,24 +53,13 @@
                 <div class="btn-group-vertical mb-3" role="group">
                     <a class="btn btn-info" href="{{ action('UsuariosControlador@editPerfil') }}">Editar perfil</a>
                     <a class="btn btn-primary"
-                        href="{{ action('UsuariosControlador@getPerfilPublico', ['nombre' => Auth::user()->name ]) }}">Tu perfil
+                        href="{{ action('UsuariosControlador@getPerfilPublico', ['nombre' => Auth::user()->name ]) }}">Tu
+                        perfil
                         público</a>
-                    <a class="btn btn-secondary" href="{{ action('UsuariosControlador@tusPreguntasRespondidas') }}">Ver preguntas respondidas</a>
+                    <a class="btn btn-secondary" href="{{ action('UsuariosControlador@tusPreguntasRespondidas') }}">Ver
+                        preguntas respondidas</a>
                 </div>
             </div>
-            @if( Session::has('success') )
-            <aside class="mt-4 alert alert-success" role="alert">
-                {{ session('success') }}
-            </aside>
-            Session::forget('success');
-            @endif
-            @if( Session::has('warning') )
-            <aside class="mt-4 alert alert-warning" role="alert">
-                {{ session('warning') }}
-            </aside>
-            Session::forget('warning');
-            @endif
-            
         </div>
 
         <div class="col-md-6 offset-md-1">
@@ -67,7 +70,7 @@
             <h4 class="text-white">Preguntas realizadas para ti</h4>
 
             @if ( $preguntas_a_ti->isEmpty() )
-            <aside class="mt-4 text-center alert alert-warning" role="alert">
+            <aside class="mt-4 col-6 offset-3 text-center alert alert-warning" role="alert">
                 No tienes preguntas ahora mismo ...
             </aside>
             @else
@@ -87,14 +90,15 @@
 
 
             @if( Session::has('eliminada') )
-            <aside class="mt-4 text-center alert alert-warning" role="alert">
+            <aside class="mt-4 col-6 offset-3 text-center alert alert-warning" role="alert">
                 {{ session('eliminada') }}
             </aside>
             Session::forget('eliminada');
             @endif
 
             <div class="mb-5 text-center">
-                <a class="btn btn-lg btn-success mr-2" href="{{ action('UsuariosControlador@tusPreguntas') }}">Ver todas</a>
+                <a class="btn btn-lg btn-success mr-2" href="{{ action('UsuariosControlador@tusPreguntas') }}">Ver
+                    todas</a>
             </div>
 
             @endif
@@ -107,7 +111,7 @@
             <h4 class="text-white">Preguntas realizadas por ti</h4>
 
             @if ( $preguntas_por_ti->isEmpty() )
-            <aside class="mt-4 text-center alert alert-warning" role="alert">
+            <aside class="mt-4 col-6 offset-3 text-center alert alert-warning" role="alert">
                 No has realizado ninguna pregunta ...
             </aside>
             @else

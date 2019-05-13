@@ -12,7 +12,7 @@
             <h4 class="text-white">Preguntas relacionadas con el tema: {{ $tema }}</h4>
 
             @if ( $preguntas->isEmpty() )
-            <aside class="mt-4 text-center alert alert-warning" role="alert">
+            <aside class="col-4 offset-4 mt-4 text-center alert alert-warning" role="alert">
                 Éste tema no tiene preguntas ahora mismo ...
             </aside>
 

@@ -11,7 +11,7 @@
                 <div class="col-sm-4">
                     <div class="media mb-2">
                         <img src="{{ url('storage/imagenes/usuarios') }}/{{ $usuario->avatar }}"
-                            class="mr-3 img-thumbnail med-img-perfil" alt="avatar">
+                            class="mr-3 img-thumbnail med-img-perfil mt-3" alt="avatar">
                         <div class="media-body">
                             <h5 class="mt-0 text-white">{{ $usuario->name }}</h5>
                             <div class="btn-group-vertical" role="group">

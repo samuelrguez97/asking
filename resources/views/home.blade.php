@@ -2,16 +2,16 @@
 
 @section('content')
 
-@if( Session::has('error-busqueda') )
-<aside class="col-md-8 offset-md-2 mt-4">
-    <aside class="text-center alert alert-danger" role="alert">
-        {{ session('error-busqueda') }}
-    </aside>
-</aside>
-Session::forget('error-busqueda');
-@endif
-
 <div class="mt-5 row">
+
+    @if( Session::has('error-busqueda') )
+    <aside class="col-6 offset-3 mb-3">
+        <aside class="text-center alert alert-danger" role="alert">
+            {{ session('error-busqueda') }}
+        </aside>
+    </aside>
+    Session::forget('error-busqueda');
+    @endif
 
     <div class="col-md-8 offset-md-2">
 
@@ -58,7 +58,8 @@ Session::forget('error-busqueda');
         <div class="mb-3 mt-3" role="group">
             <a class="text-white btn btn-info btn-sm mr-1" href="{{ action('PreguntasControlador@temasTodos') }}">Ver
                 todos los temas</a>
-            <a class="text-white btn btn-primary btn-sm" href="{{ action('UsuariosControlador@usuariosMasRespondidas') }}">Ver
+            <a class="text-white btn btn-primary btn-sm"
+                href="{{ action('UsuariosControlador@usuariosMasRespondidas') }}">Ver
                 usuarios con más preguntas respondidas</a>
         </div>
         <div class="menu-preguntas">
@@ -97,7 +98,7 @@ Session::forget('error-busqueda');
             <div class="row mt-5">
 
                 @if ( $preguntas->isEmpty() )
-                <aside class="mx-auto mb-5 text-center alert alert-warning" role="alert">
+                <aside class="mx-auto mb-5 col-6 text-center alert alert-warning" role="alert">
                     <strong>¡Vaya!</strong> Parece que no hay preguntas ahora mismo ... ¡sé el primero en preguntar!
                 </aside>
                 @endif
