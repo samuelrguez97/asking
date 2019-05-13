@@ -7,13 +7,8 @@
         @csrf
 
         <label>
-            @if (app('request')->input('user'))
             <input type="text" class="w-user input text-white" placeholder="Introduce el usuario" name="usuario"
-                value="{{ app('request')->input('user') }}">
-            @else
-            <input type="text" class="w-user input text-white" placeholder="Introduce el usuario" name="usuario"
-                value="{{ old('usuario') }}">
-            @endif
+                value="{{ app('request')->input('user') ? app('request')->input('user') : old('usuario') }}">
             <div class="line-box w-user">
                 <div class="line"></div>
             </div>
