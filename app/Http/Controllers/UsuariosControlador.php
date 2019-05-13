@@ -126,7 +126,7 @@ class UsuariosControlador extends Controller
     {
         // Selecciono las preguntas que se han enviado al usuario con estos criterios ...
         $preguntas_a_ti = preguntas::orderBy('created_at', 'desc') // de forma descendente, las mas nuevas primero
-            ->where('usuario', Auth::user()->name) // solo las que son para ese usuario
+            ->where('id_usuario', Auth::user()->id) // solo las que son para ese usuario
             ->where('respuesta', 0) // que no hayan sido respondidas
             ->take(2) // solo las 2 primeras
             ->get(); // recojo los datos
