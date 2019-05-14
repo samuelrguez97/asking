@@ -14,6 +14,12 @@
             </div>
         </label>
         <label>
+            <p class="label-txt">O busque el usuario</p>
+            <div class="select">
+                <select id="busqueda_usuario" name="usuario" class="selectpicker" data-live-search="true" title="Busque al usuario..."></select>
+            </div>
+        </label>
+        <label>
             <input type="text" class="input text-white" name="pregunta" placeholder="Introduce tu pregunta"
                 data-emojiable="true" data-emoji-input="unicode" value="{{ old('pregunta') }}">
             <div class="line-box">
@@ -36,16 +42,13 @@
         <label>
             <p class="label-txt">Selecciona el tema</p>
             <div class="select">
-                <select name="tema">
-                    <option value="Selecciona">Selecciona</option>
+                <select name="tema" class="selectpicker" title="Seleccione un tema...">
                     @if(isset($temas))
                     @foreach($temas as $tema)
                     <option value="{{ $tema->tema }}">{{ $tema->tema }}</option>
                     @endforeach
                     @endif
                 </select>
-                <div class="select_arrow">
-                </div>
             </div>
         </label>
         <label class="fix-height">

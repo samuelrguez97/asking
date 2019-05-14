@@ -25,6 +25,8 @@ Route::post('/perfil/enviando-respuesta', 'PreguntasControlador@sendRespuesta')-
 
 Route::post('/buscar', 'UsuariosControlador@buscar');
 
+Route::get('/buscarUsuarioPregunta', 'UsuariosControlador@buscarUsuario');
+
 // En este caso solo quiero que devuelva la vista de busqueda de los usuarios
 Route::view('/busqueda-usuarios', 'usuarios.busqueda-usuarios');
 

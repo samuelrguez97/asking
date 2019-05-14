@@ -26,6 +26,10 @@
     <!-- Notificaciones CSS -->
     <link href="{{ url('plugins/overhang.js/dist/overhang.min.css') }}" rel="stylesheet">
 
+    <!-- Select plugin CSS -->
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/css/bootstrap-select.min.css">
+
     <!-- Otros CSS-->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
         integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
@@ -59,6 +63,9 @@
         integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous">
     </script>
     <script src="{{ url('/assets/bootstrap/js/bootstrap.min.js') }}" integrity="" crossorigin="anonymous"></script>
+    <!-- Select plugin JS + Traduccion -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/js/bootstrap-select.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/js/i18n/defaults-*.min.js"></script>
     <!-- Emojis JS -->
     <script src="{{ url('emojis/js/config.js') }}"></script>
     <script src="{{ url('emojis/js/util.js') }}"></script>
@@ -98,6 +105,32 @@
     <script src="{{ url('js/answer.js') }}"></script>
     <script src="{{ url('js/scroll.js') }}"></script>
     <script src="{{ url('js/cargar-emojis-respuesta.js') }}"></script>
+    <script>
+        $(document).on('keyup', 'input.form-control', function () {
+
+            $valor = $('input.form-control').val();
+
+            // Paso el token de seguridad csrf del formulario a la peticion ajax (método de seguridad)
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+            });
+
+            $.ajax({
+                type: 'get',
+                url: '{{ action("UsuariosControlador@buscarUsuario") }}',
+                data: {
+                    'busqueda': $valor
+                },
+                success: function (data) {
+                    $('#busqueda_usuario').html(data).selectpicker('refresh');
+                }
+            });
+
+        });
+
+    </script>
 </body>
 
 </html>

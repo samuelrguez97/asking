@@ -84,6 +84,21 @@ class UsuariosControlador extends Controller
 
     }
 
+    /* -- Defino el metodo para la funcionalidad de buscar el usuario a la hora de enviar una pregunta -- */
+
+    public function buscarUsuario(Request $request) {
+        if ($request->ajax()) {
+            $respuesta = "";
+            $usuarios = User::where('name', 'LIKE', '%'.$request->busqueda.'%')->get();
+            if ($usuarios) {
+                foreach ($usuarios as $usuario) {
+                    $respuesta .= '<option value="'.$usuario->id.'">'.$usuario->name.'</option>';
+                }
+                return Response($respuesta);
+            }
+        }
+    }
+
     /* -- Defino el metodo para mostrar el perfil público -- */
     
     public function getPerfilPublico($nombre) {
