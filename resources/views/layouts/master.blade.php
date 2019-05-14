@@ -78,7 +78,12 @@
             window.emojiPicker = new EmojiPicker({
                 emojiable_selector: '[data-emojiable=true]',
                 assetsPath: "{{ url('emojis/img/') }}",
-                popupButtonClasses: 'fa fa-smile-o text-white set-back'
+                @if(Request::is('perfil') || Request::is('tus-preguntas'))
+                popupButtonClasses: 'fa fa-smile-o set-back mt-5 l-answer'
+                @else
+                popupButtonClasses: 'fa fa-smile-o set-back mt-1'
+                @endif
+                
             });
             // Finds all elements with `emojiable_selector` and converts them to rich emoji input fields
             // You may want to delay this step if you have dynamically created input fields that appear later in the loading process

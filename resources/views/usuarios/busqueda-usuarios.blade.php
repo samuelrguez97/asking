@@ -20,7 +20,7 @@
                                     Ir a su perfil
                                 </a>
                                 <a class="btn btn-success"
-                                    href="{{ action('PreguntasControlador@sendPreguntaUser', ['user' => $usuario->name]) }}">Preguntar</a>
+                                    href="{{ action('PreguntasControlador@sendPreguntaUser', ['user' => $usuario]) }}">Preguntar</a>
                             </div>
                         </div>
                     </div>

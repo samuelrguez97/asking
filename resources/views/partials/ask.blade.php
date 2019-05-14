@@ -5,26 +5,24 @@
     <form class=".form_pregunta" action="{{ action('PreguntasControlador@sendPregunta') }}" method="post">
 
         @csrf
-
         <label>
-            <input type="text" class="w-user input text-white" placeholder="Introduce el usuario" name="usuario"
-                value="{{ app('request')->input('user') ? app('request')->input('user') : old('usuario') }}">
-            <div class="line-box w-user">
-                <div class="line"></div>
-            </div>
-        </label>
-        <label>
-            <p class="label-txt">O busque el usuario</p>
+            <p class="label-txt">Busca el usuario al que quieres preguntar</p>
             <div class="select">
-                <select id="busqueda_usuario" name="usuario" class="selectpicker" data-live-search="true" title="Busque al usuario..."></select>
+                <select id="busqueda_usuario" name="usuario" class="selectpicker" data-live-search="true"
+                    title="Escribe el usuario...">
+                    @if (app('request')->input('user'))
+                    <option
+                        data-content="<img src='{{ url('storage/imagenes/usuarios') }}/{{ $usuarios->where('id', app('request')->input('user'))->first()->avatar }}'
+                            class='mr-3 rounded min-img-perfil float-left' alt='avatar'><h6 class='float-left'>{{ $usuarios->where('id', app('request')->input('user'))->first()->name }}</h6>"
+                        value="{{ $usuarios->where('id', app('request')->input('user'))->first()->name }}" selected>
+                    </option>
+                    @endif
+                </select>
             </div>
         </label>
         <label>
-            <input type="text" class="input text-white" name="pregunta" placeholder="Introduce tu pregunta"
+            <input id="pregunta" type="text" class="mb-4 form-control" name="pregunta" placeholder="Formula tu pregunta"
                 data-emojiable="true" data-emoji-input="unicode" value="{{ old('pregunta') }}">
-            <div class="line-box">
-                <div class="line"></div>
-            </div>
         </label>
         <div id="normas" style="display: none;" class="float-right card w-50 mr-5" style="width: 18rem;">
             <div class="card-body">
@@ -39,13 +37,21 @@
                 <a href="#" id="normasCerrar" class="text-white btn btn-info text-center">Cerrar</a>
             </div>
         </div>
-        <label>
+        <label class="mt-3">
             <p class="label-txt">Selecciona el tema</p>
             <div class="select">
-                <select name="tema" class="selectpicker" title="Seleccione un tema...">
+                <select id="tema" name="tema" class="selectpicker" title="Seleccione un tema...">
                     @if(isset($temas))
                     @foreach($temas as $tema)
+                    @if (old('tema'))
+                    @if (old('tema') == $tema->tema)
+                    <option selected value="{{ $tema->tema }}">{{ $tema->tema }}</option>
+                    @else
                     <option value="{{ $tema->tema }}">{{ $tema->tema }}</option>
+                    @endif
+                    @else
+                    <option value="{{ $tema->tema }}">{{ $tema->tema }}</option>
+                    @endif
                     @endforeach
                     @endif
                 </select>
@@ -53,7 +59,7 @@
         </label>
         <label class="fix-height">
             <div id="normas" class="float-left">
-                <input type="checkbox" name="normas" />
+                <input type="checkbox" name="normas" {{ old('normas') ? 'checked' : '' }} />
                 <span class="terms-size text-white">Estoy de acuerdo con <a href="#" id="normasAbrir">las
                         normas de la
                         comunidad</a> * </span>

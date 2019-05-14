@@ -87,13 +87,29 @@ class UsuariosControlador extends Controller
     /* -- Defino el metodo para la funcionalidad de buscar el usuario a la hora de enviar una pregunta -- */
 
     public function buscarUsuario(Request $request) {
+
+        // Compruebo si es una llamada ajax
         if ($request->ajax()) {
+            // Inicializo la variable respuesta
             $respuesta = "";
+            // Recojo los usuarios que coinciden con la busqueda
             $usuarios = User::where('name', 'LIKE', '%'.$request->busqueda.'%')->get();
+            // Si encuentra los usuarios entra
             if ($usuarios) {
+                // Recorro la lista de usuarios
                 foreach ($usuarios as $usuario) {
-                    $respuesta .= '<option value="'.$usuario->id.'">'.$usuario->name.'</option>';
+                    // Asigno la direccion del avatar
+                    $avatar = url('storage/imagenes/usuarios').'/'.$usuario->avatar;
+                    // Asigno las clases del avatar
+                    $clase_imagen = 'mr-3 rounded min-img-perfil float-left';
+                    // Junto las partes para crear el elemento de la imagen
+                    $imagen = "<img src='".$avatar."' class='".$clase_imagen."'>";
+                    // Asigno el nombre al elemento donde se mostrara
+                    $nombre = "<h6 class='float-left'>".$usuario->name."</h6>";
+                    // Y concateno todo para enviar la respuesta
+                    $respuesta .= '<option value="'.$usuario->name.'" data-content="'.$imagen.$nombre.'" alt="avatar">'.$usuario->name.'</option>';
                 }
+                // Una vez concatenado todos los usuarios en la variable respuesta la devuelvo a la vista
                 return Response($respuesta);
             }
         }

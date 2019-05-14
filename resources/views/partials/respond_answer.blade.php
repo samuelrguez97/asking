@@ -8,12 +8,9 @@
                         <i class="fa fa-times text-danger" aria-aside="Close" data-toggle="tooltip"
                             data-placement="right" title="Eliminar pregunta"></i>
                     </button>
-                    <input type="text" class="w-user input text-white" placeholder="Introduce tu respuesta"
+                    <input id="respuesta" type="text" class="form-control" placeholder="Introduce tu respuesta"
                         name="respuesta" data-emojiable="true" data-emoji-input="unicode" value="{{ old('respuesta') }}">
-                    <input id="send-respuesta-id" type="hidden" name="id_pregunta" value="">
-                    <div class="line-box w-user">
-                        <div class="line"></div>
-                    </div>
+                    <input id="send-respuesta-id" type="hidden" name="id_pregunta" value=""/>
                 </aside>
                 <aside class="float-right mt-3 mr-3">
                     <button type="submit" class="btn btn-primary mr-1">Enviar respuesta</button>

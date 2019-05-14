@@ -33,7 +33,7 @@
                     @if (Auth::check() && Auth::user()->name == $usuario->name)
                     <a class="btn btn-info" href="{{ url('perfil') }}">Ir a tu perfil</a>
                     @endif
-                    <a class="btn btn-success" href="{{ action('PreguntasControlador@sendPreguntaUser', ['user' => $usuario->name]) }}" >Hacer una pregunta a este usuario</a>
+                    <a class="btn btn-success" href="{{ action('PreguntasControlador@sendPreguntaUser', ['user' => $usuario]) }}" >Hacer una pregunta a este usuario</a>
                 </div>
             </div>
         </div>
