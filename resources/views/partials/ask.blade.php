@@ -17,6 +17,13 @@
                         value="{{ $usuarios->where('id', app('request')->input('user'))->first()->name }}" selected>
                     </option>
                     @endif
+                    @if (old('usuario'))
+                    <option
+                        data-content="<img src='{{ url('storage/imagenes/usuarios') }}/{{ $usuarios->where('name', old('usuario'))->first()->avatar }}'
+                            class='mr-3 rounded min-img-perfil float-left' alt='avatar'><h6 class='float-left'>{{ $usuarios->where('name', old('usuario'))->first()->name }}</h6>"
+                        value="{{ $usuarios->where('name', old('usuario'))->first()->name }}" selected>
+                    </option>
+                    @endif
                 </select>
             </div>
         </label>
