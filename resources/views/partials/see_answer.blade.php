@@ -4,7 +4,7 @@
             <aside class="p-2 mb-3">
                 <aside class="row">
                     <div class="col-sm-12">
-                        <div class="card text-white bg-transparent">
+                        <div class="card text-white bg-transparent bordes-ask">
                             <div class="card-header fit-content">
                                 <div class="ver_pregunta-user">
                                     <aside class="for">
