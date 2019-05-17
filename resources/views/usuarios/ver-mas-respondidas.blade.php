@@ -16,8 +16,8 @@
                 @else
 
                 @foreach ($usuarios as $usuario)
-                <div class="col-sm-4">
-                    <div class="media mb-2">
+                <div class="col-sm-4 mb-4">
+                    <div class="media">
                         <img src="{{ url('storage/imagenes/usuarios') }}/{{ $usuario->avatar }}"
                             class="mr-3 img-thumbnail med-img-perfil" alt="avatar">
 

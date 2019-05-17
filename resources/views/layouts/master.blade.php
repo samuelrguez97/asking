@@ -3,7 +3,7 @@
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}" />
 
     <!-- Favicon -->
@@ -44,10 +44,10 @@
     @include('partials.navbar')
     @include('partials.likes-ajax-form')
     @include('partials.answer-ajax-form')
-    <div class="row firefox-height {{ Request::is('home') || Request::is('home/ordenar-likes') ? '' : 'h-100' }}">
+    <div class="row firefox-height">
         <div class="col-md-10 offset-md-1">
             <div
-                class="{{ Request::is('home') || Request::is('home/ordenar-likes') ? 'arregloHome' : '' }} container-contenido margen-fixed h-fit-content colorBackground padding-top-ie">
+                class="{{ Request::is('home') || Request::is('home/ordenar-likes') ? 'arregloHome' : 'arregloHeight' }} container-contenido margen-fixed h-fit-content colorBackground padding-top-ie">
                 @yield('content')
             </div>
         </div>
@@ -81,7 +81,7 @@
                 @if(Request::is('perfil') || Request::is('tus-preguntas'))
                 popupButtonClasses: 'fa fa-smile-o set-back mt-5 l-answer'
                 @else
-                popupButtonClasses: 'fa fa-smile-o set-back mt-1'
+                popupButtonClasses: 'fa fa-smile-o set-back mt-ask'
                 @endif
                 
             });

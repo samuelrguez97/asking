@@ -8,8 +8,8 @@
             <h1 class="display-5 letraTitulo">Usuarios</h1>
             <div class="row mt-5">
                 @foreach ($usuarios as $usuario)
-                <div class="col-sm-4">
-                    <div class="media mb-2">
+                <div class="col-sm-4 mb-4">
+                    <div class="media">
                         <img src="{{ url('storage/imagenes/usuarios') }}/{{ $usuario->avatar }}"
                             class="mr-3 img-thumbnail med-img-perfil mt-3" alt="avatar">
                         <div class="media-body">

@@ -1,25 +1,25 @@
-$(document).ready(function(){
+$(document).ready(function () {
 
-    $('.input').focus(function(){
-      $(this).parent().find(".label-txt").addClass('label-active');
-    });
-  
-    $(".input").focusout(function(){
-      if ($(this).val() == '') {
-        $(this).parent().find(".label-txt").removeClass('label-active');
-      };
+    $('.input').focus(function () {
+        $(this).parent().find(".label-txt").addClass('label-active');
     });
 
-    $('div[class="select"]').click(function() {
-      $('option[value="Selecciona"]').attr("disabled", "disabled");
+    $(".input").focusout(function () {
+        if ($(this).val() == '') {
+            $(this).parent().find(".label-txt").removeClass('label-active');
+        };
     });
 
-    $('#normasAbrir').click(function() {
-      $('#normas').slideToggle('slow');
+    $('div[class="select"]').click(function () {
+        $('option[value="Selecciona"]').attr("disabled", "disabled");
     });
 
-    $('#normasCerrar').click(function() {
-      $('#normas').slideUp('slow');
+    $('#normasAbrir').click(function () {
+        $('#normas').slideToggle('slow');
     });
 
-  });
+    $('#normasCerrar').click(function () {
+        $('#normas').slideUp('slow');
+    });
+
+});

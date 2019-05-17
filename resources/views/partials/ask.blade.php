@@ -27,7 +27,9 @@
                 </select>
             </div>
         </label>
+        <hr/>
         <label>
+            <p class="ml-2 ask-txt">Introduce la pregunta</p>
             <input id="pregunta" type="text" class="mb-4 form-control" name="pregunta" placeholder="Formula tu pregunta"
                 data-emojiable="true" data-emoji-input="unicode" value="{{ old('pregunta') }}">
         </label>

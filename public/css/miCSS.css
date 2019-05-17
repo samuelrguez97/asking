@@ -152,6 +152,16 @@ html, body {
     display: block !important;;
 }
 
+.arregloHeight {
+    min-height: 1000px !important;
+}
+
+@media screen and (min-height: 1100px) {
+    .arregloHeight {
+        min-height: 1350px !important;
+    }
+}
+
 .arregloHome {
     min-height: 1400px !important;
 }
@@ -276,6 +286,10 @@ html, body {
 .profile-user {
     text-decoration: none !important;
     color: #ab9e32 !important;
+}
+
+.mt-ask {
+    margin-top: 2.7rem !important;
 }
 
 /* --------------------------- */
