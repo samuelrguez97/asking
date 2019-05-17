@@ -16,8 +16,19 @@
                             <a class="nav-link" href="{{ action('UsuariosControlador@getContacto') }}">Contacto</a>
                         </li>
                         @if( Auth::check() )
-                        <li class="nav-item {{ Request::is('perfil') ? 'active' : '' }}">
-                            <a class="nav-link" href="{{ action('UsuariosControlador@getPerfil') }}">Perfil</a>
+                        <li
+                            class="nav-item dropdown {{ Request::is('perfil') || Request::segment(1) == 'perfil-publico' ? 'active' : '' }}">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Perfiles
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="nav-link dropdown-item"
+                                    href="{{ action('UsuariosControlador@getPerfil') }}">Perfil</a>
+                                <a class="nav-link dropdown-item"
+                                    href="{{ action('UsuariosControlador@getPerfilPublico', ['nombre' => Auth::user()->name ]) }}">Perfil
+                                    público</a>
+                            </div>
                         </li>
                         <li class="nav-item">
                             <form action="{{ url('/logout') }}" method="POST" class="form-nav">
