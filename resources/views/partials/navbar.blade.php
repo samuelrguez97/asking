@@ -30,6 +30,9 @@
                                     público</a>
                             </div>
                         </li>
+                        <li class="nav-item {{ Request::is('tus-preguntas') ? 'active' : '' }}">
+                            <a class="nav-link" href="{{ action('UsuariosControlador@tusPreguntas') }}">Tus preguntas <span class="badge badge-success">{{ isset($nTusPreguntas) ? $nTusPreguntas : '' }}</span></a>
+                        </li>
                         <li class="nav-item">
                             <form action="{{ url('/logout') }}" method="POST" class="form-nav">
                                 {{ csrf_field() }}
