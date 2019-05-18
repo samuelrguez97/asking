@@ -17,7 +17,7 @@
                         </li>
                         @if( Auth::check() )
                         <li
-                            class="nav-item dropdown {{ Request::is('perfil') || Request::segment(1) == 'perfil-publico' ? 'active' : '' }}">
+                            class="nav-item dropdown {{ Request::is('perfil') || Request::segment(1) == 'perfil-publico' && Request::segment(2) == Auth::user()->name ? 'active' : '' }}">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Perfiles
@@ -26,12 +26,14 @@
                                 <a class="nav-link dropdown-item"
                                     href="{{ action('UsuariosControlador@getPerfil') }}">Perfil</a>
                                 <a class="nav-link dropdown-item"
-                                    href="{{ action('UsuariosControlador@getPerfilPublico', ['nombre' => Auth::user()->name ]) }}">Perfil
+                                    href="{{ action('UsuariosControlador@getPerfilPublico', ['nombre' => Auth::user()->name]) }}">Perfil
                                     público</a>
                             </div>
                         </li>
                         <li class="nav-item {{ Request::is('tus-preguntas') ? 'active' : '' }}">
-                            <a class="nav-link" href="{{ action('UsuariosControlador@tusPreguntas') }}">Tus preguntas <span class="badge badge-success">{{ isset($nTusPreguntas) ? $nTusPreguntas : '' }}</span></a>
+                            <a class="nav-link" href="{{ action('UsuariosControlador@tusPreguntas') }}">Tus preguntas
+                                <span
+                                    class="badge badge-success">{{ isset($nTusPreguntas) ? $nTusPreguntas : '' }}</span></a>
                         </li>
                         <li class="nav-item">
                             <form action="{{ url('/logout') }}" method="POST" class="form-nav">

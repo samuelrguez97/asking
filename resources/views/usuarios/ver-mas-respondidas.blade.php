@@ -26,7 +26,7 @@
                             <p class="mt-0 text-white">Respondidas: {{ $usuario->respuestas }}</p>
                         </div>
                     </div>
-                    <div class="btn-group" role="group">
+                    <div class="btn-group mt-1" role="group">
                         <a class="btn btn-primary"
                             href="{{ action('UsuariosControlador@getPerfilPublico', ['nombre' => $usuario->name]) }}">
                             Ir a su perfil
