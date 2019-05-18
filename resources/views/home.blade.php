@@ -93,21 +93,19 @@
             </div>
         </div>
     </div>
-    <div class="col-md-10 offset-md-1">
-        <div id="preguntas" class="show-preguntas">
-            <div class="row mt-5">
+    <div class="col-md-10 mx-auto">
+        <div class="row mt-5">
 
-                @if ( $preguntas->isEmpty() )
-                <aside class="mx-auto mb-5 col-6 text-center alert alert-warning" role="alert">
-                    <strong>¡Vaya!</strong> Parece que no hay preguntas ahora mismo ... ¡sé el primero en preguntar!
-                </aside>
-                @endif
+            @if ( $preguntas->isEmpty() )
+            <aside class="mx-auto mb-5 col-6 text-center alert alert-warning" role="alert">
+                <strong>¡Vaya!</strong> Parece que no hay preguntas ahora mismo ... ¡sé el primero en preguntar!
+            </aside>
+            @endif
 
-                @include('partials.ask_external')
+            @include('partials.ask_external')
 
-                @include('partials.see_answer')
+            @include('partials.see_answer')
 
-            </div>
         </div>
     </div>
 </div>
