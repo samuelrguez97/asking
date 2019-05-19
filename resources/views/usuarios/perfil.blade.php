@@ -61,6 +61,8 @@ Session::forget('respondida');
                     href="{{ action('UsuariosControlador@getPerfilPublico', ['nombre' => Auth::user()->name ]) }}">Tu
                     perfil
                     público</a>
+                <a class="btn btn-success" href="{{ action('UsuariosControlador@tusPreguntas') }}">Ver preguntas para ti
+                </a>
                 <a class="btn btn-secondary" href="{{ action('UsuariosControlador@tusPreguntasRespondidas') }}">Ver
                     preguntas respondidas</a>
             </div>
@@ -68,47 +70,6 @@ Session::forget('respondida');
     </div>
 
     <div class="col-md-6 offset-md-1">
-
-        <!-- ZONA DE PREGUNTAS AL USUARIO -->
-
-        <h1 class="letraTitulo">Tus preguntas</h1>
-        <h4 class="text-white">Preguntas realizadas para ti</h4>
-
-        @if ( $preguntas_a_ti->isEmpty() )
-        <aside class="mt-4 col-6 offset-3 text-center alert alert-warning" role="alert">
-            No tienes preguntas ahora mismo ...
-        </aside>
-        @else
-
-        <div class="row mt-5">
-
-            <!-- ZONA PARA METER LAS PREGUNTAS DESDE LA BASE DE DATOS-->
-
-            @include('partials.ask_yours')
-
-            @include('partials.respond_answer')
-
-            <!-- --------------------------------------------------- -->
-
-        </div>
-
-
-
-        @if( Session::has('eliminada') )
-        <aside class="mt-4 col-6 offset-3 text-center alert alert-warning" role="alert">
-            {{ session('eliminada') }}
-        </aside>
-        Session::forget('eliminada');
-        @endif
-
-        <div class="mb-5 text-center">
-            <a class="btn btn-lg btn-success mr-2" href="{{ action('UsuariosControlador@tusPreguntas') }}">Ver
-                todas</a>
-        </div>
-
-        @endif
-
-        <hr />
 
         <!-- ZONA DE PREGUNTAS REALIZADAS -->
 
@@ -131,10 +92,6 @@ Session::forget('respondida');
 
             <!-- --------------------------------------------------- -->
 
-        </div>
-        <div class="mb-5 text-center">
-            <a class="btn btn-lg btn-success" href="{{ action('UsuariosControlador@preguntasRealizadas') }}">Ver
-                todas</a>
         </div>
 
         @endif
