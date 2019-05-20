@@ -1,10 +1,10 @@
 <aside id="verRespuesta" class="modal ver-respuesta" tabindex="-1" role="dialog">
     <aside class="modal-dialog modal-dialog-centered" role="document">
         <aside class="modal-content">
-            <aside class="p-2 mb-3">
+            <aside class="p-3 mb-3">
                 <aside class="row">
                     <div class="col-sm-12">
-                        <div class="card text-white bg-transparent bordes-ask">
+                        <div class="card text-white bordes-ask">
                             <div class="card-header fit-content">
                                 <div class="ver_pregunta-user">
                                     <aside class="for">
@@ -46,7 +46,7 @@
                     </div>
                 </aside>
             </aside>
-            <button type="button" class="btn btn-primary" data-dismiss="modal" aria-label="Close">Cerrar</button>
+            <button type="button" class="btn btn-info" data-dismiss="modal" aria-label="Close">Cerrar</button>
         </aside>
     </aside>
 </aside>

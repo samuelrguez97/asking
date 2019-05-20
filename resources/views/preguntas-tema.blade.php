@@ -32,13 +32,12 @@
 
             @endif
 
-            <aside class="text-center">
+            <aside class="text-center mb-3">
                 @if (url()->previous() == url('buscar'))
                 <a class="btn btn-info col-sm-1 mt-4 text-center" href="{{ url('home') }}">Volver</a>
                 @else
                 <a class="btn btn-info col-sm-1 mt-4 text-center" href="{{ url()->previous() }}">Volver</a>
-                @endif
-                
+                @endif 
             </aside>
 
         </div>

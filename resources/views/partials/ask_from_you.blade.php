@@ -26,7 +26,7 @@
                     <span class="float-right badge badge-warning ml-3 mb-2">Sin respuesta</span>
                     @else
                     <button id="ver-respuesta-go" data-id-pregunta="{{ $pregunta->id }}"
-                        class="answer btn btn-secondary btn-sm">Ver respuesta</button>
+                        class="answer btn btn-secondary btn-sm"><i class="far fa-eye mr-1"></i>Ver respuesta</button>
                     @endif
                 </aside>
             </div>

@@ -79,7 +79,7 @@
                 emojiable_selector: '[data-emojiable=true]',
                 assetsPath: "{{ url('emojis/img/') }}",
                 @if(Request::is('perfil') || Request::is('tus-preguntas'))
-                popupButtonClasses: 'fa fa-smile-o set-back mt-5 l-answer'
+                popupButtonClasses: 'fa fa-smile-o set-back l-answer'
                 @else
                 popupButtonClasses: 'fa fa-smile-o set-back mt-ask'
                 @endif
