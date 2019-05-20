@@ -318,6 +318,11 @@ html, body {
     top: 10% !important;
 }
 
+.header-answer {
+    height: 35px !important;
+    padding: 15px !important;
+}
+
 /* --------------------------- */
 
 /* Perfil */
