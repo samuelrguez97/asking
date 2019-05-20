@@ -318,6 +318,10 @@ html, body {
     top: 10% !important;
 }
 
+.bg-card-pregunta-answer {
+    background-color: #2b2a2b !important;
+}
+
 .header-answer {
     height: 35px !important;
     padding: 15px !important;
