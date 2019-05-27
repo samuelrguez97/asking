@@ -10,44 +10,33 @@
                             src="{{ url('imagenes/logo.png') }}" alt="logo"></a>
                     <ul class="navbar-nav">
                         <li class="nav-item {{ Request::is('home') ? 'active' : '' }}">
-                            <a class="nav-link" href="{{ action('PreguntasControlador@principal') }}">Inicio</a>
+                            <a class="nav-link" href="{{ action('PreguntasControlador@principal') }}"><i class="fas fa-home"></i> Inicio</a>
                         </li>
                         <li class="nav-item {{ Request::is('contacto') ? 'active' : '' }}">
-                            <a class="nav-link" href="{{ action('UsuariosControlador@getContacto') }}">Contacto</a>
+                            <a class="nav-link" href="{{ action('UsuariosControlador@getContacto') }}"><i class="fas fa-envelope"></i> Contacto</a>
                         </li>
                         @if( Auth::check() )
-                        <li
-                            class="nav-item dropdown {{ Request::is('perfil') || Request::segment(1) == 'perfil-publico' && Request::segment(2) == Auth::user()->name ? 'active' : '' }}">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Perfiles
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="nav-link dropdown-item"
-                                    href="{{ action('UsuariosControlador@getPerfil') }}">Perfil</a>
-                                <a class="nav-link dropdown-item"
-                                    href="{{ action('UsuariosControlador@getPerfilPublico', ['nombre' => Auth::user()->name]) }}">Perfil
-                                    público</a>
-                            </div>
+                        <li class="nav-item {{ Request::is('perfil') ? 'active' : '' }}">
+                            <a class="nav-link" href="{{ action('UsuariosControlador@getPerfil') }}"><i class="fas fa-user"></i> Perfil</a>
                         </li>
                         <li class="nav-item {{ Request::is('tus-preguntas') ? 'active' : '' }}">
-                            <a class="nav-link" href="{{ action('UsuariosControlador@tusPreguntas') }}">Tus preguntas
+                            <a class="nav-link" href="{{ action('UsuariosControlador@tusPreguntas') }}"><i class="fas fa-question"></i> Tus preguntas
                                 <span
                                     class="badge badge-success">{{ isset($nTusPreguntas) ? $nTusPreguntas : '' }}</span></a>
                         </li>
                         <li class="nav-item">
                             <form action="{{ url('/logout') }}" method="POST" class="form-nav">
                                 {{ csrf_field() }}
-                                <button type="submit" class="btn btn-link nav-link">Cerrar
+                                <button type="submit" class="btn btn-link nav-link"><i class="fas fa-sign-out-alt"></i> Cerrar
                                     sesión</button>
                             </form>
                         </li>
                         @else
                         <li class="nav-item {{ Request::is('login') ? 'active' : '' }}">
-                            <a class="nav-link" href="{{ url('/login') }}">Entrar</a>
+                            <a class="nav-link" href="{{ url('/login') }}"><i class="fas fa-sign-in-alt"></i> Entrar</a>
                         </li>
                         <li class="nav-item {{ Request::is('register') ? 'active' : '' }}">
-                            <a class="nav-link" href="{{ url('/register') }}">Registrarse</a>
+                            <a class="nav-link" href="{{ url('/register') }}"><i class="fas fa-door-open"></i> Registrarse</a>
                         </li>
                         @endif
                     </ul>
