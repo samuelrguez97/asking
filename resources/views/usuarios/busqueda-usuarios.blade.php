@@ -5,7 +5,7 @@
 <div class="container-fluid w-fit-content h-fit-content">
     <div class="mt-5 row">
         <div class="col-md-6 mx-auto">
-            <h1 class="display-5 letraTitulo">Usuarios</h1>
+            <h1 class="display-5 letraTitulo"><i class="fas fa-users"></i> Usuarios</h1>
             <div class="row mt-5">
                 @foreach ($usuarios as $usuario)
                 <div class="mb-4 mr-4">

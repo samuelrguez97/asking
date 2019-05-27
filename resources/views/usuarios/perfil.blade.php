@@ -39,6 +39,9 @@ Session::forget('respondida');
             <img class="img-perfil" src="{{ url('storage/imagenes/usuarios') }}/{{ Auth::user()->avatar }}" />
             <table class="table">
                 <tr>
+                    <td colspan="2" class="bg-perfil-info"><i class="fas fa-info-circle"></i> Información de la cuenta</td>
+                </tr>
+                <tr>
                     <th>Usuario</th>
                     <td>{{ Auth::user()->name }}</td>
                 </tr>
@@ -55,9 +58,9 @@ Session::forget('respondida');
                     <td>{{ Auth::user()->updated_at->toDateString() }}</td>
                 </tr>
                 <tr>
-                    <td colspan="2">
-                        <div class="mb-2">Opciones de cuenta <i id="opciones-cuenta"
-                                class="fas fa-sort-down fa-lg float-right"></i></div>
+                    <td colspan="2" class="bg-perfil-info">
+                        <div class="mb-2"><i class="fas fa-user-cog"></i> Opciones de cuenta<i id="opciones-cuenta"
+                                class="fas fa-sort-down fa-lg float-right" data-toggle="tooltip" data-placement="bottom" title="Mostrar las opciones"></i></div>
                         <div id="opciones" style="display: none;" class="text-center">
                             <a class="btn btn-info btn-block" href="{{ action('UsuariosControlador@editPerfil') }}"><i
                                     class="fas fa-user-edit"></i> Editar

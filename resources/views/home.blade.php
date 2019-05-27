@@ -62,7 +62,7 @@
 
 <div class="row mt-5">
 
-    <div class="col-sm-8 offset-md-2">
+    <div class="col-sm-8 mx-auto">
         <h2 id="tituloPreguntas" class="letraTitulo">Preguntas</h2>
         <div class="mb-3 mt-3" role="group">
             <a class="text-white btn btn-info btn-sm mr-1" href="{{ action('PreguntasControlador@temasTodos') }}"><i

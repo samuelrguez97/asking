@@ -8,7 +8,7 @@
 
             <!-- ZONA DE PREGUNTAS AL USUARIO -->
 
-            <h1 class="display-5 letraTitulo">Temas</h1>
+            <h1 class="display-5 letraTitulo"><i class="fas fa-book-open"></i> Temas</h1>
             <h4 class="text-white">Preguntas relacionadas con el tema: {{ $tema }}</h4>
 
             @if ( $preguntas->isEmpty() )
