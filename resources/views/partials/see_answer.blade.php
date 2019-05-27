@@ -1,7 +1,7 @@
 <aside id="verRespuesta" class="modal ver-respuesta" tabindex="-1" role="dialog">
     <aside class="modal-dialog modal-dialog-centered" role="document">
         <aside class="modal-content mx-auto">
-            <aside class="p-3 mb-3">
+            <aside class="p-3">
                 <aside class="row">
                     <div class="col-sm-12">
                         <div class="bg-card-pregunta-answer card text-white bordes-ask">
@@ -46,7 +46,9 @@
                     </div>
                 </aside>
             </aside>
-            <button type="button" class="btn btn-info" data-dismiss="modal" aria-label="Close">Cerrar</button>
+            <div class="mx-auto mb-3">
+                <button type="button" class="btn btn-info" data-dismiss="modal" aria-label="Close"><i class="fas fa-times"></i> Cerrar</button>
+            </div>
         </aside>
     </aside>
 </aside>
