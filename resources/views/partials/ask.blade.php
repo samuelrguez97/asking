@@ -9,7 +9,7 @@
             <p class="label-txt">Busca el usuario al que quieres preguntar</p>
             <div class="select">
                 <select id="busqueda_usuario" name="usuario" class="selectpicker" data-live-search="true"
-                    title="Escribe el usuario...">
+                    title="Escribe el usuario..." data-width="auto" data-size="4">
                     @if (app('request')->input('user'))
                     <option
                         data-content="<img src='{{ url('storage/imagenes/usuarios') }}/{{ $usuarios->where('id', app('request')->input('user'))->first()->avatar }}'

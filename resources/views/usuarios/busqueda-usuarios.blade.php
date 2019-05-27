@@ -4,7 +4,7 @@
 
 <div class="container-fluid w-fit-content h-fit-content">
     <div class="mt-5 row">
-        <div class="col-md-6 offset-md-3">
+        <div class="col-md-8 mx-auto">
             <h1 class="display-5 letraTitulo">Usuarios</h1>
             <div class="row mt-5">
                 @foreach ($usuarios as $usuario)
@@ -28,7 +28,7 @@
                 @endforeach
             </div>
             <aside class="text-center">
-                <a class="btn btn-info col-sm-1 mt-4 text-center" href="{{ url('home') }}">Inicio</a>
+                <a class="btn btn-info mt-4 text-center" href="{{ url('home') }}">Inicio</a>
             </aside>
         </div>
     </div>

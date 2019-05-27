@@ -32,6 +32,7 @@
 
         <aside class="text-center">
             <a class="btn btn-info col-sm-1 mt-4 text-center" href="{{ url('home') }}">Inicio</a>
+            <a class="btn btn-success col-sm-1 mt-4 text-center" href="{{ url('perfil') }}">Tu perfil</a>
         </aside>
 
     </div>

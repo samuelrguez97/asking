@@ -1,6 +1,6 @@
 <aside id="verRespuesta" class="modal ver-respuesta" tabindex="-1" role="dialog">
     <aside class="modal-dialog modal-dialog-centered" role="document">
-        <aside class="modal-content">
+        <aside class="modal-content mx-auto">
             <aside class="p-3 mb-3">
                 <aside class="row">
                     <div class="col-sm-12">

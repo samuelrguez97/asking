@@ -31,11 +31,13 @@ $('.answer').on("click", function (e) {
         beforeSend: function () {
             $('#verRespuesta').modal('show');
             anterior_content = $('.modal-content').html();
-            $('.modal-content').html('<div class="text-center p-3"><div class="spinner-border text-warning" role="status"></div></div>');
+            $('.modal-content').css('width', '25%');
+            $('.modal-content').html('<div class="text-center text-warning p-3"><div class="mb-2">Cargando...</div><div class="spinner-border" role="status"></div></div>');
         },
         success: function (data) { // en caso de hacer la peticion correctamente ..
             // recibo los datos y se asignan la variable data
             // hecho esto, asocio todos los datos y los implemento a sus respectivos campos para mostrar la pregunta y la respuesta
+            $('.modal-content').css('width', '100%');
             $('.modal-content').html(anterior_content);
             $('#rProfile-user').attr('href', 'http://localhost/asking/public/perfil-publico/' + data.nombre);
             $('#rNombre').html(data.nombre);
