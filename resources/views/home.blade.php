@@ -65,7 +65,8 @@
     <div class="col-sm-8 offset-md-2">
         <h2 id="tituloPreguntas" class="letraTitulo">Preguntas</h2>
         <div class="mb-3 mt-3" role="group">
-            <a class="text-white btn btn-info btn-sm mr-1" href="{{ action('PreguntasControlador@temasTodos') }}"><i class="fas fa-book-open"></i> Ver
+            <a class="text-white btn btn-info btn-sm mr-1" href="{{ action('PreguntasControlador@temasTodos') }}"><i
+                    class="fas fa-book-open"></i> Ver
                 todos los temas</a>
             <a class="text-white btn btn-primary btn-sm"
                 href="{{ action('UsuariosControlador@usuariosMasRespondidas') }}"><i class="fas fa-users"></i> Ver
@@ -102,7 +103,7 @@
             </div>
         </div>
     </div>
-    <div class="col-md-10 mx-auto">
+    <div class="col-sm-8 mx-auto">
         <div class="row mt-5">
 
             @if ( $preguntas->isEmpty() )

@@ -8,11 +8,11 @@
     </aside>
     Session::forget('respondida');
     @endif
-    <div class="mt-5 row">
+    <div class="mt-5 mx-auto row">
 
         <!-- ZONA PARA MOSTRAR INFORMACIÓN DEL PERFIL PÚBLICO -->
 
-        <div class="card-perfil col-md-3 offset-md-1">
+        <div class="card-perfil col-md-4 mr-2 mb-3">
             <div class="card fit-content">
                 <img class="img-perfil" src="{{ url('storage/imagenes/usuarios') }}/{{ $usuario->avatar }}" />
                 <table class="table mr-3">
@@ -32,7 +32,7 @@
                                 <a class="btn btn-info btn-block" href="{{ url('perfil') }}"><i class="fas fa-user"></i> Ir a tu perfil</a>
                                 @endif
                                 <a class="btn btn-success btn-block"
-                                    href="{{ action('PreguntasControlador@sendPreguntaUser', ['user' => $usuario]) }}"><i class="fas fa-question"></i> Hacer
+                                    href="{{ action('PreguntasControlador@sendPreguntaUser', ['user' => $usuario]) }}"><i class="fas fa-question-circle"></i> Hacer
                                     una pregunta a este usuario</a>
                             </div>
                         </td>
@@ -41,7 +41,7 @@
             </div>
         </div>
 
-        <div class="col-md-6 offset-md-1">
+        <div class="col-md-7 ml-2">
 
             <!-- ZONA DE PREGUNTAS AL USUARIO -->
 

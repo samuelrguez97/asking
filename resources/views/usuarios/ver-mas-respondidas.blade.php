@@ -4,7 +4,7 @@
 
 <div class="container-fluid w-fit-content h-fit-content">
     <div class="mt-5 row">
-        <div class="col-md-10 mx-auto">
+        <div class="col-md-8 mx-auto">
             <h1 class="display-5 letraTitulo">Usuarios</h1>
             <h4 class="text-white">Ordenados por preguntas respondidas</h4>
             <div class="row mt-5">
@@ -16,23 +16,23 @@
                 @else
 
                 @foreach ($usuarios as $usuario)
-                <div class="col-sm-3 mb-4">
+                <div class="mb-4 mr-3">
                     <div class="media">
                         <img src="{{ url('storage/imagenes/usuarios') }}/{{ $usuario->avatar }}"
                             class="mr-3 img-thumbnail med-img-perfil" alt="avatar">
 
                         <div class="media-body">
-                            <h5 class="mt-0 text-white">{{ $usuario->name }}</h5>
-                            <p class="mt-0 text-white">Respondidas: {{ $usuario->respuestas }}</p>
+                            <h5 class="mb-0 text-white">{{ $usuario->name }}</h5>
+                            <p class="mb-0 text-white">Respondidas: {{ $usuario->respuestas }}</p>
+                            <div class=" btn-group" role="group">
+                                <a class="btn btn-primary"
+                                    href="{{ action('UsuariosControlador@getPerfilPublico', ['nombre' => $usuario->name]) }}" data-toggle="tooltip" data-placement="bottom" title="Ir a su perfil">
+                                    <i class="fas fa-user"></i></a>
+                                <a class="btn btn-success"
+                                    href="{{ action('PreguntasControlador@sendPreguntaUser', ['user' => $usuario]) }}" data-toggle="tooltip" data-placement="bottom" title="Preguntar a este usuario"><i
+                                        class="fas fa-question-circle"></i></a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="btn-group mt-1" role="group">
-                        <a class="btn btn-primary"
-                            href="{{ action('UsuariosControlador@getPerfilPublico', ['nombre' => $usuario->name]) }}">
-                            <i class="fas fa-user"></i> Ir a su perfil
-                        </a>
-                        <a class="btn btn-success"
-                            href="{{ action('PreguntasControlador@sendPreguntaUser', ['user' => $usuario]) }}"><i class="fas fa-question"></i> Preguntar</a>
                     </div>
                 </div>
                 @endforeach

@@ -1,5 +1,5 @@
 @foreach ( $preguntas_por_ti as $pregunta )
-<div class="{{ Request::is('tus-preguntas-realizadas') ? 'col-4' : 'col-sm-6' }} mb-5">
+<div class="col-sm-6 mb-5">
     <div class="card text-white bg-transparent bordes-ask">
         <div class="card-header fit-content">
             <div class="pregunta-user">
@@ -8,7 +8,7 @@
                     Para
                 </aside>
                 <aside class="float-left">
-                    <a class="profile-user"
+                    <a class="profile-user" data-toggle="tooltip" data-placement="bottom" title="Ir a su perfil"
                         href="{{ action('UsuariosControlador@getPerfilPublico', ['nombre' => $usuarios->where('id', $pregunta->id_usuario)->first()->name]) }}"
                         class="text-muted">
                         <img src="{{ url('storage/imagenes/usuarios') }}/{{ $usuarios->where('id', $pregunta->id_usuario)->first()->avatar }}"
@@ -35,7 +35,7 @@
             <aside class="float-left tiempo">
                 {{ $pregunta->created_at->diffForHumans() }}
             </aside>
-            <a href="{{ action('PreguntasControlador@preguntasTema', ['tema' => $pregunta->tema]) }}">
+            <a href="{{ action('PreguntasControlador@preguntasTema', ['tema' => $pregunta->tema]) }}" data-toggle="tooltip" data-placement="bottom" title="Ver preguntas del tema">
                 <span class="badge badge-info tema">{{ $pregunta->tema }}</span>
             </a>
             <div class="float-right ml-3">

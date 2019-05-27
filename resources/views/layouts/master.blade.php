@@ -45,7 +45,7 @@
     @include('partials.likes-ajax-form')
     @include('partials.answer-ajax-form')
     <div class="row firefox-height">
-        <div class="col-md-10 offset-md-1">
+        <div class="col-md-9 mx-auto">
             <div
                 class="{{ Request::is('home') || Request::is('home/ordenar-likes') ? 'arregloHome' : 'arregloHeight' }} container-contenido margen-fixed h-fit-content colorBackground padding-top-ie">
                 @yield('content')

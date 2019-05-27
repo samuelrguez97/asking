@@ -7,7 +7,7 @@
         @csrf
         <label>
             <p class="label-txt">Busca el usuario al que quieres preguntar</p>
-            <div class="select">
+            <div class="select mt-4">
                 <select id="busqueda_usuario" name="usuario" class="selectpicker" data-live-search="true"
                     title="Escribe el usuario..." data-width="auto" data-size="4">
                     @if (app('request')->input('user'))
@@ -48,7 +48,7 @@
         </div>
         <label class="mt-3">
             <p class="label-txt">Selecciona el tema</p>
-            <div class="select">
+            <div class="select mt-4">
                 <select id="tema" name="tema" class="selectpicker" title="Seleccione un tema...">
                     @if(isset($temas))
                     @foreach($temas as $tema)

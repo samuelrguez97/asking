@@ -2,10 +2,14 @@
     font-family: 'Asap', sans-serif;
 }
 
-html, body {
+html,
+body {
     height: 100%;
     min-width: 50%;
     min-height: 50%;
+    background-image: url('data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwcHBwcHBwcHBwcHBw0HBwcHBw8ICQcNFREWFhUREx8YKCggGCYxJxUVITEhJSkrLi4uFx8zODMsNyg5LisBCgoKBQUFDgUFDisZExkrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrK//AABEIAKgBLAMBIgACEQEDEQH/xAAYAAEBAQEBAAAAAAAAAAAAAAABAgAHA//EABYQAQEBAAAAAAAAAAAAAAAAAAABEf/EABQBAQAAAAAAAAAAAAAAAAAAAAD/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwDjsVExUBUMTFQFRUTFQFRUTFQFRcRFQFwxMVAVFRMVAVDExUBRiSCmDaBYMDUMAFFaigKmmpoCpqqmgmpqqmgmpqqmgmpqqmgmg1IIhiYqAqKiYYC4qIioC4qIioCoqJioCoqJhgLioiKgKioiEFlOtoKKdbQUBrARQAYVqKAorUUBU01NAVNNFBNTVVNBNTVVNAVJqQRDExUBUVERUBcMTFQFRURFQFxURFQFwxEVAXDEwygvTEQ6C9Oo06CtOp1tBWjRraB0aNGgRaNGg1FapoNU01NAUVqKAqaamgKmmigKk1IIhiVQFQxMVAVFREVAXDERUBcMTDAXFREMoLlVKiUygvTqNOgvW1OnQVranW0Fa2p1tA62p1tA6LRo0GFrWptBqK1otAUVqmg1TTU0BRTU0BQ1AIMSYCoqJhgKioiKgKioiKgKioiKgKlVESmUF6ZUSq0FadRp0F6dRp0Fa2p1tBWtqdbQOtqdbQOjRo0DotGjQNqa1otBrU1hQaprUUBRWooCg0A8yCCjEkFRUQYC4YmGAuFEqtBUplTKdBenUadBetqdOgrTqNOgrW1OtoK1tTraCtGp1tA6NbRoHRo0aDWjW0Wg1SwtBrRWooCitRQYMAQQwKMSQUYkwFRUQYC4ZUKBR1CtBWnUadBenUadBWnUa2gvW1OtoK1tTraB1tTraB1tTraB0aNGgdGjRoG0DQBqawBgwBgwBJDASCBKSCikgrSkgrTqNOgvW1OnQVp1GnQVp1GnQVranW0Fa2p1tA62jRoK0aNGgdbRo0Do0aNAgMDBgDBgDBmAMzAxDASGBRSQJSQUUsCtOpbQXranW0FadTraCtbU62grW1OtoK0aNbQOtqdbQOjRraBGhgYMAIYAwZgYMwMzMDMzAxDASkgSkgSkgdOpIHTqWBWto1gOnU6wK0aNYDrBtA6NGtoEBgIYAQwBmYAzMwMzMDMzAzMwMzMDMzAxZgYswMxYGZmBm0sAYsAYsAZmBmZgDMwMGYGDMDMzAzMwMzMD/9k=') !important;
+    background-repeat: no-repeat;
+    background-size: cover;
     background-color: #535056 !important;
     overflow-x: hidden !important;
 }
@@ -99,7 +103,7 @@ html, body {
 /* CSS para la redimensión de las imagenes de los usuarios */
 
 .img-perfil {
-    height: 410px;
+    height: 360px;
 }
 
 .med-img-perfil {
@@ -120,16 +124,24 @@ html, body {
 }
 
 /* Este CSS solo se aplica si el browser es IE, sirve para arreglar el navbar sticky top en IE */
-@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+@media screen and (-ms-high-contrast: active),
+(-ms-high-contrast: none) {
     .sticky-top-ie {
         position: fixed;
         width: 98.9%;
         top: 0;
         z-index: 1020;
     }
+
     .padding-top-ie {
         padding-top: 5%;
     }
+}
+
+/* Margen para el logo del navbar */
+
+.mt-logo-nav {
+    margin-top: 0.5rem !important;
 }
 
 /* Crear margen para  para adjustar tamaño de la página al navbar fijo */
@@ -141,7 +153,7 @@ html, body {
 
 /* ---------------------------------------------------- */
 
-/* Redimensionar tamaño página general (navbar+contenido+footer) */ 
+/* Redimensionar tamaño página general (navbar+contenido+footer) */
 
 .navbar-home {
     z-index: 9999;
@@ -150,7 +162,8 @@ html, body {
 .container-contenido {
     overflow-x: hidden !important;
     min-height: 100% !important;
-    display: block !important;;
+    display: block !important;
+    ;
 }
 
 .arregloHeight {
@@ -177,7 +190,7 @@ html, body {
 }
 
 #normas {
-    margin-top: 0.7%; 
+    margin-top: 0.7%;
 }
 
 /* ---------------- */
@@ -224,7 +237,7 @@ html, body {
     color: #ffffff;
 }
 
-/* ----------------------------------- */ 
+/* ----------------------------------- */
 
 /* CSS contacto */
 
@@ -352,5 +365,3 @@ html, body {
 }
 
 /* ------------- */
-
-

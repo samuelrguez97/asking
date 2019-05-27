@@ -36,7 +36,7 @@
 
 /* Redimension navbar-expand-lg */
 
-@media (max-width: 1049.98px) {
+@media (max-width: 1349.98px) {
   .navbar-expand-lg > .container,
   .navbar-expand-lg > .container-fluid {
     padding-right: 0;
@@ -44,7 +44,7 @@
   }
 }
 
-@media (min-width: 1050px) {
+@media (min-width: 1350px) {
   .navbar-expand-lg {
     -ms-flex-flow: row nowrap;
     flex-flow: row nowrap;

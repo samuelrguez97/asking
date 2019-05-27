@@ -1,13 +1,13 @@
 <nav class="sticky-top sticky-top-ie">
     <div class="row">
-        <div class="col-md-10 offset-md-1">
+        <div class="col-md-9 mx-auto">
             <nav class="navbar-home navbar-expand-lg navbar-dark borde-nav colorBackground p-2">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsingNavbarLg">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse order-1 order-md-0 dual-collapse2" id="collapsingNavbarLg">
-                    <a class="mr-3" href="{{ action('PreguntasControlador@principal') }}"><img
+                <a class="mr-3 float-left mt-logo-nav" href="{{ action('PreguntasControlador@principal') }}"><img
                             src="{{ url('imagenes/logo.png') }}" alt="logo"></a>
+                <div class="navbar-collapse collapse order-1 order-md-0 dual-collapse2" id="collapsingNavbarLg">
                     <ul class="navbar-nav">
                         <li class="nav-item {{ Request::is('home') ? 'active' : '' }}">
                             <a class="nav-link" href="{{ action('PreguntasControlador@principal') }}"><i class="fas fa-home"></i> Inicio</a>
@@ -20,7 +20,7 @@
                             <a class="nav-link" href="{{ action('UsuariosControlador@getPerfil') }}"><i class="fas fa-user"></i> Perfil</a>
                         </li>
                         <li class="nav-item {{ Request::is('tus-preguntas') ? 'active' : '' }}">
-                            <a class="nav-link" href="{{ action('UsuariosControlador@tusPreguntas') }}"><i class="fas fa-question"></i> Tus preguntas
+                            <a class="nav-link" href="{{ action('UsuariosControlador@tusPreguntas') }}"><i class="fas fa-question-circle"></i> Tus preguntas
                                 <span
                                     class="badge badge-success">{{ isset($nTusPreguntas) ? $nTusPreguntas : '' }}</span></a>
                         </li>

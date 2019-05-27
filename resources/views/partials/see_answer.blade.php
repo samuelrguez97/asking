@@ -46,7 +46,7 @@
                     </div>
                 </aside>
             </aside>
-            <div class="mx-auto mb-3">
+            <div class="offset-5 mb-3">
                 <button type="button" class="btn btn-info" data-dismiss="modal" aria-label="Close"><i class="fas fa-times"></i> Cerrar</button>
             </div>
         </aside>

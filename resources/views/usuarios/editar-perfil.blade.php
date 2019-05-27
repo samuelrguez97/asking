@@ -53,13 +53,13 @@
             </aside>
 
             @if( Session::has('error') )
-            <aside class="mt-4 col-8 mx-auto alert text-center alert-danger" role="alert">
+            <aside class="mt-4 alert text-center alert-danger" role="alert">
                 {{ session('error') }}
             </aside>
             @endif
 
             @if ($errors->any())
-            <div class="mt-4 col-8 mx-auto text-center alert alert-danger">
+            <div class="mt-4 text-center alert alert-danger">
                 @foreach ($errors->all() as $error)
                     @if ($loop->last)
                         {{ $error }}

@@ -2,6 +2,8 @@
 
 @section('content')
 
+<div class="container-fluid w-fit-content h-fit-content">
+
 @if( Session::has('success') )
 <div class="row">
     <aside class="col-4 offset-4 mt-4 alert alert-success text-center" role="alert">
@@ -27,14 +29,15 @@ Session::forget('warning');
 Session::forget('respondida');
 @endif
 
-<div class="mt-5 row">
+<div
+    class="{{ Session::has('success') || Session::has('warning') || Session::has('respondida') ? '' : 'mt-5' }} mx-auto row">
 
     <!-- ZONA PARA MOSTRAR INFORMACIÓN DEL PERFIL -->
 
-    <div class="card-perfil col-md-3 offset-md-1">
+    <div class="card-perfil col-md-4 mb-3">
         <div class="card fit-content">
             <img class="img-perfil" src="{{ url('storage/imagenes/usuarios') }}/{{ Auth::user()->avatar }}" />
-            <table class="table mr-3">
+            <table class="table">
                 <tr>
                     <th>Usuario</th>
                     <td>{{ Auth::user()->name }}</td>
@@ -72,7 +75,10 @@ Session::forget('respondida');
                                 href="{{ action('UsuariosControlador@tusPreguntasRespondidas') }}"><i
                                     class="far fa-eye"></i> Ver
                                 preguntas respondidas</a>
-                            <a tabindex="0" data-placement="top" class="btn btn-danger btn-block text-white" data-trigger="focus" data-toggle="popover" data-html="true" data-content="¿Está seguro de que desea eliminar la cuenta?<br><a href='{{ action('UsuariosControlador@eliminarCuenta') }}'>Eliminar</a>"><i class="fas fa-user-times"></i> Eliminar cuenta</a>
+                            <a tabindex="0" data-placement="top" class="btn btn-danger btn-block text-white"
+                                data-trigger="focus" data-toggle="popover" data-html="true"
+                                data-content="¿Está seguro de que desea eliminar la cuenta?<br><a href='{{ action('UsuariosControlador@eliminarCuenta') }}'>Eliminar</a>"><i
+                                    class="fas fa-user-times"></i> Eliminar cuenta</a>
                         </div>
                     </td>
                 </tr>
@@ -80,7 +86,7 @@ Session::forget('respondida');
         </div>
     </div>
 
-    <div class="col-md-6 offset-md-1">
+    <div class="col-md-7 ml-2">
 
         <!-- ZONA DE PREGUNTAS REALIZADAS -->
 
@@ -108,5 +114,6 @@ Session::forget('respondida');
         @endif
 
     </div>
+</div>
 </div>
 @endsection
