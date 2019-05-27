@@ -51,21 +51,25 @@ Session::forget('respondida');
                     <th>Modificado por última vez</th>
                     <td>{{ Auth::user()->updated_at->toDateString() }}</td>
                 </tr>
+                <tr>
+                    <td colspan="2">
+                        <div class="text-center">
+                                <a class="btn btn-info btn-block" href="{{ action('UsuariosControlador@editPerfil') }}">Editar
+                                    perfil</a>
+                                <a class="btn btn-primary btn-block"
+                                    href="{{ action('UsuariosControlador@getPerfilPublico', ['nombre' => Auth::user()->name ]) }}">Tu
+                                    perfil
+                                    público</a>
+                                <a class="btn btn-success btn-block" href="{{ action('UsuariosControlador@tusPreguntas') }}">Ver
+                                    preguntas para ti
+                                </a>
+                                <a class="btn btn-secondary btn-block"
+                                    href="{{ action('UsuariosControlador@tusPreguntasRespondidas') }}">Ver
+                                    preguntas respondidas</a>
+                        </div>
+                    </td>
+                </tr>
             </table>
-        </div>
-        <br />
-        <div class="text-center">
-            <div class="btn-group-vertical mb-3" role="group">
-                <a class="btn btn-info" href="{{ action('UsuariosControlador@editPerfil') }}">Editar perfil</a>
-                <a class="btn btn-primary"
-                    href="{{ action('UsuariosControlador@getPerfilPublico', ['nombre' => Auth::user()->name ]) }}">Tu
-                    perfil
-                    público</a>
-                <a class="btn btn-success" href="{{ action('UsuariosControlador@tusPreguntas') }}">Ver preguntas para ti
-                </a>
-                <a class="btn btn-secondary" href="{{ action('UsuariosControlador@tusPreguntasRespondidas') }}">Ver
-                    preguntas respondidas</a>
-            </div>
         </div>
     </div>
 

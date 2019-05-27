@@ -24,17 +24,20 @@
                         <th>Fecha de creación</th>
                         <td>{{ $usuario->created_at->toDateString() }}</td>
                     </tr>
+                    <tr>
+                        <td colspan="2">
+                            <div class="text-center">
+                                <a class="btn btn-primary btn-block" href="{{ url('home') }}">Inicio</a>
+                                @if (Auth::check() && Auth::user()->name == $usuario->name)
+                                <a class="btn btn-info btn-block" href="{{ url('perfil') }}">Ir a tu perfil</a>
+                                @endif
+                                <a class="btn btn-success btn-block"
+                                    href="{{ action('PreguntasControlador@sendPreguntaUser', ['user' => $usuario]) }}">Hacer
+                                    una pregunta a este usuario</a>
+                            </div>
+                        </td>
+                    </tr>
                 </table>
-            </div>
-            <br />
-            <div class="text-center">
-                <div class="btn-group-vertical mb-3"  role="group">
-                    <a class="btn btn-primary" href="{{ url('home') }}">Inicio</a>
-                    @if (Auth::check() && Auth::user()->name == $usuario->name)
-                    <a class="btn btn-info" href="{{ url('perfil') }}">Ir a tu perfil</a>
-                    @endif
-                    <a class="btn btn-success" href="{{ action('PreguntasControlador@sendPreguntaUser', ['user' => $usuario]) }}" >Hacer una pregunta a este usuario</a>
-                </div>
             </div>
         </div>
 

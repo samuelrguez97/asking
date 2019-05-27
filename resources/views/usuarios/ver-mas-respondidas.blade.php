@@ -4,7 +4,7 @@
 
 <div class="container-fluid w-fit-content h-fit-content">
     <div class="mt-5 row">
-        <div class="col-md-8 mx-auto">
+        <div class="col-md-10 mx-auto">
             <h1 class="display-5 letraTitulo">Usuarios</h1>
             <h4 class="text-white">Ordenados por preguntas respondidas</h4>
             <div class="row mt-5">
@@ -16,7 +16,7 @@
                 @else
 
                 @foreach ($usuarios as $usuario)
-                <div class="col-sm-4 mb-4">
+                <div class="col-sm-3 mb-4">
                     <div class="media">
                         <img src="{{ url('storage/imagenes/usuarios') }}/{{ $usuario->avatar }}"
                             class="mr-3 img-thumbnail med-img-perfil" alt="avatar">
