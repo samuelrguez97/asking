@@ -22,7 +22,7 @@
                 @endforeach
             </div>
             <aside class="text-center">
-                <a class="btn btn-info mt-4 text-center" href="{{ url('home') }}">Inicio</a>
+                <a class="btn btn-info mt-4 text-center" href="{{ url('home') }}"><i class="fas fa-home"></i> Inicio</a>
             </aside>
         </div>
     </div>

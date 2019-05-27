@@ -284,6 +284,48 @@ class UsuariosControlador extends Controller
 
     }
 
+    /* -- Defino el método para eliminar la cuenta del usuario -- */
+
+    public function eliminarCuenta() {
+        
+        // Selecciono al usuario de la tabla usuarios
+        $usuario = User::where('id', Auth::user()->id)->first();
+
+        // Selecciono las preguntas asociadas a ese usuario
+        $preguntas_usuario = preguntas::where('id_usuario', Auth::user()->id)->get()->toArray();
+
+        // Selecciono las respuestas asociadas a ese usuario
+        $respuestas_usuario = respuestas::where('id_user', Auth::user()->id)->get()->toArray();
+
+        // Reocojo los likes asociados a ese usuario
+        $usuario_pregunta_like = usuario_pregunta_like::where('id_usuario', Auth::user()->id)->get()->toArray();
+
+        // Primero elimino los likes del usuario
+        foreach ($usuario_pregunta_like as $id) {
+            usuario_pregunta_like::where('id', $id)->delete();
+        }
+
+        // Luego elimino las respuestas asociadas al usuario
+        foreach ($respuestas_usuario as $id) {
+            respuestas::where('id', $id)->delete();
+        }
+
+        // Despues elimino las preguntas asociadas a ese usuario
+        foreach ($preguntas_usuario as $id) {
+            preguntas::where('id', $id)->delete();
+        }
+
+        // Deslogueo al usuario
+        Auth::logout();
+
+        // Y por último elimino el usuario
+        $usuario->delete();
+
+        // Y devuelvo a la vista del home con un mensaje de que la cuenta ha sido eliminada con exito
+        return redirect()->action('PreguntasControlador@principal')->with('success-perfil', '¡Has eliminado la cuenta con éxito!');
+
+    }
+
     /* -- Defino el método para ver todas las preguntas del usuario -- */
 
     public function tusPreguntas() {

@@ -25,7 +25,7 @@
         @endif
 
         <aside class="text-center">
-            <a class="btn btn-info col-sm-1 mt-4 text-center" href="{{ url('perfil') }}">Volver</a>
+            <a class="btn btn-info mt-4 text-center" href="{{ url('perfil') }}"><i class="fas fa-arrow-left"></i> Volver</a>
         </aside>
 
     </div>

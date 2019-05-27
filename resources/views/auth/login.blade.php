@@ -3,7 +3,7 @@
 @section('content')
 <div class="cont-log_reg mt-5 text-white">
     <div class="row">
-        <div class="col-md-8 mx-auto">
+        <div class="col-md-10 mx-auto">
             <form method="POST" action="{{ route('login') }}">
                 @csrf
 

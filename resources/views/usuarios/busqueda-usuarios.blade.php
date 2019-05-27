@@ -17,10 +17,10 @@
                             <div class="btn-group-vertical" role="group">
                                 <a class="btn btn-primary"
                                     href="{{ action('UsuariosControlador@getPerfilPublico', ['nombre' => $usuario->name]) }}">
-                                    Ir a su perfil
+                                    <i class="fas fa-user"></i> Ir a su perfil
                                 </a>
                                 <a class="btn btn-success"
-                                    href="{{ action('PreguntasControlador@sendPreguntaUser', ['user' => $usuario]) }}">Preguntar</a>
+                                    href="{{ action('PreguntasControlador@sendPreguntaUser', ['user' => $usuario]) }}"><i class="fas fa-question"></i> Preguntar</a>
                             </div>
                         </div>
                     </div>
@@ -28,7 +28,7 @@
                 @endforeach
             </div>
             <aside class="text-center">
-                <a class="btn btn-info mt-4 text-center" href="{{ url('home') }}">Inicio</a>
+                <a class="btn btn-info mt-4 text-center" href="{{ url('home') }}"><i class="fas fa-home"></i> Inicio</a>
             </aside>
         </div>
     </div>

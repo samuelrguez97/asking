@@ -12,7 +12,7 @@
             <h4 class="text-white">Preguntas relacionadas con el tema: {{ $tema }}</h4>
 
             @if ( $preguntas->isEmpty() )
-            <aside class="col-4 offset-4 mt-4 text-center alert alert-warning" role="alert">
+            <aside class="col-5 mx-auto mt-4 text-center alert alert-warning" role="alert">
                 Éste tema no tiene preguntas ahora mismo ...
             </aside>
 
@@ -34,9 +34,9 @@
 
             <aside class="text-center mb-3">
                 @if (url()->previous() == url('buscar'))
-                <a class="btn btn-info col-sm-1 mt-4 text-center" href="{{ url('home') }}">Volver</a>
+                <a class="btn btn-info mt-4 text-center" href="{{ url('home') }}"><i class="fas fa-arrow-left"></i> Volver</a>
                 @else
-                <a class="btn btn-info col-sm-1 mt-4 text-center" href="{{ url()->previous() }}">Volver</a>
+                <a class="btn btn-info mt-4 text-center" href="{{ url()->previous() }}"><i class="fas fa-arrow-left"></i> Volver</a>
                 @endif 
             </aside>
 

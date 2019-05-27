@@ -1,5 +1,13 @@
 $(document).ready(function () {
 
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
+
+    $(function () {
+        $('[data-toggle="popover"]').popover()
+    })
+
     $('.input').focus(function () {
         $(this).parent().find(".label-txt").addClass('label-active');
     });
@@ -20,6 +28,12 @@ $(document).ready(function () {
 
     $('#normasCerrar').click(function () {
         $('#normas').slideUp('slow');
+    });
+
+    $('#opciones-cuenta').click(function () {
+        $('#opciones-cuenta').toggleClass('fa-sort-down');
+        $('#opciones-cuenta').toggleClass('fa-sort-up');
+        $('#opciones').slideToggle('slow');
     });
 
 });

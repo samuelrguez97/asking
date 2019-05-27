@@ -68,6 +68,8 @@ Route::get('/tus-preguntas-respondidas', 'UsuariosControlador@tusPreguntasRespon
 
 Route::get('/tus-preguntas-realizadas', 'UsuariosControlador@preguntasRealizadas')->middleware('auth');
 
+Route::get('/eliminar-cuenta', 'UsuariosControlador@eliminarCuenta')->middleware('auth');
+
 
 
 

@@ -53,19 +53,26 @@ Session::forget('respondida');
                 </tr>
                 <tr>
                     <td colspan="2">
-                        <div class="text-center">
-                                <a class="btn btn-info btn-block" href="{{ action('UsuariosControlador@editPerfil') }}">Editar
-                                    perfil</a>
-                                <a class="btn btn-primary btn-block"
-                                    href="{{ action('UsuariosControlador@getPerfilPublico', ['nombre' => Auth::user()->name ]) }}">Tu
-                                    perfil
-                                    público</a>
-                                <a class="btn btn-success btn-block" href="{{ action('UsuariosControlador@tusPreguntas') }}">Ver
-                                    preguntas para ti
-                                </a>
-                                <a class="btn btn-secondary btn-block"
-                                    href="{{ action('UsuariosControlador@tusPreguntasRespondidas') }}">Ver
-                                    preguntas respondidas</a>
+                        <div class="mb-2">Opciones de cuenta <i id="opciones-cuenta"
+                                class="fas fa-sort-down fa-lg float-right"></i></div>
+                        <div id="opciones" style="display: none;" class="text-center">
+                            <a class="btn btn-info btn-block" href="{{ action('UsuariosControlador@editPerfil') }}"><i
+                                    class="fas fa-user-edit"></i> Editar
+                                perfil</a>
+                            <a class="btn btn-primary btn-block"
+                                href="{{ action('UsuariosControlador@getPerfilPublico', ['nombre' => Auth::user()->name ]) }}"><i
+                                    class="fas fa-users"></i> Tu
+                                perfil
+                                público</a>
+                            <a class="btn btn-success btn-block"
+                                href="{{ action('UsuariosControlador@tusPreguntas') }}"><i class="far fa-eye"></i> Ver
+                                preguntas para ti
+                            </a>
+                            <a class="btn btn-secondary btn-block"
+                                href="{{ action('UsuariosControlador@tusPreguntasRespondidas') }}"><i
+                                    class="far fa-eye"></i> Ver
+                                preguntas respondidas</a>
+                            <a tabindex="0" data-placement="top" class="btn btn-danger btn-block text-white" data-trigger="focus" data-toggle="popover" data-html="true" data-content="¿Está seguro de que desea eliminar la cuenta?<br><a href='{{ action('UsuariosControlador@eliminarCuenta') }}'>Eliminar</a>"><i class="fas fa-user-times"></i> Eliminar cuenta</a>
                         </div>
                     </td>
                 </tr>

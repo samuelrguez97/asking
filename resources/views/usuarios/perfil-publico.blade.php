@@ -27,12 +27,12 @@
                     <tr>
                         <td colspan="2">
                             <div class="text-center">
-                                <a class="btn btn-primary btn-block" href="{{ url('home') }}">Inicio</a>
+                                <a class="btn btn-primary btn-block" href="{{ url('home') }}"><i class="fas fa-home"></i> Inicio</a>
                                 @if (Auth::check() && Auth::user()->name == $usuario->name)
-                                <a class="btn btn-info btn-block" href="{{ url('perfil') }}">Ir a tu perfil</a>
+                                <a class="btn btn-info btn-block" href="{{ url('perfil') }}"><i class="fas fa-user"></i> Ir a tu perfil</a>
                                 @endif
                                 <a class="btn btn-success btn-block"
-                                    href="{{ action('PreguntasControlador@sendPreguntaUser', ['user' => $usuario]) }}">Hacer
+                                    href="{{ action('PreguntasControlador@sendPreguntaUser', ['user' => $usuario]) }}"><i class="fas fa-question"></i> Hacer
                                     una pregunta a este usuario</a>
                             </div>
                         </td>

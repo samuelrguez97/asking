@@ -13,6 +13,15 @@
     Session::forget('error-busqueda');
     @endif
 
+    @if( Session::has('success-perfil') )
+    <aside class="col-6 offset-3 mb-3">
+        <aside class="text-center alert alert-success" role="alert">
+            {{ session('success-perfil') }}
+        </aside>
+    </aside>
+    Session::forget('success-perfil');
+    @endif
+
     <div class="col-md-8 offset-md-2">
 
         @include('partials/ask')
@@ -56,10 +65,10 @@
     <div class="col-sm-8 offset-md-2">
         <h2 id="tituloPreguntas" class="letraTitulo">Preguntas</h2>
         <div class="mb-3 mt-3" role="group">
-            <a class="text-white btn btn-info btn-sm mr-1" href="{{ action('PreguntasControlador@temasTodos') }}">Ver
+            <a class="text-white btn btn-info btn-sm mr-1" href="{{ action('PreguntasControlador@temasTodos') }}"><i class="fas fa-book-open"></i> Ver
                 todos los temas</a>
             <a class="text-white btn btn-primary btn-sm"
-                href="{{ action('UsuariosControlador@usuariosMasRespondidas') }}">Ver
+                href="{{ action('UsuariosControlador@usuariosMasRespondidas') }}"><i class="fas fa-users"></i> Ver
                 usuarios con más preguntas respondidas</a>
         </div>
         <div class="menu-preguntas">
