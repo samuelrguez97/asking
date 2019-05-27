@@ -9,7 +9,7 @@
             <!-- ZONA DE PREGUNTAS AL USUARIO -->
 
             <h1 class="display-5 letraTitulo"><i class="fas fa-book-open"></i> Temas</h1>
-            <h4 class="text-white">Preguntas relacionadas con el tema: {{ $tema }}</h4>
+            <h4 class="text-white">Preguntas relacionadas con el tema: <i class="text-muted">{{ $tema }}</i></h4>
 
             @if ( $preguntas->isEmpty() )
             <aside class="col-5 mx-auto mt-4 text-center alert alert-warning" role="alert">
