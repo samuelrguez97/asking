@@ -49,7 +49,7 @@ $('.answer').on("click", function (e) {
             $('#rLike').attr('data-id-pregunta', data.pregunta.id);
             $('#rLike').attr('data-token', data.token);
             $('#rLikeI').attr('class', data.clase_like);
-            $('#rLikes').html(data.pregunta.likes);
+            $('#rLikes').html(data.pregunta.likes == 0 ? "" : data.pregunta.likes);
             $('#rPregunta').html(data.pregunta.pregunta);
 
 

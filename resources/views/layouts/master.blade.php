@@ -111,6 +111,7 @@
     <script src="{{ url('js/scroll.js') }}"></script>
     <script src="{{ url('js/cargar-emojis-respuesta.js') }}"></script>
     <script src="{{ url('js/character-count.js') }}"></script>
+    <script src="{{ url('js/alert-timer.js') }}"></script>
     <script>
         $(document).on('keyup', 'input.form-control', function () {
 

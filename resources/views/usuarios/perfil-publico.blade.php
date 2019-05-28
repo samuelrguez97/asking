@@ -2,12 +2,6 @@
 
 @section('content')
 <div class="container-fluid w-fit-content h-fit-content">
-    @if( Session::has('respondida') )
-    <aside class="mt-4 text-center alert alert-success" role="alert">
-        {{ session('respondida') }}
-    </aside>
-    Session::forget('respondida');
-    @endif
     <div class="mt-5 pl-5 pr-5 mx-auto row">
 
         <!-- ZONA PARA MOSTRAR INFORMACIÓN DEL PERFIL PÚBLICO -->
@@ -55,9 +49,11 @@
             <h4 class="text-white">Preguntas para {{ $usuario->name }}</h4>
 
             @if ( $preguntas->isEmpty() )
-            <aside class="mt-4 text-center alert alert-warning" role="alert">
-                Éste usuario no tiene preguntas ahora mismo ...
-            </aside>
+            <div class="row">
+                <aside class="mt-4 text-center alert alert-warning" role="alert">
+                    Éste usuario no tiene preguntas ahora mismo ...
+                </aside>
+            </div>
             @else
 
             <div class="row mt-5">

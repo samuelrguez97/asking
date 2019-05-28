@@ -53,24 +53,27 @@
             </aside>
 
             @if( Session::has('error') )
-            <aside class="mt-4 alert text-center alert-danger" role="alert">
-                {{ session('error') }}
-            </aside>
-            @endif
-
-            @if ($errors->any())
-            <div class="mt-4 text-center alert alert-danger">
-                @foreach ($errors->all() as $error)
-                    @if ($loop->last)
-                        {{ $error }}
-                    @else
-                        {{ $error }}
-                        <hr />
-                    @endif
-                @endforeach
+            <div class="row">
+                <aside class="mx-auto alert mt-4 text-center alert-danger" role="alert">
+                    {{ session('error') }}
+                </aside>
             </div>
             @endif
 
+            @if ($errors->any())
+            <div class="row">
+                <aside class="mx-auto mt-4 text-center alert alert-danger">
+                    @foreach ($errors->all() as $error)
+                        @if ($loop->last)
+                            {{ $error }}
+                        @else
+                            {{ $error }}
+                            <hr />
+                        @endif
+                    @endforeach
+                </aside>
+            </div>
+            @endif
         </form>
     </aside>
 </aside>

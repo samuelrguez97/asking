@@ -272,7 +272,7 @@ class UsuariosControlador extends Controller
             else 
             {
                 // Redirijo a la página del perfil con un mensaje de que no se ha actualizado nada en el perfil.
-                return redirect('perfil')->with('warning', 'No se ha actualizado nada del perfil.');
+                return redirect('perfil')->with('danger', 'No se ha actualizado nada del perfil.');
             }
             
         }

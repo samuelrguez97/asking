@@ -40,7 +40,9 @@ $(document).on("click", ".like", function (e) {
                     boton2 = $("button[data-id-pregunta='" + boton.attr('data-id-pregunta') + "'][class='float-left btn btn-sm like text-white']").first();
                     boton2.find("i").addClass("color-like fas");
                     boton2.find("i").removeClass("far");
-                    boton2.next().html(parseInt(boton2.next().html(), 10) + 1).animate({
+                    // Compruebo si el contador de likes esta vacio (es decir es igual a 0) para actuar con concordancia
+                    var htmlLikes = boton2.next().html() == "" ? 1 : parseInt(boton2.next().html()) + 1;
+                    boton2.next().html(htmlLikes).animate({
                         fontSize: '+=2'
                     }, 100).animate({
                         fontSize: '-=2'
@@ -49,13 +51,13 @@ $(document).on("click", ".like", function (e) {
                 // y cambio el color del like dado
                 boton.find("i").addClass("color-like fas");
                 boton.find("i").removeClass("far");
-                boton.next().html(parseInt(boton.next().html(), 10) + 1).animate({
+                // Compruebo si el contador de likes esta vacio (es decir es igual a 0) para actuar con concordancia
+                var htmlLikes = boton.next().html() == "" ? 1 : parseInt(boton.next().html()) + 1;
+                boton.next().html(htmlLikes).animate({
                     fontSize: '+=2'
                 }, 100).animate({
                     fontSize: '-=2'
                 }, 100);
-
-
             } else {
                 // en caso de ser dislike cambio el corazon a uno vacio y resto 1 like en ese momento para feedback del usuario
                 // Compruebo si se da dis-like desde el modal
@@ -66,23 +68,26 @@ $(document).on("click", ".like", function (e) {
                     boton2 = $("button[data-id-pregunta='" + boton.attr('data-id-pregunta') + "'][class='float-left btn btn-sm like text-white']").first();
                     boton2.find("i").removeClass("color-like fas");
                     boton2.find("i").addClass("far");
-                    boton2.next().html(parseInt(boton2.next().html(), 10) - 1).animate({
-                        fontSize: '+=2'
-                    }, 100).animate({
+                    // Compruebo si el contador de likes esta a 1 para actuar con concordancia
+                    var htmlLikes = boton2.next().html() == 1 ? "" : parseInt(boton.next().html()) - 1;
+                    boton2.next().html(htmlLikes).animate({
                         fontSize: '-=2'
-                    }, 100);;
+                    }, 100).animate({
+                        fontSize: '+=2'
+                    }, 100);
                 }
 
                 // y cambio el color del like dado
                 boton.find("i").removeClass("color-like fas");
                 boton.find("i").addClass("far");
-                boton.next().html(parseInt(boton.next().html(), 10) - 1).animate({
-                    fontSize: '+=2'
-                }, 100).animate({
+                // Compruebo si el contador de likes esta a 1 para actuar con concordancia
+                var htmlLikes = boton.next().html() == 1 ? "" : parseInt(boton.next().html()) - 1;
+                boton.next().html(htmlLikes).animate({
                     fontSize: '-=2'
-                }, 100);;
+                }, 100).animate({
+                    fontSize: '+=2'
+                }, 100);
             }
-
         },
         error: function () { // si no se hace correctamente es por un 401 unauthorithed, debido a que no hay usuario activo
             // muestro una notificacion del plugin overhang
@@ -95,3 +100,4 @@ $(document).on("click", ".like", function (e) {
 
     });
 });
+

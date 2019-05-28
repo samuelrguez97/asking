@@ -8,10 +8,28 @@
             <h4 class="text-white">Preguntas realizadas para ti</h4>
         </aside>
 
+        @if( Session::has('eliminada') )
+        <div class="row">
+            <aside class="mx-auto mt-4 alert alert-danger text-center" role="alert">
+                {{ session('eliminada') }}
+            </aside>
+        </div>
+        @endif
+
+        @if( Session::has('respondida') )
+        <div class="row">
+            <aside class="mx-auto mt-4 alert alert-success text-center" role="alert">
+                {{ session('respondida') }}
+            </aside>
+        </div>
+        @endif
+
         @if ( $preguntas_a_ti->isEmpty() )
-        <aside class="mx-auto mt-4 text-center alert alert-warning" role="alert">
-            No tienes preguntas ahora mismo ...
-        </aside>
+        <div class="row">
+            <aside class="mx-auto mt-4 alert alert-warning text-center" role="alert">
+                No tienes preguntas ahora mismo ...
+            </aside>
+        </div>
         @else
 
         <div class="row mt-5">
@@ -21,12 +39,6 @@
         @include('partials.respond_answer')
         
         </div>
-
-        @if( Session::has('eliminada') )
-        <aside class="mx-auto mt-4 text-center alert alert-warning" role="alert">
-            {{ session('eliminada') }}
-        </aside>
-        @endif
 
         @endif
 

@@ -285,8 +285,8 @@ body {
     font-weight: bold;
 }
 
-.like {
-    background-color: transparent;
+.like:focus {
+    box-shadow: none !important;
 }
 
 .tema {

@@ -12,10 +12,11 @@
             <h4 class="text-white">Preguntas relacionadas con el tema: <i class="text-muted">{{ $tema }}</i></h4>
 
             @if ( $preguntas->isEmpty() )
-            <aside class="col-5 mx-auto mt-4 text-center alert alert-warning" role="alert">
-                Éste tema no tiene preguntas ahora mismo ...
-            </aside>
-
+            <div class="row">
+                <aside class="mx-auto mt-4 text-center alert alert-warning" role="alert">
+                    Éste tema no tiene preguntas ahora mismo ...
+                </aside>
+            </div>
             @else
 
             <div class="row mt-5">

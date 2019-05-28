@@ -5,21 +5,19 @@
 <div class="mt-5 row">
 
     @if( Session::has('error-busqueda') )
-    <aside class="col-6 offset-3 mb-3">
+    <aside class="col-6 mx-auto mb-3">
         <aside class="text-center alert alert-danger" role="alert">
             {{ session('error-busqueda') }}
         </aside>
     </aside>
-    Session::forget('error-busqueda');
     @endif
 
     @if( Session::has('success-perfil') )
-    <aside class="col-6 offset-3 mb-3">
+    <aside class="col-6 mx-auto mb-3">
         <aside class="text-center alert alert-success" role="alert">
             {{ session('success-perfil') }}
         </aside>
     </aside>
-    Session::forget('success-perfil');
     @endif
 
     <div class="col-md-8 offset-md-2">
@@ -29,29 +27,33 @@
     </div>
     <div class="col-md-3 mx-auto text-center">
         @if( Session::has('success') )
-        <aside class="mt-4 alert alert-success" role="alert">
-            {{ session('success') }}
-        </aside>
-        Session::forget('success');
+        <div class="row">
+            <aside class="mt-4 mx-auto alert alert-success" role="alert">
+                {{ session('success') }}
+            </aside>
+        </div>
         @endif
 
         @if( Session::has('error') )
-        <aside class="mt-4 alert alert-danger" role="alert">
-            {{ session('error') }}
-        </aside>
-        Session::forget('error');
+        <div class="row">
+            <aside class="mt-4 mx-auto alert alert-danger" role="alert">
+                {{ session('error') }}
+            </aside>
+        </div>
         @endif
 
         @if ($errors->any())
-        <div class="mt-4 alert alert-danger">
-            @foreach ($errors->all() as $error)
-            @if ($loop->last)
-            {{ $error }}
-            @else
-            {{ $error }}
-            <hr />
-            @endif
-            @endforeach
+        <div class="row">
+            <div class="mt-4 mx-auto alert alert-danger">
+                @foreach ($errors->all() as $error)
+                @if ($loop->last)
+                {{ $error }}
+                @else
+                {{ $error }}
+                <hr />
+                @endif
+                @endforeach
+            </div>
         </div>
         @endif
 
@@ -107,9 +109,11 @@
         <div class="row mt-5">
 
             @if ( $preguntas->isEmpty() )
-            <aside class="mx-auto mb-5 col-6 text-center alert alert-warning" role="alert">
-                <strong>¡Vaya!</strong> Parece que no hay preguntas ahora mismo ... ¡sé el primero en preguntar!
-            </aside>
+            <div class="row">
+                <aside class="mx-auto mb-5 text-center alert alert-warning" role="alert">
+                    <strong>¡Vaya!</strong> Parece que no hay preguntas ahora mismo ... ¡sé el primero en preguntar!
+                </aside>
+            </div>
             @endif
 
             @include('partials.ask_external')
