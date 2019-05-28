@@ -4,7 +4,7 @@
 <div class="container-fluid w-fit-content h-fit-content">
     <div class="mt-5 row">
 
-        <div class="col-md-10 offset-md-1">
+        <div class="col-md-8 mx-auto">
 
             <!-- ZONA DE PREGUNTAS AL USUARIO -->
 

@@ -31,8 +31,8 @@
         @endif
 
         <aside class="text-center">
-            <a class="btn btn-info mt-4 text-center" href="{{ url('home') }}"><i class="fas fa-home"></i> Inicio</a>
-            <a class="btn btn-success mt-4 text-center" href="{{ url('perfil') }}"><i class="fas fa-user"></i> Tu perfil</a>
+            <a class="btn btn-info mt-4 mb-2 text-center" href="{{ url('home') }}"><i class="fas fa-home"></i> Inicio</a>
+            <a class="btn btn-success mt-4 mb-2 text-center" href="{{ url('perfil') }}"><i class="fas fa-user"></i> Tu perfil</a>
         </aside>
 
     </div>

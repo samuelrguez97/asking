@@ -8,14 +8,14 @@
     </aside>
     Session::forget('respondida');
     @endif
-    <div class="mt-5 mx-auto row">
+    <div class="mt-5 pl-5 pr-5 mx-auto row">
 
         <!-- ZONA PARA MOSTRAR INFORMACIÓN DEL PERFIL PÚBLICO -->
 
-        <div class="card-perfil col-md-4 mr-2 mb-3">
+        <div class="card-perfil col-md-4 mb-3">
             <div class="card fit-content">
                 <img class="img-perfil" src="{{ url('storage/imagenes/usuarios') }}/{{ $usuario->avatar }}" />
-                <table class="table mr-3">
+                <table class="table">
                     <tr>
                         <td colspan="2" class="bg-perfil-info"><i class="fas fa-info-circle"></i> Información de la cuenta</td>
                     </tr>
@@ -47,7 +47,7 @@
             </div>
         </div>
 
-        <div class="col-md-7 ml-2">
+        <div class="col-md-8">
 
             <!-- ZONA DE PREGUNTAS AL USUARIO -->
 

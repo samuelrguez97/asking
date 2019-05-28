@@ -30,7 +30,7 @@ Session::forget('respondida');
 @endif
 
 <div
-    class="{{ Session::has('success') || Session::has('warning') || Session::has('respondida') ? '' : 'mt-5' }} mx-auto row">
+    class="row pl-5 pr-5 mx-auto {{ Session::has('success') || Session::has('warning') || Session::has('respondida') ? '' : 'mt-5' }}">
 
     <!-- ZONA PARA MOSTRAR INFORMACIÓN DEL PERFIL -->
 
@@ -60,7 +60,7 @@ Session::forget('respondida');
                 <tr>
                     <td colspan="2" class="bg-perfil-info">
                         <div class="mb-2"><i class="fas fa-user-cog"></i> Opciones de cuenta<i id="opciones-cuenta"
-                                class="fas fa-sort-down fa-lg float-right" data-toggle="tooltip" data-placement="bottom" title="Mostrar las opciones"></i></div>
+                                class="fas fa-sort-down fa-lg float-right" data-toggle="tooltip" data-placement="left" title="Mostrar las opciones"></i></div>
                         <div id="opciones" style="display: none;" class="text-center">
                             <a class="btn btn-info btn-block" href="{{ action('UsuariosControlador@editPerfil') }}"><i
                                     class="fas fa-user-edit"></i> Editar
@@ -89,7 +89,7 @@ Session::forget('respondida');
         </div>
     </div>
 
-    <div class="col-md-7 ml-2">
+    <div class="col-md-8">
 
         <!-- ZONA DE PREGUNTAS REALIZADAS -->
 

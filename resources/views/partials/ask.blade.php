@@ -29,9 +29,12 @@
         </label>
         <hr/>
         <label>
-            <p class="ml-2 ask-txt">Introduce la pregunta</p>
+            <p id="titulo-pregunta" class="ml-2 ask-txt float-left">Introduce la pregunta</p>
+            @if (old('pregunta'))
+            <span id="old-badge-char" class="badge badge-primary float-left"></span>
+            @endif
             <input id="pregunta" type="text" class="mb-4 form-control" name="pregunta" placeholder="Formula tu pregunta"
-                data-emojiable="true" data-emoji-input="unicode" value="{{ old('pregunta') }}">
+                data-emojiable="true" data-emoji-input="unicode" value="{{ old('pregunta') }}" max="140">
         </label>
         <div id="normas" style="display: none;" class="float-right card w-50 mr-5" style="width: 18rem;">
             <div class="card-body">

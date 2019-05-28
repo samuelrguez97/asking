@@ -41,8 +41,10 @@
                         </div>
                     </div>
                     <div class="col-sm-12">
-                        <aside class="float-left ml-4 mt-3 separador-respuesta"></aside>
-                        <aside id="respuesta" class="float-left respuesta p-3 text-white"></aside>
+                        <div class="b-res">
+                            <aside class="float-left ml-4 mt-3 separador-respuesta"></aside>
+                            <aside id="respuesta" class="float-left respuesta p-3 text-white"></aside>
+                        </div>
                     </div>
                 </aside>
             </aside>

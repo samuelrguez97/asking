@@ -96,6 +96,18 @@ body {
     background-color: #d8e3f7;
 }
 
+.b-res {
+    width: 420px;
+    height: 90px;
+    background-color: #2a292aba;
+    margin-left: 5%;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-top: none;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    box-shadow: 2px 0px 3px 0px #141414;
+}
+
 /* CSS para los bordes de las cards de las preguntas */
 
 .bordes-ask {
