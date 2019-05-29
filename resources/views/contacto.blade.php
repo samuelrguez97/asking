@@ -16,15 +16,16 @@
                 <div class="form-group row">
 
                     <div class="col-md-6 offset-md-3">
-                        <input id="email" type="email" class="form-control" name="email" required placeholder="E-mail">
+                        <input id="email" type="email" class="form-control" name="email" required placeholder="E-mail"
+                            value="{{ old('email') }}">
                     </div>
                 </div>
 
                 <div class="form-group row">
 
                     <div class="col-md-8 offset-md-2">
-                        <textarea id="texto-contacto" name="texto_contacto" required
-                            placeholder="Introduce tu consulta aquí"></textarea>
+                        <textarea id="texto-contacto" class="form-control" name="texto_contacto" required
+                            placeholder="Introduce tu consulta aquí">{{ old('texto_contacto') }}</textarea>
                     </div>
                 </div>
 
@@ -35,25 +36,26 @@
                         </button>
                     </div>
                 </div>
-                
+
                 @if( Session::has('success') )
-                <div class="form-group row mt-3 mx-auto">
-                    <div class="col-md-12 mx-auto">
-                        <aside class="mt-4 alert alert-success" role="alert">
-                            {{ session('success') }}
-                        </aside>
-                    </div>
+                <div class="row">
+                    <aside class="mx-auto mt-4 alert alert-success text-center" role="alert">
+                        {{ session('success') }}
+                    </aside>
                 </div>
                 @endif
 
                 @if ($errors->any())
-                <div class="form-group row mt-3 mx-auto">
-                    <div class="col-md-8 mx-auto">
-                        <div class="alert alert-danger">
-                            @foreach ($errors->all() as $error)
-                                {{ $error }}<br />
-                            @endforeach
-                        </div>
+                <div class="row">
+                    <div class="mt-4 mx-auto alert alert-danger">
+                        @foreach ($errors->all() as $error)
+                        @if ($loop->last)
+                        {{ $error }}
+                        @else
+                        {{ $error }}
+                        <hr />
+                        @endif
+                        @endforeach
                     </div>
                 </div>
                 @endif

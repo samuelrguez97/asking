@@ -46,7 +46,7 @@
             <!-- ZONA DE PREGUNTAS AL USUARIO -->
 
             <h1 class="display-4 letraTitulo">Perfil público</h1>
-            <h4 class="text-white">Preguntas para {{ $usuario->name }}</h4>
+            <h4 class="text-white">Preguntas para <i><b class="text-secondary">{{ $usuario->name }}</b></i></h4>
 
             @if ( $preguntas->isEmpty() )
             <div class="row">
