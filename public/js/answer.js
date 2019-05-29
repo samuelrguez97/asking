@@ -50,6 +50,8 @@ $('.answer').on("click", function (e) {
             $('#rLike').attr('data-token', data.token);
             $('#rLikeI').attr('class', data.clase_like);
             $('#rLikes').html(data.pregunta.likes == 0 ? "" : data.pregunta.likes);
+            $('#rPerfil').attr('href', 'http://localhost/asking/public/perfil-publico/' + data.nombre);
+            $('#rPreguntar').attr('href', 'http://localhost/asking/public/home?user=' + data.id);
             $('#rPregunta').html(data.pregunta.pregunta);
 
 
@@ -57,7 +59,7 @@ $('.answer').on("click", function (e) {
         error: function () { // si no se hace correctamente lanzo un mensaje de error desconocido para feedback del usuario
             $("body").overhang({
                 type: "error",
-                message: "Ha ocurrido un error, inténtelo de nuevo",
+                message: "Ha ocurrido un error, inténtelo de nuevo más tarde.",
                 duration: 1
             });
         }

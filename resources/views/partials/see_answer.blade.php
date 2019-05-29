@@ -32,10 +32,30 @@
                                     <span id="rTema" class="badge badge-info tema"></span>
                                 </a>
                                 <div class="float-right ml-3">
-                                    <button id="rLike" class="float-left btn btn-sm like text-white" data-id-pregunta=""
-                                        data-token=""><i id="rLikeI" class=""></i>
-                                    </button>
-                                    <aside id="rLikes" class="float-left likes"></aside>
+
+
+                                    <aside class="float-right">
+                                        <div class="float-left btn-group mr-3" role="group">
+                                            <a id="rPerfil" class="btn btn-primary text-white"
+                                                href=""
+                                                data-toggle="tooltip" data-placement="bottom" title="Ir a su perfil">
+                                                <i class="fas fa-user"></i>
+                                            </a>
+                                            <a id="rPreguntar" class="btn btn-success text-white"
+                                                href=""
+                                                data-toggle="tooltip" data-placement="bottom"
+                                                title="Preguntar a este usuario"><i
+                                                    class="fas fa-question-circle"></i></a>
+                                        </div>
+                                        <div class="float-left">
+                                            <button id="rLike" class="float-left btn btn-sm like text-white"
+                                                data-id-pregunta="" data-token=""><i id="rLikeI" class=""></i>
+                                            </button>
+                                            <aside id="rLikes" class="float-left likes"></aside>
+                                        </div>
+                                    </aside>
+
+
                                 </div>
                             </div>
                         </div>

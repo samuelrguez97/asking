@@ -243,6 +243,9 @@ class PreguntasControlador extends Controller
             // Recojo el nombre del usuario al que se le hizo la pregunta
             $nombre = User::where('id', $pregunta->id_usuario)->first()->name;
 
+            // Recojo el id del usuario al que se le hizo la pregunta
+            $id = User::where('id', $pregunta->id_usuario)->first()->id;
+
             // Recojo los datos de la respuesta ha esa pregunta
             $respuesta = respuestas::where('id_pregunta', $id_pregunta)->first();
 
@@ -276,7 +279,7 @@ class PreguntasControlador extends Controller
             }
             
             // Envio los datos en formato json
-            return response()->json(['imagen' => $imagen, 'nombre' => $nombre, 'pregunta' => $pregunta, 'respuesta' => $respuesta, 'tiempo' => $tiempo, 'token' => $token, 'clase_like' => $clase_like]);
+            return response()->json(['imagen' => $imagen, 'nombre' => $nombre, 'id' => $id, 'pregunta' => $pregunta, 'respuesta' => $respuesta, 'tiempo' => $tiempo, 'token' => $token, 'clase_like' => $clase_like]);
             
         }
     

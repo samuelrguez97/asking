@@ -23,7 +23,7 @@
     @if (app('request')->input('user') && !$usuarios->where('id', app('request')->input('user'))->first())
         <aside class="col-6 mx-auto mb-3">
             <aside class="text-center alert alert-danger" role="alert">
-                Lo sentimos, no encontramos al usuario con id: <b>{{ app('request')->input('user') }}</b>.
+                Lo sentimos, no encontramos el usuario.
             </aside>
         </aside> 
     @endif
