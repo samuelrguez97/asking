@@ -8,7 +8,7 @@
             <h1 class="display-5 letraTitulo"><i class="fas fa-users"></i> Usuarios</h1>
             <div class="row mt-5">
                 @foreach ($usuarios as $usuario)
-                <div class="mb-4 mr-4">
+                <div class="mb-4 ml-2 mr-2">
                     <h5 class="mt-0 text-white">{{ $usuario->name }}</h5>
                     <img src="{{ url('storage/imagenes/usuarios') }}/{{ $usuario->avatar }}"
                         class="img-thumbnail med-img-perfil" alt="avatar">

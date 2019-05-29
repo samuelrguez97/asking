@@ -17,22 +17,19 @@
 
                 @foreach ($usuarios as $usuario)
                 <div class="mb-4 mr-3">
-                    <div class="media">
-                        <img src="{{ url('storage/imagenes/usuarios') }}/{{ $usuario->avatar }}"
-                            class="mr-3 img-thumbnail med-img-perfil" alt="avatar">
-
-                        <div class="media-body">
-                            <h5 class="mb-0 text-white">{{ $usuario->name }}</h5>
-                            <p class="mb-0 text-white">Respondidas: {{ $usuario->respuestas }}</p>
-                            <div class=" btn-group" role="group">
-                                <a class="btn btn-primary"
-                                    href="{{ action('UsuariosControlador@getPerfilPublico', ['nombre' => $usuario->name]) }}" data-toggle="tooltip" data-placement="bottom" title="Ir a su perfil">
-                                    <i class="fas fa-user"></i></a>
-                                <a class="btn btn-success"
-                                    href="{{ action('PreguntasControlador@sendPreguntaUser', ['user' => $usuario]) }}" data-toggle="tooltip" data-placement="bottom" title="Preguntar a este usuario"><i
-                                        class="fas fa-question-circle"></i></a>
-                            </div>
-                        </div>
+                    <img src="{{ url('storage/imagenes/usuarios') }}/{{ $usuario->avatar }}"
+                        class="mr-1 img-thumbnail med-img-perfil float-left" alt="avatar">
+                        <h5 class="mb-0 text-white">{{ $usuario->name }}</h5>
+                        <p class="mb-0 text-white">Respondidas: {{ $usuario->respuestas }}</p>
+                    <div class="btn-group" role="group">
+                        <a class="btn btn-primary"
+                            href="{{ action('UsuariosControlador@getPerfilPublico', ['nombre' => $usuario->name]) }}"
+                            data-toggle="tooltip" data-placement="bottom" title="Ir a su perfil">
+                            <i class="fas fa-user"></i></a>
+                        <a class="btn btn-success"
+                            href="{{ action('PreguntasControlador@sendPreguntaUser', ['user' => $usuario]) }}"
+                            data-toggle="tooltip" data-placement="bottom" title="Preguntar a este usuario"><i
+                                class="fas fa-question-circle"></i></a>
                     </div>
                 </div>
                 @endforeach
