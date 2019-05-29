@@ -10,7 +10,7 @@
             <div class="select mt-4">
                 <select id="busqueda_usuario" name="usuario" class="selectpicker" data-live-search="true"
                     title="Escribe el usuario..." data-width="auto" data-size="4">
-                    @if (app('request')->input('user') && $usuarios->where('name')->first()->id == app('request')->input('user'))
+                    @if (app('request')->input('user') && $usuarios->where('id', app('request')->input('user'))->first())
                     <option
                         data-content="<img src='{{ url('storage/imagenes/usuarios') }}/{{ $usuarios->where('id', app('request')->input('user'))->first()->avatar }}'
                             class='mr-3 rounded min-img-perfil float-left' alt='avatar'><h6 class='float-left'>{{ $usuarios->where('id', app('request')->input('user'))->first()->name }}</h6>"
