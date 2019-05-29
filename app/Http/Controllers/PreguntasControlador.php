@@ -159,8 +159,14 @@ class PreguntasControlador extends Controller
 
     public function eliminarPregunta($id_pregunta) { // Recojo el id de la pregunta que se envia desde la vista
 
-        // Recojo la pregunta de la base de datos que coincide con el id
-        $pregunta = preguntas::where('id', $id_pregunta)->first();
+        // Compruebo si existe esa pregunta
+        if (preguntas::where('id', $id_pregunta)->first()) {
+            // Recojo la pregunta de la base de datos que coincide con el id
+            $pregunta = preguntas::where('id', $id_pregunta)->first();
+        } else {
+            // Sino devuelvo al home con un error
+            return redirect()->action('PreguntasControlador@principal')->with('error-busqueda', 'Lo sentimos, no encontramos ninguna pregunta con ese id.');
+        }
 
         // Decremento el numero de preguntas sobre el tema en cuestión
         $tema = temas::where('tema', $pregunta->tema)->first();
@@ -225,8 +231,14 @@ class PreguntasControlador extends Controller
         // Compruebo que sea una peticion ajax
         if ($request->ajax()) 
         {
-            // Recojo los datos de la pregunta
-            $pregunta = preguntas::where('id', $id_pregunta)->first();
+            // Compruebo si existe esa pregunta
+            if (preguntas::where('id', $id_pregunta)->first()) {
+                // Recojo la pregunta de la base de datos que coincide con el id
+                $pregunta = preguntas::where('id', $id_pregunta)->first();
+            } else {
+                // Sino devuelvo al home con un error
+                return redirect()->action('PreguntasControlador@principal')->with('error-busqueda', 'Lo sentimos, no encontramos ninguna respuesta/pregunta asociada a esa pregunta.');
+            }
 
             // Recojo el nombre del usuario al que se le hizo la pregunta
             $nombre = User::where('id', $pregunta->id_usuario)->first()->name;
@@ -278,6 +290,12 @@ class PreguntasControlador extends Controller
         // Compruebo que sea una peticion ajax
         if ($request->ajax())
         {
+            // Compruebo si existe esa pregunta
+            if (!preguntas::where('id', $id_pregunta)->first()) {
+                // Sino devuelvo al home con un error
+                return redirect()->action('PreguntasControlador@principal')->with('error-busqueda', 'Lo sentimos, no encontramos ninguna pregunta con ese id.');
+            }
+
             // Compruebo si hay un usuario activo, si no, no se puede dar like/dislike
             if (Auth::check())
             {
@@ -335,6 +353,12 @@ class PreguntasControlador extends Controller
     /* -- Defino la función para mostrar las preguntas sobre un tema -- */
 
     public function preguntasTema($tema) {
+
+        // Compruebo si existe ese tema
+        if (!temas::where('tema', $tema)->first()) {
+            // Sino devuelvo al home con un error
+            return redirect()->action('PreguntasControlador@principal')->with('error-busqueda', 'Lo sentimos, no existe un tema con ese nombre.');
+        }
 
         // Recojo de la base de datos las preguntas relacionadas con ese tema
         $preguntas = preguntas::orderBy('created_at', 'desc')->where('tema', $tema)->get();

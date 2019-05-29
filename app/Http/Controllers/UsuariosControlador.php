@@ -119,8 +119,14 @@ class UsuariosControlador extends Controller
     
     public function getPerfilPublico($nombre) {
 
-        // Recojo el id del usuario
-        $id_usuario = User::where('name', $nombre)->first()->id;
+        // Compruebo si el usuario existe
+        if (User::where('name', $nombre)->first()) {
+            // Si es asi recojo el id del usuario
+            $id_usuario = User::where('name', $nombre)->first()->id;
+        } else {
+            // Sino redirijo al home con un error
+            return redirect()->action('PreguntasControlador@principal')->with('error-busqueda', 'Lo sentimos, no encontramos ningun usuario con ese nombre.');
+        }
 
         // Selecciono las preguntas que se han enviado al usuario con estos criterios ...
         $preguntas = preguntas::orderBy('created_at', 'desc') // de forma descendente, las mas nuevas primero

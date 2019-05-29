@@ -20,6 +20,14 @@
     </aside>
     @endif
 
+    @if (app('request')->input('user') && !$usuarios->where('id', app('request')->input('user'))->first())
+        <aside class="col-6 mx-auto mb-3">
+            <aside class="text-center alert alert-danger" role="alert">
+                Lo sentimos, no encontramos al usuario con id: <b>{{ app('request')->input('user') }}</b>.
+            </aside>
+        </aside> 
+    @endif
+
     <div class="col-md-8 offset-md-2">
 
         @include('partials/ask')
