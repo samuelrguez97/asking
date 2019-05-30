@@ -117,11 +117,9 @@
         <div class="row mt-5">
 
             @if ( $preguntas->isEmpty() )
-            <div class="row">
-                <aside class="mx-auto mb-5 text-center alert alert-warning" role="alert">
-                    <strong>¡Vaya!</strong> Parece que no hay preguntas ahora mismo ... ¡sé el primero en preguntar!
-                </aside>
-            </div>
+            <aside class="mx-auto mb-5 text-center alert alert-warning" role="alert">
+                <strong>¡Vaya!</strong> Parece que no hay preguntas ahora mismo ... ¡sé el primero en preguntar!
+            </aside>
             @endif
 
             @include('partials.ask_external')
