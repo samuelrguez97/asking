@@ -50,7 +50,7 @@
 
             @if ( $preguntas->isEmpty() )
             <div class="row">
-                <aside class="mt-4 text-center alert alert-warning" role="alert">
+                <aside class="mt-4 mx-auto text-center alert alert-warning" role="alert">
                     Éste usuario no tiene preguntas ahora mismo ...
                 </aside>
             </div>

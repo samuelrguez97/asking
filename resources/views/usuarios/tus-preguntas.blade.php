@@ -24,6 +24,21 @@
         </div>
         @endif
 
+        @if ($errors->any())
+        <div class="row">
+            <div class="mt-4 mx-auto alert alert-danger">
+                @foreach ($errors->all() as $error)
+                @if ($loop->last)
+                {{ $error }}
+                @else
+                {{ $error }}
+                <hr />
+                @endif
+                @endforeach
+            </div>
+        </div>
+        @endif
+
         @if ( $preguntas_a_ti->isEmpty() )
         <div class="row">
             <aside class="mx-auto mt-4 alert alert-warning text-center" role="alert">

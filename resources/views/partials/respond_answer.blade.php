@@ -13,19 +13,16 @@
                 <aside class="modal-body text-white">
                     <input id="respuesta" type="text" class="form-control" placeholder="Introduce tu respuesta"
                         name="respuesta" data-emojiable="true" data-emoji-input="unicode" value="{{ old('respuesta') }}"
-                        required>
+                        required max="140">
                     <input id="send-respuesta-id" type="hidden" name="id_pregunta" value="" />
                 </aside>
+                @if (old('respuesta'))
+                <span id="old-badge-char mt-2" class="badge badge-primary float-left"></span>
+                @endif
                 <aside class="float-right mt-3 mr-3">
                     <button type="submit" class="btn btn-primary mr-1">Enviar respuesta</button>
                     <button data-dismiss="modal" class="btn btn-secondary">Cancelar</button>
                 </aside>
-                @if( Session::has('error') )
-                <aside class="mt-4 alert alert-danger" role="alert">
-                    {{ session('error') }}
-                </aside>
-                Session::forget('error');
-                @endif
             </form>
         </aside>
     </aside>

@@ -36,4 +36,9 @@ $(document).ready(function () {
         $('#opciones').slideToggle('slow');
     });
 
+    // Prevenir enviar formularios multiples
+    $('form').submit(function(){
+        $(this).find('button[type=submit]').prop('disabled', true);
+    });
+
 });

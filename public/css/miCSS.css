@@ -238,28 +238,6 @@ body {
 
 /* ----------------------------- */
 
-/* Boton enviar pregunta (reutilizado) */
-
-#enviar_pregunta {
-    display: inline-block;
-    padding: 8px 24px;
-    background: rgb(220, 220, 220);
-    font-weight: bold;
-    color: rgb(120, 120, 120);
-    border: none;
-    outline: none;
-    border-radius: 3px;
-    cursor: pointer;
-    transition: ease .3s;
-}
-
-#enviar_pregunta:hover {
-    background: #8BC34A;
-    color: #ffffff;
-}
-
-/* ----------------------------------- */
-
 /* CSS contacto */
 
 #texto-contacto {

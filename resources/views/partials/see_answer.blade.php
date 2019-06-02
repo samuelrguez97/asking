@@ -63,7 +63,7 @@
                     <div class="col-sm-12">
                         <div class="b-res">
                             <aside class="float-left ml-4 mt-3 separador-respuesta"></aside>
-                            <aside id="respuesta" class="float-left respuesta p-3 text-white"></aside>
+                            <aside id="respuesta" class="float-left respuesta p-3 text-white fit-content"></aside>
                         </div>
                     </div>
                 </aside>

@@ -5,17 +5,17 @@ $(document).on("keyup", '.emoji-wysiwyg-editor', function (e) {
         if ($("#badge-char").length == 0) {
             var badge = document.createElement("span");
             badge.setAttribute("id", "badge-char");
-            badge.setAttribute("class", "badge badge-primary float-left");
-            badge.textContent = size;
-            $("#titulo-pregunta").after(badge);
+            badge.setAttribute("class", "badge badge-primary float-left mt-2 ml-2");
+            badge.textContent = size+"/140";
+            $(".emoji-picker-icon").before(badge);
         } else {
             var n = parseInt($("#badge-char").text());
             if ($(this).text().length < n) {
                 var dif = n-$(this).text().length;
-                $("#badge-char").html(n-dif);
+                $("#badge-char").html(n-dif+"/140");
             } else {
                 var dif = $(this).text().length-n;
-                $("#badge-char").html(n+dif);
+                $("#badge-char").html(n+dif+"/140");
             }
         }
     } else {
@@ -28,7 +28,7 @@ $(document).on("keyup", '.emoji-wysiwyg-editor', function (e) {
 $(document).ready(function() {
     if ($("#old-badge-char").length != 0) {
         var oldAsk = $(".emoji-wysiwyg-editor").text().length;
-        $("#old-badge-char").html(oldAsk);
+        $("#old-badge-char").html(oldAsk+"/140");
         $("#old-badge-char").attr("id", "badge-char");
     }
 });

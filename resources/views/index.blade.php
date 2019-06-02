@@ -57,8 +57,8 @@
                 </div>
                 <div class="modal-footer borde-top-0">
                     <form action="{{ url('/home#') }}">
-                        <button type="button" class="btn btn-secondary text-white" data-dismiss="modal">Cerrar</button>
-                        <button type="submit" class="btn-sm ml-3" id="enviar_pregunta">Empezar a preguntar</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                        <button type="submit" class="btn btn-success ml-2">Empezar a preguntar</button>
                     </form>
                 </div>
             </div>
