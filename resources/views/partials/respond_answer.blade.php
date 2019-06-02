@@ -6,7 +6,7 @@
                     <h4 class="float-left">Responder a la pregunta</h4>
                     <button class="btn btn-transparent float-right" data-dismiss="modal">
                         <i class="fa fa-times text-danger" aria-aside="Close" data-toggle="tooltip"
-                            data-placement="right" title="Eliminar pregunta"></i>
+                            data-placement="top" title="Cerrar respuesta"></i>
                     </button>
                 </div>
                 @csrf
