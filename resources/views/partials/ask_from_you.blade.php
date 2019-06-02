@@ -39,13 +39,13 @@
                 <span class="badge badge-info tema">{{ $pregunta->tema }}</span>
             </a>
             <aside class="float-right">
-                <div class="float-left btn-group mr-3" role="group">
-                    <a class="btn btn-primary"
+                <div class="float-left btn-group mr-2" role="group">
+                    <a class="btn btn-sm btn-primary"
                         href="{{ action('UsuariosControlador@getPerfilPublico', ['nombre' => $usuarios->where('id', $pregunta->id_usuario)->first()->name]) }}"
                         data-toggle="tooltip" data-placement="bottom" title="Ir a su perfil">
                         <i class="fas fa-user"></i>
                     </a>
-                    <a class="btn btn-success"
+                    <a class="btn btn-sm btn-success"
                         href="{{ action('PreguntasControlador@sendPreguntaUser', ['user' => $usuarios->where('id', $pregunta->id_usuario)->first()]) }}"
                         data-toggle="tooltip" data-placement="bottom" title="Preguntar a este usuario"><i
                             class="fas fa-question-circle"></i></a>

@@ -14,6 +14,30 @@ body {
     overflow-x: hidden !important;
 }
 
+/** Cambio del scrollbar **/
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/** -------------------- **/
+
 .fit-content {
     display: block;
     overflow: auto;
@@ -259,7 +283,7 @@ body {
 }
 
 .likes {
-    font-size: .8em;
+    font-size: .7em;
     font-weight: bold;
 }
 
@@ -317,7 +341,7 @@ body {
 }
 
 .respuesta {
-    max-width: 80% !important;
+    max-width: 90% !important;
 }
 
 .emoji-respuesta {
