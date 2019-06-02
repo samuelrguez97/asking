@@ -30,9 +30,6 @@
         <hr/>
         <label>
             <p id="titulo-pregunta" class="ml-2 ask-txt float-left">Introduce la pregunta</p>
-            @if (old('pregunta'))
-            <span id="old-badge-char" class="badge badge-primary float-left"></span>
-            @endif
             <input id="pregunta" type="text" class="form-control" name="pregunta" placeholder="Formula tu pregunta"
                 data-emojiable="true" data-emoji-input="unicode" value="{{ old('pregunta') }}" max="140">
         </label>

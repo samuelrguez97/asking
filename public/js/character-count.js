@@ -12,9 +12,25 @@ $(document).on("keyup", '.emoji-wysiwyg-editor', function (e) {
             var n = parseInt($("#badge-char").text());
             if ($(this).text().length < n) {
                 var dif = n-$(this).text().length;
+                var clase = n-dif >= 1 && n-dif <= 70 ? 'badge-primary' : n-dif > 70 && n-dif <= 100 ? 'badge-warning' : 'badge-danger';
+                if (clase == 'badge-warning') {
+                    $("#badge-char").removeClass('badge-danger');
+                    $("#badge-char").addClass(clase);
+                } else {
+                    $("#badge-char").removeClass('badge-warning');
+                    $("#badge-char").addClass(clase);
+                }
                 $("#badge-char").html(n-dif+"/140");
             } else {
                 var dif = $(this).text().length-n;
+                var clase = n+dif >= 1 && n+dif < 70 ? 'badge-primary' : n+dif > 70 && n+dif < 100 ? 'badge-warning' : 'badge-danger';
+                if (clase == 'badge-warning') {
+                    $("#badge-char").removeClass('badge-primary');
+                    $("#badge-char").addClass(clase);
+                } else {
+                    $("#badge-char").removeClass('badge-warning');
+                    $("#badge-char").addClass(clase);
+                }
                 $("#badge-char").html(n+dif+"/140");
             }
         }
