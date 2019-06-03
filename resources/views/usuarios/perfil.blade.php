@@ -18,8 +18,7 @@
         </aside>
     </div>
     @endif
-    <div
-        class="row pl-5 pr-5 mx-auto {{ Session::has('success') || Session::has('warning') || Session::has('respondida') ? '' : 'mt-5' }}">
+    <div class="row pl-5 pr-5 mx-auto mt-5">
 
         <!-- ZONA PARA MOSTRAR INFORMACIÓN DEL PERFIL -->
 
